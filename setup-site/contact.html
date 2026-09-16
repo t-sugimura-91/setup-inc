@@ -104,11 +104,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <p class="localnote" id="localnote" hidden>
       <b>ローカルプレビュー中です</b>
-      このページはファイルとして直接開かれているため、送信処理（contact.php）が動きません。サーバーに公開すると有効になります。ここで送信を押した場合は、代わりにメールソフトが立ち上がります。
+      このページはファイルとして直接開かれているため、フォームの送信処理が動きません。サーバー（GitHub Pages など）に公開すると有効になります。ここで送信を押した場合は、代わりにメールソフトが立ち上がります。
     </p>
 
-    <form action="contact.php" method="POST">
+    <!-- 送信先：FormSubmit（GitHub Pages などの静的ホスティング用）
+         ※ 初回送信時に t.sugimura@setup-inc.com 宛ての確認メールを承認すると有効になります。
+         ※ 承認後に発行されるランダム文字列（例：https://formsubmit.co/xxxxxxxx）に差し替えると、
+            HTML上にメールアドレスが表示されず、収集ボット対策になります。
+         ※ PHPサーバーに戻す場合は contact-php.html を contact.html に上書きしてください。 -->
+    <form action="https://formsubmit.co/t.sugimura@setup-inc.com" method="POST">
       <input type="hidden" name="_subject" value="【SET UP】サイトからのお問い合わせ">
+      <input type="hidden" name="_next" value="https://setup-inc.com/thanks.html">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_autoresponse" value="お問い合わせいただき、ありがとうございます。内容を確認のうえ、2営業日以内にご返信します。※ このメールは自動送信です。／ SET UP">
       <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
 
       <div class="field">
@@ -184,6 +193,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     var h = form.querySelector('input[name="_honey"]');
     if (h && h.value) h.value = '';
   }, true);
+})();
+</script>
+
+<script>
+/* 送信後の戻り先（_next）を、いま開いているドメインの thanks.html に合わせる。
+   独自ドメインでも username.github.io/リポジトリ名/ でも、同じHTMLのまま正しく戻ります。 */
+(function(){
+  if (location.protocol !== 'http:' && location.protocol !== 'https:') return;
+  var n = document.querySelector('input[name="_next"]');
+  if (n) n.value = new URL('thanks.html', location.href).href;
 })();
 </script>
 
