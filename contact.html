@@ -216,10 +216,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   form.addEventListener('submit', function(e){
     e.preventDefault();
     var lines = [];
+    var skip = { '_subject': 1, 'fax_number': 1, 'cf-turnstile-response': 1 };
     new FormData(form).forEach(function(v, k){
-      if (k.charAt(0) !== '_' && String(v).trim()) lines.push(k + '：' + v);
+      if (!skip[k] && String(v).trim()) lines.push(k + '：' + v);
     });
-    location.href = 'mailto:t.sugimura@setup-inc.com'
+    // 収集ボットに拾われないよう、アドレスは実行時に組み立てる
+    var addr = ['t.sugimura', 'setup-inc.com'].join('@');
+    location.href = 'mailto:' + addr
       + '?subject=' + encodeURIComponent('【SET UP】サイトからのお問い合わせ')
       + '&body='   + encodeURIComponent(lines.join('\n'));
   });
