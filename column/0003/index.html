@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N5FQCX6S');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIO診断を受ける前に知っておきたいこと。Google公式は「特別な最適化は不要」と言っている｜SET UP コラム</title>
+<meta name="description" content="AIO診断(AI検索対策の診断)を受ける前に、Google公式が説明している内容と、自分で確認できる6つの基本を整理しました。そのうえで、無料のAIO診断サービスの内容も、公式情報をもとに紹介します。">
+<link rel="canonical" href="https://setup-inc.com/column/0003/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SET UP">
+<meta property="og:title" content="AIO診断を受ける前に知っておきたいこと。Google公式は「特別な最適化は不要」と言っている">
+<meta property="og:description" content="AIO診断を受ける前に、Google公式が説明している内容と、自分で確認できる基本を整理しました。">
+<meta property="og:url" content="https://setup-inc.com/column/0003/">
+<meta property="og:image" content="https://setup-inc.com/column/0003/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Shippori+Mincho+B1:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#091E41; --navy-lift:#16345F; --gold:#C19746; --gold-deep:#8F6B26;
+    --paper:#F3F4F6; --ink:#14203A; --muted:#616B80; --rule:#D8DCE4;
+    --serif:"Shippori Mincho B1", serif;
+    --sans:"Zen Kaku Gothic New", system-ui, sans-serif;
+    --mono:"IBM Plex Mono", ui-monospace, monospace;
+    --logo-mark:url("../../img/logo-mark.png");
+    --logo-word:url("../../img/logo-word.png");
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:#fff; color:var(--ink); font-family:var(--sans); font-size:16px; line-height:1.95; -webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  :focus-visible{outline:2px solid var(--gold-deep); outline-offset:3px;}
+  img{max-width:100%;}
+  .wrap{max-width:1060px; margin:0 auto; padding:0 clamp(22px,5vw,44px);}
+
+  .head{border-bottom:1px solid var(--rule); background:rgba(255,255,255,.94); backdrop-filter:blur(6px); position:sticky; top:0; z-index:20;}
+  .head .wrap{display:flex; align-items:center; justify-content:space-between; gap:20px; height:70px;}
+  .brand{display:flex; align-items:center; gap:12px; text-decoration:none;}
+  .logo-mark{background:var(--logo-mark) center/contain no-repeat; height:30px; aspect-ratio:200/134; flex:none;}
+  .logo-word{background:var(--logo-word) center/contain no-repeat; height:15px; aspect-ratio:340/52; flex:none;}
+  .vh{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;}
+  .head .sub{font-family:var(--serif); font-size:15px; color:var(--navy); letter-spacing:.06em;}
+
+  .label{display:flex; align-items:center; gap:11px; font-size:12.5px; font-weight:500; letter-spacing:.16em; color:var(--gold-deep); margin:0 0 18px;}
+  .label::before{content:""; width:26px; height:2px; background:var(--gold); flex:none;}
+  .cat{display:inline-block; font-size:11.5px; letter-spacing:.08em; color:var(--gold-deep); border:1px solid var(--gold); border-radius:2px; padding:2px 10px; line-height:1.7;}
+  .date{font-family:var(--mono); font-size:11.5px; letter-spacing:.06em; color:var(--muted);}
+
+
+  .crumb{font-size:12.5px; color:var(--muted); padding-top:28px;}
+  .crumb a{text-decoration:none;} .crumb a:hover{color:var(--navy);}
+
+  .art{max-width:720px; margin:0 auto; padding:0 clamp(22px,5vw,44px) clamp(70px,9vw,110px);}
+  .art-head{padding:26px 0 clamp(34px,4vw,48px); border-bottom:1px solid var(--rule); margin-bottom:clamp(34px,4vw,48px);}
+  .art-meta{display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:20px;}
+  .art h1{font-family:var(--serif); font-size:clamp(25px,3.6vw,36px); line-height:1.55; color:var(--navy); margin:0 0 22px; letter-spacing:.01em;}
+  .art-lead{font-size:15.5px; color:var(--muted); margin:0;}
+
+  .toc{background:var(--paper); border-left:2px solid var(--gold); padding:24px 26px; margin:0 0 clamp(40px,5vw,56px);}
+  .toc b{display:block; font-size:13px; letter-spacing:.1em; color:var(--navy); margin-bottom:12px;}
+  .toc ol{margin:0; padding-left:1.3em;}
+  .toc li{font-size:14px; color:var(--muted); padding:3px 0;}
+  .toc a{text-decoration:none;} .toc a:hover{color:var(--navy);}
+
+  .body{font-size:16px; line-height:2.15;}
+  .body h2{font-family:var(--serif); font-size:clamp(20px,2.5vw,25px); line-height:1.6; color:var(--navy); margin:clamp(52px,6vw,72px) 0 22px; padding-top:20px; border-top:2px solid var(--gold);}
+  .body h3{font-family:var(--serif); font-size:18px; font-weight:500; color:var(--navy); margin:40px 0 14px;}
+  .body p{margin:0 0 1.6em;}
+  .body ul, .body ol{margin:0 0 1.8em; padding-left:1.4em;}
+  .body li{margin-bottom:.7em;}
+  .body strong{font-weight:700; background:linear-gradient(transparent 62%, rgba(193,151,70,.28) 62%);}
+  .body blockquote{margin:0 0 1.8em; padding:4px 0 4px 24px; border-left:2px solid var(--rule); color:var(--muted); font-size:15px;}
+  .body figure{margin:0 0 1.8em;}
+  .body figure img{display:block; width:100%; border:1px solid var(--rule);}
+  .body figcaption{font-size:12.5px; color:var(--muted); margin-top:10px;}
+  .note{background:var(--paper); padding:22px 26px; font-size:14.5px; color:var(--muted); line-height:1.95; margin:0 0 1.8em;}
+  .note b{display:block; color:var(--navy); font-weight:500; margin-bottom:6px;}
+  .body table{width:100%; border-collapse:collapse; font-size:14.5px; margin:0 0 1.8em;}
+  .body th, .body td{border-bottom:1px solid var(--rule); padding:13px 12px; text-align:left; vertical-align:top;}
+  .body th{color:var(--navy); font-weight:500; white-space:nowrap;}
+  .body td{color:var(--muted);}
+
+  .author{display:flex; gap:20px; align-items:flex-start; margin-top:clamp(56px,7vw,80px); padding-top:32px; border-top:1px solid var(--rule);}
+  .author .who{font-family:var(--serif); font-size:16px; color:var(--navy); margin:0 0 6px;}
+  .author p{font-size:13.5px; color:var(--muted); margin:0; line-height:1.9;}
+
+  .back{display:inline-block; margin-top:40px; font-size:13.5px; color:var(--muted); text-decoration:none;}
+  .back:hover{color:var(--navy);}
+
+  footer{background:var(--paper); border-top:1px solid var(--rule); padding:44px 0 52px;}
+  footer .wrap{display:flex; flex-wrap:wrap; gap:20px 40px; justify-content:space-between; align-items:center;}
+  footer p{font-family:var(--mono); font-size:11px; color:var(--muted); letter-spacing:.06em; margin:0;}
+
+  /* アフィリエイト記事用 */
+  .pr{display:inline-block; font-family:var(--mono); font-size:11px; font-weight:500; letter-spacing:.1em; color:#fff; background:var(--muted); border-radius:2px; padding:2px 9px; line-height:1.7;}
+  .pr-note{font-size:13px; color:var(--muted); background:var(--paper); padding:12px 16px; margin:0 0 22px; line-height:1.8;}
+  .tbl{overflow-x:auto; -webkit-overflow-scrolling:touch; margin:0 0 1.8em;}
+  .tbl table{margin:0; min-width:520px;}
+  .tbl caption{caption-side:bottom; text-align:left; font-size:12.5px; color:var(--muted); padding-top:10px; line-height:1.8;}
+  .body thead th{border-bottom:2px solid var(--navy);}
+  .pick{border:1px solid var(--rule); border-top:2px solid var(--navy); padding:24px 26px 26px; margin:0 0 1.8em;}
+  .pick h3{margin:0 0 8px;}
+  .pick p{font-size:15px; margin:0 0 1em;}
+  .pick ul{font-size:15px; margin:0 0 1.2em;}
+  .eyecatch{margin:0 0 24px; line-height:0;}
+  .eyecatch svg, .eyecatch img{display:block; width:100%; height:auto;}
+  .bnr{margin:0 0 18px; line-height:0;}
+  .bnr img{max-width:100%; height:auto;}
+  .btn{display:inline-block; background:var(--navy); color:#fff; text-decoration:none; font-size:14.5px; font-weight:500; letter-spacing:.04em; padding:12px 26px; border-radius:2px;}
+  .btn:hover{background:var(--navy-lift);}
+  .btn::after{content:" →";}
+  .faq dt{font-weight:700; color:var(--navy); margin:0 0 6px;}
+  .faq dd{margin:0 0 1.6em; color:var(--ink);}
+  .refs{font-size:13px; color:var(--muted); line-height:1.9;}
+  .refs li{margin-bottom:.3em;}
+</style>
+<script type="application/ld+json" id="ld-article">[{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "AIO診断を受ける前に知っておきたいこと。Google公式は「特別な最適化は不要」と言っている", "description": "AIO診断(AI検索対策の診断)を受ける前に、Google公式が説明している内容と、自分で確認できる6つの基本を整理しました。そのうえで、無料のAIO診断サービスの内容も、公式情報をもとに紹介します。", "image": ["https://setup-inc.com/column/0003/ogp.png"], "datePublished": "2026-11-19T09:00:00+09:00", "dateModified": "2026-11-19T09:00:00+09:00", "author": {"@type": "Person", "name": "SET UP 代表", "url": "https://setup-inc.com/column/about/"}, "publisher": {"@type": "Organization", "name": "SET UP", "url": "https://setup-inc.com/", "logo": {"@type": "ImageObject", "url": "https://setup-inc.com/apple-touch-icon.png"}}, "mainEntityOfPage": "https://setup-inc.com/column/0003/", "inLanguage": "ja"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://setup-inc.com/"}, {"@type": "ListItem", "position": 2, "name": "コラム", "item": "https://setup-inc.com/column/"}, {"@type": "ListItem", "position": 3, "name": "AIO診断を受ける前に知っておきたいこと。Google公式は「特別な最適化は不要」と言っている"}]}]</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N5FQCX6S"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header class="head">
+  <div class="wrap">
+    <a class="brand" href="../">
+      <span class="logo-mark"></span><span class="logo-word"></span><span class="vh">SET UP</span>
+    </a>
+    <span class="sub">コラム</span>
+  </div>
+</header>
+
+<main>
+  <article class="art">
+    <p class="crumb"><a href="../">コラム</a> ／ 集客・SEO</p>
+
+    <div class="art-head">
+      <div class="art-meta">
+        <span class="pr">PR</span>
+        <span class="date"><time datetime="2026-11-19">2026.11.19</time></span>
+        <span class="cat">集客・SEO</span>
+      </div>
+      <p class="pr-note">本記事にはアフィリエイト広告(A8.net)を利用したリンクが含まれます。リンク経由でお申し込みがあった場合、運営者(SET UP)が報酬を受け取ることがあります。紹介するサービスの選定と評価は、運営者の基準で行っています。</p>
+      <h1>AIO診断を受ける前に知っておきたいこと。Google公式は「特別な最適化は不要」と言っている</h1>
+      <figure class="eyecatch">
+        <img src="ogp.png" width="1200" height="630" alt="AIO診断を受ける前に。Google公式は特別な最適化は不要と説明" decoding="async">
+      </figure>
+      <p class="art-lead">「AI検索対策」や「AIO診断」という言葉を目にする機会が増えました。診断を受ける前に、Googleが公式に何を言っているかを確認し、自分で確かめられることと、診断サービスに任せる価値があることを分けて整理します。</p>
+    </div>
+
+    <nav class="toc">
+      <b>目次</b>
+      <ol>
+        <li><a href="#s1">結論:診断は「現状と競合差」を知るもの</a></li>
+        <li><a href="#s2">「AIO診断」は、何を測るのかが会社ごとに違う</a></li>
+        <li><a href="#s3">Google公式が言っていること</a></li>
+        <li><a href="#s4">診断の前に、自分で確認できる6つの基本</a></li>
+        <li><a href="#s5">それでも診断を使う価値がある場面</a></li>
+        <li><a href="#s6">無料のAIO診断サービスの内容(ドットアンドノード)</a></li>
+        <li><a href="#s7">診断を受ける前に決めておく3つのこと</a></li>
+        <li><a href="#s8">よくある質問</a></li>
+        <li><a href="#s9">まとめ</a></li>
+      </ol>
+    </nav>
+
+    <div class="body">
+      <p>ChatGPTやGeminiなどの生成AI、そしてGoogle検索の「AI による概要」。調べものの入り口が増えたことで、「自社サイトはAIに引用されているのか」「何か対策が必要なのか」という相談を目にするようになりました。AI検索の対策をうたう診断サービスも増えています。</p>
+      <p>ただ、診断を申し込む前に押さえておきたいことがあります。Googleは自社の検索のAI機能について、公式ヘルプで明確な方針を示しています。それを知らずに診断結果を見ると、「何でもやらなければならない」と受け取りやすくなります。</p>
+
+      <h2 id="s1">結論:診断は「現状と競合差」を知るもの</h2>
+      <ul>
+        <li>Google検索のAI機能(AI による概要・AIモード)に表示されるための追加要件はなく、<strong>別途特別な最適化を行う必要もない</strong>と、Googleは公式に説明しています。</li>
+        <li>診断を受ける前に、公式が挙げる<strong>SEOの基本</strong>は自分で確認できます。</li>
+        <li>それでも、<strong>競合との差と施策の優先順位</strong>を外部の視点で整理したいときには、無料の診断サービスを使う価値があります。</li>
+        <li>診断サービスは「AI向けの裏技を教えてもらうもの」ではなく、「現状を見える形にしてもらうもの」と考えると、期待と結果のずれが小さくなります。</li>
+      </ul>
+
+      <h2 id="s2">「AIO診断」は、何を測るのかが会社ごとに違う</h2>
+      <p>「AIO」「GEO」「LLMO」「AEO」など、AI検索への対策を指す言葉は、まだ定まっていません。診断サービスの公式ページを見ると、測るものも会社によって違います。</p>
+      <ul>
+        <li>Google検索の「AI による概要」に自社サイトが表示されるかを確認する手順を示している会社</li>
+        <li>ChatGPT・Gemini・Google AI検索での引用状況を、独自のツールでレポートにする会社(本記事で後ほど紹介するサービスはこちらです)</li>
+      </ul>
+      <p>診断サービスを選ぶときは、「何をどの方法で測るのか」を先に確認します。広告のレポートで、指標の定義を確認してから数字を比べるのと同じです。</p>
+
+      <h2 id="s3">Google公式が言っていること</h2>
+      <p>Googleの検索セントラルには、サイト所有者向けに「AI 機能とウェブサイト」というページがあります(最終更新2025年12月31日、2026年11月19日に確認)。ポイントは次のとおりです。</p>
+
+      <div class="tbl">
+        <table>
+          <thead>
+            <tr><th>論点</th><th>公式の説明(要旨)</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>特別な最適化</th><td>AI による概要やAIモードにコンテンツが表示されるための追加の要件はなく、別途特別な最適化を行う必要もない。SEOのベストプラクティスは引き続き有効。</td></tr>
+            <tr><th>技術要件</th><td>ページがインデックスに登録され、Google検索でスニペットが表示され、検索の技術的要件を満たしていること。これ以外の追加の技術要件はない。</td></tr>
+            <tr><th>専用のファイルや構造化データ</th><td>AI機能で表示されるために、AI向けのテキストファイルやマークアップを新たに作る必要はない。特別なschema.orgの構造化データを追加する必要もない。</td></tr>
+            <tr><th>表示の保証</th><td>要件とベストプラクティスを満たしていても、クロール・インデックス登録・配信は保証されない。</td></tr>
+            <tr><th>計測</th><td>AI機能に表示されたサイトも、Search Consoleの検索トラフィック(検索タイプ「ウェブ」)に含まれる。</td></tr>
+          </tbody>
+          <caption>出典:Google 検索セントラル「AI 機能とウェブサイト」(2026年11月19日確認)。</caption>
+        </table>
+      </div>
+
+      <div class="note">
+        <b>この公式ページが扱っている範囲</b>
+        上のページは、Google検索の「AI による概要」と「AIモード」についての説明です。ChatGPTやGeminiなど、ほかの生成AIが回答の根拠にするページをどう選ぶかは、このページでは説明されていません。そのため、他社の生成AIについて「こうすれば引用される」と断定した情報は、出典を確認してから読みます。
+      </div>
+
+      <h2 id="s4">診断の前に、自分で確認できる6つの基本</h2>
+      <p>公式ページが挙げるSEOの基本は、診断サービスを使わなくても、多くを自分で確認できます。</p>
+
+      <h3>1. 対象のページがインデックスに登録されているか</h3>
+      <p>表示される前提は、ページがGoogleのインデックスに登録されていることです。Search Consoleの「URL検査」で、登録状況を確認できます。</p>
+
+      <h3>2. クロールが許可されているか</h3>
+      <p>robots.txtだけでなく、CDNやホスティングの設定でクローラーが止められていないかも確認します。公式ページでも、この点が挙げられています。</p>
+
+      <h3>3. 内部リンクから見つけやすいか</h3>
+      <p>重要なページに、サイト内のほかのページからリンクがあるかを確認します。どこからもリンクされていないページは、見つけてもらいにくくなります。</p>
+
+      <h3>4. 重要な内容がテキストで書かれているか</h3>
+      <p>大事な情報が画像の中だけに入っていると、読み取りにくくなります。テキストとして書き、画像や動画はそれを補う形にします。</p>
+
+      <h3>5. 構造化データを、表示されるテキストと一致させているか</h3>
+      <p>構造化データを使っている場合は、ページに表示されている内容と食い違っていないかを確認します。AI機能のために新しく足す必要はありません。</p>
+
+      <h3>6. 流入の変化をSearch Consoleで見ているか</h3>
+      <p>AI機能からの流入も、Search Consoleの全体の検索トラフィックに含まれます。AIの登場前後で、検索流入やクリックがどう変わったかは、まずここで確認できます。</p>
+
+      <div class="note">
+        <b>確認の順番</b>
+        1と2が満たされていないと、ほかの工夫は意味を持ちません。まず「ページがGoogleに認識されているか」を確かめ、そのうえで内容や導線を見直します。
+      </div>
+
+      <h2 id="s5">それでも診断を使う価値がある場面</h2>
+      <p>基本を自分で確認できるとしても、診断サービスが役に立つ場面はあります。</p>
+      <ul>
+        <li><strong>競合との差を知りたいとき</strong>:自社がどの質問で言及されず、競合が言及されているかは、自分で一つずつ調べると手間がかかります。</li>
+        <li><strong>施策の優先順位をつけたいとき</strong>:やることの候補は多く、どこから手を付けるかを外部の視点で整理してもらえます。</li>
+        <li><strong>社内に説明する材料が欲しいとき</strong>:数字やレポートの形になっていると、経営層や関係部署に共有しやすくなります。</li>
+      </ul>
+      <p>ここで大切なのは、診断が教えてくれるのは「現状と差」であって、<strong>表示を保証するものではない</strong>ことです。Google公式も、表示の保証はないと説明しています。</p>
+
+      <h2 id="s6">無料のAIO診断サービスの内容(ドットアンドノード)</h2>
+      <p>診断サービスの一例として、ドットアンドノード株式会社の「無料AIO診断」を紹介します。内容は、同社の公式ページ(2026年11月19日確認)に書かれているものです。</p>
+
+      <div class="tbl">
+        <table>
+          <thead>
+            <tr><th>項目</th><th>公式ページの記載</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>費用</th><td>完全無料</td></tr>
+            <tr><th>提供までの期間</th><td>お申し込みから1週間程度(最短1週間)</td></tr>
+            <tr><th>レポートの内容</th><td>全約30ページ。業界のWEB集客現状、SEO/AIO/LLMO基礎診断、競合他社との比較、施策提案</td></tr>
+            <tr><th>流れ</th><td>お申込み → 簡易ヒアリング → レポート作成 → オンラインで説明・提案</td></tr>
+            <tr><th>必要なもの</th><td>Google アナリティクスやSearch Consoleの共有は不要(同社のツールで外部から分析)</td></tr>
+            <tr><th>診断後の契約</th><td>本契約は任意。レポートだけ使うこともできる</td></tr>
+            <tr><th>営業連絡</th><td>「しつこい営業電話は一切行わない」と記載</td></tr>
+            <tr><th>対象</th><td>個人事業主・スタートアップから上場企業まで、規模を問わず依頼できると記載</td></tr>
+          </tbody>
+          <caption>出典:ドットアンドノード株式会社「無料AIO診断」ページ(2026年11月19日確認)。内容は変わることがあるため、申し込み前に公式ページで確認してください。</caption>
+        </table>
+      </div>
+
+      <div class="pick">
+        <h3>無料AIO診断(ドットアンドノード)</h3>
+        <p>ChatGPT・Gemini・Google AI検索での引用状況、競合との比較、施策の優先順位を、約30ページのレポートにまとめるサービスです。</p>
+        <ul>
+          <li><strong>向いている人</strong>:自社サイトの現状と競合との差を、外部の視点で一度整理したい人</li>
+          <li><strong>先に知っておくこと</strong>:診断後の説明は、同社のサービスを案内する場にもなります。契約は任意で、必ず契約が必要なわけではないと公式に記載されています</li>
+        </ul>
+        <!-- A8LINK-PENDING: AIO診断サービス(s00000027820001)の審査承認後に、バナーとテキストリンクを差し込む。サンプルレポートのDLリンクは使わない -->
+      </div>
+
+      <div class="note">
+        <b>広告主の主張は、広告主の考え方として読む</b>
+        同社の公式ページには、「SEO×AIO×導線設計の3点セットでないと成果に届かない」といった独自のアプローチが書かれています。これは同社の考え方であり、Googleの公式ヘルプで裏付けられた内容ではありません。比較表の◎や×も、同社が付けた評価です。診断レポートを受け取るときは、提案の根拠が何かを確認しながら読んでください。
+      </div>
+
+      <h2 id="s7">診断を受ける前に決めておく3つのこと</h2>
+      <ol>
+        <li><strong>何を知りたいのか</strong>:AI検索での現状か、競合との差か、優先順位か。目的が決まっていると、レポートのどこを見るべきかが分かります。</li>
+        <li><strong>レポートを受け取ったあと、誰が動くのか</strong>:施策を実行する担当や予算が決まっていないと、レポートが読まれただけで終わります。</li>
+        <li><strong>説明の場で、何を質問するのか</strong>:提案の根拠、優先順位の理由、自社で進めた場合に必要な作業を、事前に書き出しておきます。</li>
+      </ol>
+
+      <h2 id="s8">よくある質問</h2>
+      <dl class="faq">
+        <dt>Q. AI検索に表示されるために、構造化データは必須ですか?</dt>
+        <dd>Google検索の「AI による概要」「AIモード」については、特別なschema.orgの構造化データを追加する必要はないと、公式ページに書かれています。すでに使っている構造化データは、表示されるテキストと一致させておきます。</dd>
+        <dt>Q. 診断を受ければ、AIに引用されるようになりますか?</dt>
+        <dd>診断は現状と差を把握するもので、表示を保証するものではありません。Google公式も、要件を満たしていても配信は保証されないと説明しています。</dd>
+        <dt>Q. 診断は自分でもできますか?</dt>
+        <dd>基本的な確認(インデックス登録、クロール許可、内部リンク、テキストでの記述、構造化データの一致、Search Consoleでの流入確認)は自分でできます。競合比較や、複数の生成AIでの引用状況の整理は、手間がかかるため、サービスを使うと楽になります。</dd>
+        <dt>Q. 診断後に、契約をしないと損をしますか?</dt>
+        <dd>無料診断の公式ページでは、本契約は任意で、診断レポートだけを活用して社内で進める場合も多いと記載されています。契約の判断は、レポートと提案の内容を見てからで構いません。</dd>
+      </dl>
+
+      <h2 id="s9">まとめ</h2>
+      <ul>
+        <li>Google検索のAI機能には、特別な最適化は必要ないと、Googleが公式に説明している</li>
+        <li>診断の前に、インデックス登録やクロール許可などの基本は自分で確認できる</li>
+        <li>競合との差や優先順位を知りたいときに、無料の診断サービスを使う価値がある</li>
+        <li>診断の説明は、公式ヘルプで裏付けられた内容と、事業者の考え方を分けて読む</li>
+      </ul>
+      <p>AI検索の話題は、新しい用語や手法が次々に出てきます。そのたびに慌てるのではなく、一次情報であるGoogleの公式の説明に立ち返り、自社で確認できることを済ませたうえで、外部の視点が必要な部分だけを診断サービスに任せる。その順番で考えると、判断がぶれにくくなります。</p>
+
+      <h3>参考</h3>
+      <ul class="refs">
+        <li><a href="https://developers.google.com/search/docs/appearance/ai-features?hl=ja" target="_blank" rel="noopener">Google 検索セントラル「AI 機能とウェブサイト」</a></li>
+        <li><a href="https://dot-node.com/aio-geo-shindan/" target="_blank" rel="noopener nofollow">ドットアンドノード株式会社「無料AIO診断」</a></li>
+      </ul>
+    </div>
+
+    <div class="author">
+      <div>
+        <p class="who">SET UP 代表</p>
+        <p>運用型広告に7年間従事。事業会社での運用経験をもとに、事業者・代理店の双方から広告運用を請け負っています。</p>
+        <p><a href="../about/">運営者と編集方針</a></p>
+      </div>
+    </div>
+
+    <a class="back" href="../">← コラム一覧に戻る</a>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="../">
+      <span class="logo-mark"></span><span class="logo-word"></span><span class="vh">SET UP</span>
+    </a>
+    <p>© SET UP</p>
+  </div>
+</footer>
+
+</body>
+</html>
