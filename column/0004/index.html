@@ -177,6 +177,11 @@
       </ul>
       <p>以下、順に説明します。</p>
 
+      <figure style="margin:28px 0;padding:18px;background:#fff;border:1px solid #E3E1DA;border-radius:8px">
+        <svg viewBox="0 0 760 392" role="img" aria-label="サーバーが原因かどうかの切り分けフロー" style="width:100%;height:auto;display:block" font-family="'Zen Kaku Gothic New','Hiragino Sans',Meiryo,sans-serif"><rect x="20" y="16" width="230" height="52" rx="8" fill="#14213D" stroke="#14213D" stroke-width="2"/><text x="135" y="48.1" text-anchor="middle" font-size="17" fill="#fff" font-weight="700">WordPressが遅い</text><line x1="135" y1="68" x2="135" y2="108" stroke="#14213D" stroke-width="2.5"/><polygon points="135.0,108.0 130.2,98.1 139.8,98.1" fill="#14213D"/><rect x="20" y="110" width="230" height="56" rx="8" fill="#FFF4DC" stroke="#14213D" stroke-width="2"/><text x="135" y="132.9" text-anchor="middle" font-size="15" fill="#14213D">PageSpeed Insightsで</text><text x="135" y="153.9" text-anchor="middle" font-size="15" fill="#14213D">計測する</text><line x1="135" y1="166" x2="135" y2="206" stroke="#14213D" stroke-width="2.5"/><polygon points="135.0,206.0 130.2,196.1 139.8,196.1" fill="#14213D"/><rect x="20" y="208" width="230" height="70" rx="8" fill="#fff" stroke="#FF6B2C" stroke-width="2"/><text x="135" y="237.6" text-anchor="middle" font-size="17" fill="#14213D" font-weight="700">TTFBは</text><text x="135" y="260.6" text-anchor="middle" font-size="17" fill="#14213D" font-weight="700">0.8秒以下?</text><line x1="250" y1="232" x2="306" y2="168" stroke="#14213D" stroke-width="2.5"/><polygon points="306.0,168.0 303.1,178.6 295.9,172.3" fill="#14213D"/><text x="262" y="186" font-size="14" fill="#FF6B2C" font-weight="700">はい</text><line x1="250" y1="262" x2="306" y2="318" stroke="#14213D" stroke-width="2.5"/><polygon points="306.0,318.0 295.6,314.4 302.4,307.6" fill="#14213D"/><text x="262" y="316" font-size="14" fill="#FF6B2C" font-weight="700">いいえ</text><rect x="310" y="120" width="430" height="84" rx="8" fill="#FFF4DC" stroke="#14213D" stroke-width="2"/><text x="525" y="156.8" text-anchor="middle" font-size="16" fill="#14213D">サーバー以外が原因の可能性が高い</text><text x="525" y="178.8" text-anchor="middle" font-size="16" fill="#14213D">画像・スクリプト・プラグインを見直す</text><rect x="310" y="282" width="430" height="94" rx="8" fill="#FFF4DC" stroke="#14213D" stroke-width="2"/><text x="525" y="312.8" text-anchor="middle" font-size="16" fill="#14213D">まず、リダイレクトや重い処理を確認する</text><text x="525" y="334.8" text-anchor="middle" font-size="16" fill="#14213D">それでも目安を超えるなら</text><text x="525" y="356.8" text-anchor="middle" font-size="16" fill="#14213D">サーバー変更を検討する</text></svg>
+        <figcaption style="margin-top:10px;font-size:13px;color:#5B6475;line-height:1.7">切り分けの考え方(運営者による整理)。TTFBの目安(0.8秒以下)は、web.devの説明にもとづきます。</figcaption>
+      </figure>
+
       <h2 id="s2">確認1:まず、Googleの指標で計測する</h2>
       <p>表示速度は、体感だけで判断しないほうが確実です。Googleは検索セントラルで、ページの使いやすさを測る「Core Web Vitals」という3つの指標を案内しています。</p>
 
@@ -212,6 +217,11 @@
         <li><strong>ラボデータ</strong>:制御された環境でページの読み込みをシミュレートした値です。問題のデバッグに役立ちますが、実際のボトルネックを捉えていない場合がある、とGoogleは説明しています。</li>
       </ul>
       <p>公式のFAQには、この2つの値が食い違うことがあると書かれています。実際のユーザーの体験を知りたいときはフィールドデータ、原因を探るときはラボデータ、と使い分けます。</p>
+
+      <figure style="margin:28px 0;padding:18px;background:#fff;border:1px solid #E3E1DA;border-radius:8px">
+        <svg viewBox="0 0 760 230" role="img" aria-label="フィールドデータとラボデータの違い" style="width:100%;height:auto;display:block" font-family="'Zen Kaku Gothic New','Hiragino Sans',Meiryo,sans-serif"><rect x="20" y="20" width="330" height="190" rx="8" fill="#FFF4DC" stroke="#14213D" stroke-width="2"/><text x="185" y="56" text-anchor="middle" font-size="19" font-weight="700" fill="#14213D">フィールドデータ</text><text x="185" y="92" text-anchor="middle" font-size="15" fill="#14213D">実際のユーザーの体験</text><text x="185" y="120" text-anchor="middle" font-size="15" fill="#14213D">過去28日間(CrUX)</text><text x="185" y="148" text-anchor="middle" font-size="15" fill="#14213D">75パーセンタイルで評価</text><text x="185" y="184" text-anchor="middle" font-size="15" font-weight="700" fill="#FF6B2C">実態の把握に向く</text><rect x="410" y="20" width="330" height="190" rx="8" fill="#fff" stroke="#14213D" stroke-width="2"/><text x="575" y="56" text-anchor="middle" font-size="19" font-weight="700" fill="#14213D">ラボデータ</text><text x="575" y="92" text-anchor="middle" font-size="15" fill="#14213D">制御された環境でシミュレート</text><text x="575" y="120" text-anchor="middle" font-size="15" fill="#14213D">Lighthouseで分析</text><text x="575" y="148" text-anchor="middle" font-size="15" fill="#14213D">90以上が「良好」</text><text x="575" y="184" text-anchor="middle" font-size="15" font-weight="700" fill="#FF6B2C">原因の調査に向く</text><circle cx="380" cy="115" r="30" fill="#E8381E"/><text x="380" y="110" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">食い違う</text><text x="380" y="128" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">ことも</text></svg>
+        <figcaption style="margin-top:10px;font-size:13px;color:#5B6475;line-height:1.7">出典:Google for Developers「PageSpeed Insights について」(2026年11月19日確認)をもとに、運営者が作成。</figcaption>
+      </figure>
       <p>なお、アクセスの少ないページや公開したばかりのページは、フィールドデータが表示されないことがあります。その場合、PSIはサイト全体の値に切り替えます。それも不足している場合は、フィールドデータは表示されません。</p>
 
       <h3>評価のしきい値</h3>
@@ -322,8 +332,22 @@
       </div>
 
       <p>どちらにも、公式サイトから申し込めます。</p>
-      <p><a class="btn" href="https://px.a8.net/svt/ejp?a8mat=4BGOWR+B0IPO2+CO4+6AZAQ" rel="sponsored nofollow noopener" target="_blank">エックスサーバーの公式サイトを見る</a><img border="0" width="1" height="1" src="https://www18.a8.net/0.gif?a8mat=4BGOWR+B0IPO2+CO4+6AZAQ" alt=""></p>
-      <p><a class="btn" href="https://px.a8.net/svt/ejp?a8mat=4BGOWR+BRWNHU+5GDG+5YRHE" rel="sponsored nofollow noopener" target="_blank">シンレンタルサーバーの公式サイトを見る</a><img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=4BGOWR+BRWNHU+5GDG+5YRHE" alt=""></p>
+
+      <div class="pick">
+        <h3>エックスサーバー</h3>
+        <p>最大10日間の無料お試しがあります。WordPressの移行を自動で行う「WordPress簡単移行」や、オプションの移転代行も案内されています。</p>
+        <!-- A8.net バナー:エックスサーバー(素材ID 130 / 300×250 高解像度)。a8mat の値は変更しないこと -->
+        <div class="bnr"><a href="https://px.a8.net/svt/ejp?a8mat=4BGOWR+B0IPO2+CO4+6Q74X" rel="sponsored nofollow noopener" target="_blank"><img border="0" width="300" height="250" alt="" src="https://www22.a8.net/svt/bgt?aid=261119259666&wid=001&eno=01&mid=s00000001642001130000&mc=1"></a><img border="0" width="1" height="1" src="https://www10.a8.net/0.gif?a8mat=4BGOWR+B0IPO2+CO4+6Q74X" alt=""></div>
+        <a class="btn" href="https://px.a8.net/svt/ejp?a8mat=4BGOWR+B0IPO2+CO4+6AZAQ" rel="sponsored nofollow noopener" target="_blank">エックスサーバーの公式サイトを見る</a><img border="0" width="1" height="1" src="https://www18.a8.net/0.gif?a8mat=4BGOWR+B0IPO2+CO4+6AZAQ" alt="">
+      </div>
+
+      <div class="pick">
+        <h3>シンレンタルサーバー</h3>
+        <p>機能一覧では、全プランに無料お試し期間があると案内されています(日数は公式サイトで確認してください)。オプションでサーバー移転代行も用意されています。</p>
+        <!-- A8.net バナー:シンレンタルサーバー(素材ID 009 / 300×250 高解像度)。a8mat の値は変更しないこと -->
+        <div class="bnr"><a href="https://px.a8.net/svt/ejp?a8mat=4BGOWR+BRWNHU+5GDG+609HT" rel="sponsored nofollow noopener" target="_blank"><img border="0" width="300" height="250" alt="" src="https://www28.a8.net/svt/bgt?aid=261119259712&wid=001&eno=01&mid=s00000025450001009000&mc=1"></a><img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=4BGOWR+BRWNHU+5GDG+609HT" alt=""></div>
+        <a class="btn" href="https://px.a8.net/svt/ejp?a8mat=4BGOWR+BRWNHU+5GDG+5YRHE" rel="sponsored nofollow noopener" target="_blank">シンレンタルサーバーの公式サイトを見る</a><img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=4BGOWR+BRWNHU+5GDG+5YRHE" alt="">
+      </div>
       <p>2社の違いは、別の記事で詳しく比べています。「<a href="../0005/">シンレンタルサーバーとエックスサーバーの違い</a>」を参照してください。また、LP(広告の着地ページ)の置き場所を考えたい方は、「<a href="../0002/">LPはどのサーバーに置くべきか</a>」も参考になります。</p>
 
       <h2 id="s5b">移転の進め方:自分でやる場合と代行を頼む場合</h2>
@@ -338,6 +362,11 @@
         <li>処理が終わったら、「確認しました」を押す</li>
         <li><strong>ネームサーバーを変更し、サイトの動作を確認する</strong></li>
       </ol>
+
+      <figure style="margin:28px 0;padding:18px;background:#fff;border:1px solid #E3E1DA;border-radius:8px">
+        <svg viewBox="0 0 760 200" role="img" aria-label="WordPress簡単移行の流れ" style="width:100%;height:auto;display:block" font-family="'Zen Kaku Gothic New','Hiragino Sans',Meiryo,sans-serif"><rect x="5" y="30" width="130" height="110" rx="8" fill="#FFF4DC" stroke="#14213D" stroke-width="2"/><text x="70" y="62" text-anchor="middle" font-size="22" font-weight="700" fill="#14213D">①</text><text x="70" y="94" text-anchor="middle" font-size="15" fill="#14213D">ドメイン設定を</text><text x="70" y="116" text-anchor="middle" font-size="15" fill="#14213D">先に済ませる</text><line x1="136" y1="85" x2="153" y2="85" stroke="#14213D" stroke-width="2.5"/><polygon points="153.0,85.0 143.1,89.8 143.1,80.2" fill="#14213D"/><rect x="155" y="30" width="130" height="110" rx="8" fill="#FFF4DC" stroke="#14213D" stroke-width="2"/><text x="220" y="62" text-anchor="middle" font-size="22" font-weight="700" fill="#14213D">②</text><text x="220" y="94" text-anchor="middle" font-size="15" fill="#14213D">「WordPress</text><text x="220" y="116" text-anchor="middle" font-size="15" fill="#14213D">簡単移行」を実行</text><line x1="286" y1="85" x2="303" y2="85" stroke="#14213D" stroke-width="2.5"/><polygon points="303.0,85.0 293.1,89.8 293.1,80.2" fill="#14213D"/><rect x="305" y="30" width="130" height="110" rx="8" fill="#FFF4DC" stroke="#14213D" stroke-width="2"/><text x="370" y="62" text-anchor="middle" font-size="22" font-weight="700" fill="#14213D">③</text><text x="370" y="94" text-anchor="middle" font-size="15" fill="#14213D">処理の完了を</text><text x="370" y="116" text-anchor="middle" font-size="15" fill="#14213D">確認する</text><line x1="436" y1="85" x2="453" y2="85" stroke="#14213D" stroke-width="2.5"/><polygon points="453.0,85.0 443.1,89.8 443.1,80.2" fill="#14213D"/><rect x="455" y="30" width="130" height="110" rx="8" fill="#FF6B2C" stroke="#14213D" stroke-width="2"/><text x="520" y="62" text-anchor="middle" font-size="22" font-weight="700" fill="#14213D">④</text><text x="520" y="94" text-anchor="middle" font-size="15" fill="#14213D">ネームサーバーを</text><text x="520" y="116" text-anchor="middle" font-size="15" fill="#14213D">変更する</text><line x1="586" y1="85" x2="603" y2="85" stroke="#14213D" stroke-width="2.5"/><polygon points="603.0,85.0 593.1,89.8 593.1,80.2" fill="#14213D"/><rect x="605" y="30" width="130" height="110" rx="8" fill="#FF6B2C" stroke="#14213D" stroke-width="2"/><text x="670" y="62" text-anchor="middle" font-size="22" font-weight="700" fill="#14213D">⑤</text><text x="670" y="94" text-anchor="middle" font-size="15" fill="#14213D">表示・広告・計測を</text><text x="670" y="116" text-anchor="middle" font-size="15" fill="#14213D">確認する</text><text x="380" y="180" text-anchor="middle" font-size="15" font-weight="700" fill="#E8381E">ネームサーバーの変更は、移行の完了後に行う(公式マニュアル)</text></svg>
+        <figcaption style="margin-top:10px;font-size:13px;color:#5B6475;line-height:1.7">出典:エックスサーバー マニュアル「WordPress簡単移行」(2026年11月19日確認)をもとに、運営者が図にしたものです。</figcaption>
+      </figure>
       <p>使う前に、公式マニュアルの「ご利用上の注意」で、次の点を確認します。</p>
       <ul>
         <li><strong>動作要件</strong>:WordPressのバージョンが4.2〜7.1、PHPが7.2以上であること。</li>
@@ -399,6 +428,14 @@
         <li>移転では、広告のリンク先と計測タグを壊さない手順で進める</li>
       </ul>
       <p>広告の成果は、広告管理画面の中だけでは決まりません。クリックの先のページが速く表示され、正しく計測できることも、広告運用の土台です。</p>
+
+
+      <div style="margin:36px 0 8px;padding:26px 22px;background:#14213D;border-radius:10px;text-align:center">
+        <p style="margin:0 0 6px;color:#FFE08A;font-weight:700;font-size:18px">移転先を検討するなら、まず無料お試しで確認</p>
+        <p style="margin:0 0 16px;color:#fff;font-size:14px;line-height:1.7">自分のサイトでPageSpeed Insightsを測り、表示と計測タグを確かめてから決めると安心です。</p>
+        <p style="margin:0 0 12px"><a class="btn" href="https://px.a8.net/svt/ejp?a8mat=4BGOWR+B0IPO2+CO4+6AZAQ" rel="sponsored nofollow noopener" target="_blank">エックスサーバーの公式サイトを見る</a><img border="0" width="1" height="1" src="https://www18.a8.net/0.gif?a8mat=4BGOWR+B0IPO2+CO4+6AZAQ" alt=""></p>
+        <p style="margin:0"><a class="btn" href="https://px.a8.net/svt/ejp?a8mat=4BGOWR+BRWNHU+5GDG+5YRHE" rel="sponsored nofollow noopener" target="_blank">シンレンタルサーバーの公式サイトを見る</a><img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=4BGOWR+BRWNHU+5GDG+5YRHE" alt=""></p>
+      </div>
 
       <h3>参考</h3>
       <ul class="refs">
