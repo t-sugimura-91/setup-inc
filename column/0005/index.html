@@ -139,6 +139,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .tbl-hint.done::after{animation:none;}
   @keyframes tblHint{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
   @media (prefers-reduced-motion:reduce){.tbl-hint::after{animation:none;}}
+
+  /* back-to-top: 下にスクロールしたら右下に「上に戻る」ボタンを出す */
+  .to-top{position:fixed; right:max(16px,env(safe-area-inset-right)); bottom:max(18px,env(safe-area-inset-bottom)); z-index:30; width:48px; height:48px; border:none; border-radius:50%; background:var(--navy); color:#fff; box-shadow:0 4px 14px rgba(9,30,65,.25); cursor:pointer; display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; transform:translateY(8px); transition:opacity .2s ease, transform .2s ease, visibility .2s, background .15s ease;}
+  .to-top.show{opacity:1; visibility:visible; transform:none;}
+  .to-top:hover{background:var(--navy-lift);}
+  .to-top svg{width:20px; height:20px;}
+  @media (prefers-reduced-motion:reduce){.to-top{transition:none;}}
 </style>
 <script type="application/ld+json" id="ld-article">[{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "シンレンタルサーバーとエックスサーバーの違い。広告・LP運用の視点で選ぶ", "description": "シンレンタルサーバーとエックスサーバーの違いを、公式サイトの情報(料金・プラン・特典・機能)をもとに表で比較し、広告・LP運用の視点で選び方を整理しました。", "image": ["https://setup-inc.com/column/0005/ogp.png"], "datePublished": "2026-11-19T09:00:00+09:00", "dateModified": "2026-11-19T09:00:00+09:00", "author": {"@type": "Person", "name": "SET UP 代表", "url": "https://setup-inc.com/column/about/"}, "publisher": {"@type": "Organization", "name": "SET UP", "url": "https://setup-inc.com/", "logo": {"@type": "ImageObject", "url": "https://setup-inc.com/apple-touch-icon.png"}}, "mainEntityOfPage": "https://setup-inc.com/column/0005/", "inLanguage": "ja"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://setup-inc.com/"}, {"@type": "ListItem", "position": 2, "name": "コラム", "item": "https://setup-inc.com/column/"}, {"@type": "ListItem", "position": 3, "name": "シンレンタルサーバーとエックスサーバーの違い。広告・LP運用の視点で選ぶ"}]}]</script>
 </head>
@@ -441,6 +448,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
   function check(){ boxes.forEach(function(b,i){ hints[i].classList.toggle('on', b.scrollWidth>b.clientWidth+2); }); }
   check(); window.addEventListener('resize',check); window.addEventListener('load',check);
+})();
+</script>
+
+<button type="button" class="to-top" id="to-top" aria-label="ページの一番上に戻る"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<script>
+// back-to-top
+(function(){
+  var b=document.getElementById('to-top'); if(!b) return;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function onScroll(){ b.classList.toggle('show', window.scrollY>600); }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  b.addEventListener('click',function(){ window.scrollTo({top:0,behavior:reduce?'auto':'smooth'}); });
 })();
 </script>
 
