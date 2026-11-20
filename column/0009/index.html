@@ -115,6 +115,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .faq dd{margin:0 0 1.6em; color:var(--ink);}
   .refs{font-size:13px; color:var(--muted); line-height:1.9;}
   .refs li{margin-bottom:.3em;}
+
+  /* tbl-scroll-hint: 表が横にはみ出すとき、端に影を付けて「スクロールできます」を表示する */
+  .tbl{background:
+    linear-gradient(to right,#fff 30%,rgba(255,255,255,0)) left center/40px 100% no-repeat local,
+    linear-gradient(to left,#fff 30%,rgba(255,255,255,0)) right center/40px 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%,rgba(20,32,58,.22),rgba(20,32,58,0)) left center/14px 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%,rgba(20,32,58,.22),rgba(20,32,58,0)) right center/14px 100% no-repeat scroll;}
+  .tbl-hint{display:none; align-items:center; gap:6px; font-size:12.5px; font-weight:500; color:var(--gold-deep); margin:0 0 8px; letter-spacing:.04em;}
+  .tbl-hint::after{content:"→"; display:inline-block; animation:tblHint 1.4s ease-in-out infinite;}
+  .tbl-hint.on{display:flex;}
+  .tbl-hint.done{opacity:.55;}
+  .tbl-hint.done::after{animation:none;}
+  @keyframes tblHint{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+  @media (prefers-reduced-motion:reduce){.tbl-hint::after{animation:none;}}
 </style>
 <script type="application/ld+json" id="ld-article">[{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "広告運用代行の手数料。「20%」より先に確認したい、最低手数料と1か月の総額", "description": "広告運用代行の手数料は、料率だけでは比べられません。最低手数料で実際の料率がどこまで上がるかの早見表、消費税やクリエイティブ制作費を含めた1か月の総額、手数料込みの獲得単価の計算方法をまとめました。", "image": ["https://setup-inc.com/column/0009/ogp.png"], "datePublished": "2026-11-20T09:00:00+09:00", "dateModified": "2026-11-20T09:00:00+09:00", "author": {"@type": "Person", "name": "SET UP 代表", "url": "https://setup-inc.com/column/about/"}, "publisher": {"@type": "Organization", "name": "SET UP", "url": "https://setup-inc.com/", "logo": {"@type": "ImageObject", "url": "https://setup-inc.com/apple-touch-icon.png"}}, "mainEntityOfPage": "https://setup-inc.com/column/0009/", "inLanguage": "ja"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://setup-inc.com/"}, {"@type": "ListItem", "position": 2, "name": "コラム", "item": "https://setup-inc.com/column/"}, {"@type": "ListItem", "position": 3, "name": "広告運用代行の手数料。「20%」より先に確認したい、最低手数料と1か月の総額"}]}]</script>
 </head>
@@ -403,6 +417,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>© SET UP</p>
   </div>
 </footer>
+
+<script>
+// tbl-scroll-hint: 横にはみ出す表の上に「横にスクロールできます」を出す
+(function(){
+  var boxes=[].slice.call(document.querySelectorAll('.tbl'));
+  if(!boxes.length) return;
+  var hints=boxes.map(function(b){
+    var h=document.createElement('p'); h.className='tbl-hint'; h.setAttribute('aria-hidden','true');
+    h.textContent='表は横にスクロールできます';
+    b.parentNode.insertBefore(h,b);
+    b.addEventListener('scroll',function(){ if(b.scrollLeft>8) h.classList.add('done'); },{passive:true});
+    return h;
+  });
+  function check(){ boxes.forEach(function(b,i){ hints[i].classList.toggle('on', b.scrollWidth>b.clientWidth+2); }); }
+  check(); window.addEventListener('resize',check); window.addEventListener('load',check);
+})();
+</script>
 
 </body>
 </html>

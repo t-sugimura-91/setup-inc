@@ -93,6 +93,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   .empty{font-size:14px; color:var(--muted); padding:38px 0; border-bottom:1px solid var(--rule);}
 
+  /* カテゴリの絞り込み(JSで生成。JSが動かない環境では全件表示のまま) */
+  .filter{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 22px;}
+  .filter[hidden]{display:none;}
+  .filter button{font:inherit; font-size:13px; letter-spacing:.04em; color:var(--navy); background:#fff; border:1px solid var(--rule); border-radius:999px; padding:6px 14px; line-height:1.5; cursor:pointer; transition:.15s ease;}
+  .filter button:hover{border-color:var(--gold);}
+  .filter button[aria-pressed="true"]{background:var(--navy); border-color:var(--navy); color:#fff;}
+  .filter button .n{font-family:var(--mono); font-size:11px; opacity:.7; margin-left:6px;}
+  .list li[hidden]{display:none;}
+
   footer{background:var(--paper); border-top:1px solid var(--rule); padding:44px 0 52px; margin-top:auto;}
   footer .wrap{display:flex; flex-wrap:wrap; gap:20px 40px; justify-content:space-between; align-items:center;}
   footer p{font-family:var(--mono); font-size:11px; color:var(--muted); letter-spacing:.06em; margin:0;}
@@ -130,6 +139,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="cols">
       <div class="col-main">
         <p class="label">新着記事</p>
+        <div class="filter" id="cat-filter" role="group" aria-label="カテゴリで絞り込む" hidden></div>
         <ul class="list">
           <li>
             <a href="0013/">
@@ -137,7 +147,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div>
                 <div class="meta">
                   <span class="date">2026.11.20</span>
-                  <span class="cat">Web制作</span>
+                  <span class="cat">LP・サイト</span>
                   <span class="cat">PR</span>
                 </div>
                 <h2>ホームページのサブスク比較。解約したら「サイトとドメイン」は残るのか、6サービスの規約で確認</h2>
@@ -375,6 +385,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>© SET UP</p>
   </div>
 </footer>
+
+<script>
+// カテゴリの絞り込み。記事の .cat(「PR」を除く)からボタンを作る。?cat=カテゴリ名 で開くとその状態で表示する。
+(function(){
+  var box = document.getElementById('cat-filter');
+  var items = Array.prototype.slice.call(document.querySelectorAll('.list > li'));
+  if (!box || !items.length) return;
+  var ALL = 'すべて', order = [], count = {};
+  items.forEach(function(li){
+    var cats = Array.prototype.map.call(li.querySelectorAll('.meta .cat'), function(c){ return c.textContent.trim(); })
+      .filter(function(c){ return c && c !== 'PR'; });
+    li.dataset.cats = cats.join('|');
+    cats.forEach(function(c){ if (!count[c]) { count[c] = 0; order.push(c); } count[c]++; });
+  });
+  function btn(name, n){
+    var b = document.createElement('button');
+    b.type = 'button'; b.dataset.cat = name;
+    b.appendChild(document.createTextNode(name));
+    var s = document.createElement('span'); s.className = 'n'; s.textContent = n; b.appendChild(s);
+    box.appendChild(b);
+  }
+  btn(ALL, items.length);
+  order.forEach(function(c){ btn(c, count[c]); });
+  function apply(cat, push){
+    if (cat !== ALL && !count[cat]) cat = ALL;
+    items.forEach(function(li){ li.hidden = cat !== ALL && li.dataset.cats.split('|').indexOf(cat) < 0; });
+    Array.prototype.forEach.call(box.querySelectorAll('button'), function(b){ b.setAttribute('aria-pressed', b.dataset.cat === cat ? 'true' : 'false'); });
+    if (push) {
+      var url = cat === ALL ? location.pathname : location.pathname + '?cat=' + encodeURIComponent(cat);
+      try { history.replaceState(null, '', url); } catch (e) {}
+    }
+  }
+  box.addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (b) apply(b.dataset.cat, true);
+  });
+  var q = new URLSearchParams(location.search).get('cat');
+  apply(q || ALL, false);
+  box.hidden = false;
+})();
+</script>
 
 </body>
 </html>
