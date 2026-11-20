@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N5FQCX6S');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIでホームページを作るデメリット。解約後のサイトとドメイン、自分で直せる範囲を3つのツールで確認｜SET UP コラム</title>
+<meta name="description" content="ロリポップ!AIホームページ・ジンドゥー AI ビルダー・ペライチの3つを、料金、自分で直せる範囲、計測タグを入れられるか、解約したときのサイトとドメインの扱いで比べました。公式ページと利用規約を2026年11月20日に確認しています。">
+<link rel="canonical" href="https://setup-inc.com/column/0014/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SET UP">
+<meta property="og:title" content="AIでホームページを作るデメリット。解約後のサイトとドメイン、自分で直せる範囲を3つのツールで確認">
+<meta property="og:description" content="ロリポップ!AIホームページ・ジンドゥー AI ビルダー・ペライチの3つを、料金、自分で直せる範囲、計測タグを入れられるか、解約したときのサイトとドメインの扱いで比べました。公式ページと利用規約を2026年11月20日に確認しています。">
+<meta property="og:url" content="https://setup-inc.com/column/0014/">
+<meta property="og:image" content="https://setup-inc.com/column/0014/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Shippori+Mincho+B1:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#091E41; --navy-lift:#16345F; --gold:#C19746; --gold-deep:#8F6B26;
+    --paper:#F3F4F6; --ink:#14203A; --muted:#616B80; --rule:#D8DCE4;
+    --serif:"Shippori Mincho B1", serif;
+    --sans:"Zen Kaku Gothic New", system-ui, sans-serif;
+    --mono:"IBM Plex Mono", ui-monospace, monospace;
+    --logo-mark:url("../../img/logo-mark.png");
+    --logo-word:url("../../img/logo-word.png");
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:#fff; color:var(--ink); font-family:var(--sans); font-size:16px; line-height:1.95; -webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  :focus-visible{outline:2px solid var(--gold-deep); outline-offset:3px;}
+  img{max-width:100%;}
+  .wrap{max-width:1060px; margin:0 auto; padding:0 clamp(22px,5vw,44px);}
+
+  .head{border-bottom:1px solid var(--rule); background:rgba(255,255,255,.94); backdrop-filter:blur(6px); position:sticky; top:0; z-index:20;}
+  .head .wrap{display:flex; align-items:center; justify-content:space-between; gap:20px; height:70px;}
+  .brand{display:flex; align-items:center; gap:12px; text-decoration:none;}
+  .logo-mark{background:var(--logo-mark) center/contain no-repeat; height:30px; aspect-ratio:200/134; flex:none;}
+  .logo-word{background:var(--logo-word) center/contain no-repeat; height:15px; aspect-ratio:340/52; flex:none;}
+  .vh{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;}
+  .head .sub{font-family:var(--serif); font-size:15px; color:var(--navy); letter-spacing:.06em;}
+
+  .cat{display:inline-block; font-size:11.5px; letter-spacing:.08em; color:var(--gold-deep); border:1px solid var(--gold); border-radius:2px; padding:2px 10px; line-height:1.7;}
+  .date{font-family:var(--mono); font-size:11.5px; letter-spacing:.06em; color:var(--muted);}
+
+  .crumb{font-size:12.5px; color:var(--muted); padding-top:28px;}
+  .crumb a{text-decoration:none;} .crumb a:hover{color:var(--navy);}
+
+  .art{max-width:720px; margin:0 auto; padding:0 clamp(22px,5vw,44px) clamp(70px,9vw,110px);}
+  .art-head{padding:26px 0 clamp(34px,4vw,48px); border-bottom:1px solid var(--rule); margin-bottom:clamp(34px,4vw,48px);}
+  .art-meta{display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:20px;}
+  .art h1{font-family:var(--serif); font-size:clamp(25px,3.6vw,36px); line-height:1.55; color:var(--navy); margin:0 0 22px; letter-spacing:.01em;}
+  .art-lead{font-size:15.5px; color:var(--muted); margin:0;}
+
+  .toc{background:var(--paper); border-left:2px solid var(--gold); padding:24px 26px; margin:0 0 clamp(40px,5vw,56px);}
+  .toc b{display:block; font-size:13px; letter-spacing:.1em; color:var(--navy); margin-bottom:12px;}
+  .toc ol{margin:0; padding-left:1.3em;}
+  .toc li{font-size:14px; color:var(--muted); padding:3px 0;}
+  .toc a{text-decoration:none;} .toc a:hover{color:var(--navy);}
+
+  .body{font-size:16px; line-height:2.15;}
+  .body h2{font-family:var(--serif); font-size:clamp(20px,2.5vw,25px); line-height:1.6; color:var(--navy); margin:clamp(52px,6vw,72px) 0 22px; padding-top:20px; border-top:2px solid var(--gold);}
+  .body h3{font-family:var(--serif); font-size:18px; font-weight:500; color:var(--navy); margin:40px 0 14px;}
+  .body p{margin:0 0 1.6em;}
+  .body ul, .body ol{margin:0 0 1.8em; padding-left:1.4em;}
+  .body li{margin-bottom:.7em;}
+  .body strong{font-weight:700; background:linear-gradient(transparent 62%, rgba(193,151,70,.28) 62%);}
+  .body blockquote{margin:0 0 1.8em; padding:4px 0 4px 24px; border-left:2px solid var(--rule); color:var(--muted); font-size:15px;}
+  .body figure{margin:0 0 1.8em;}
+  .body figcaption{font-size:12.5px; color:var(--muted); margin-top:10px;}
+  .note{background:var(--paper); padding:22px 26px; font-size:14.5px; color:var(--muted); line-height:1.95; margin:0 0 1.8em;}
+  .note b{display:block; color:var(--navy); font-weight:500; margin-bottom:6px;}
+  .body table{width:100%; border-collapse:collapse; font-size:14.5px; margin:0 0 1.8em;}
+  .body th, .body td{border-bottom:1px solid var(--rule); padding:13px 12px; text-align:left; vertical-align:top;}
+  .body th{color:var(--navy); font-weight:500; white-space:nowrap;}
+  .body td{color:var(--muted);}
+
+  .author{display:flex; gap:20px; align-items:flex-start; margin-top:clamp(56px,7vw,80px); padding-top:32px; border-top:1px solid var(--rule);}
+  .author .who{font-family:var(--serif); font-size:16px; color:var(--navy); margin:0 0 6px;}
+  .author p{font-size:13.5px; color:var(--muted); margin:0; line-height:1.9;}
+
+  .back{display:inline-block; margin-top:40px; font-size:13.5px; color:var(--muted); text-decoration:none;}
+  .back:hover{color:var(--navy);}
+
+  footer{background:var(--paper); border-top:1px solid var(--rule); padding:44px 0 52px;}
+  footer .wrap{display:flex; flex-wrap:wrap; gap:20px 40px; justify-content:space-between; align-items:center;}
+  footer p{font-family:var(--mono); font-size:11px; color:var(--muted); letter-spacing:.06em; margin:0;}
+
+  /* アフィリエイト記事用 */
+  .pr{display:inline-block; font-family:var(--mono); font-size:11px; font-weight:500; letter-spacing:.1em; color:#fff; background:var(--muted); border-radius:2px; padding:2px 9px; line-height:1.7;}
+  .pr-note{font-size:13px; color:var(--muted); background:var(--paper); padding:12px 16px; margin:0 0 22px; line-height:1.8;}
+  .tbl{overflow-x:auto; -webkit-overflow-scrolling:touch; margin:0 0 1.8em;}
+  .tbl table{margin:0; min-width:560px;}
+  .tbl caption{caption-side:bottom; text-align:left; font-size:12.5px; color:var(--muted); padding-top:10px; line-height:1.8;}
+  .body thead th{border-bottom:2px solid var(--navy);}
+  .tbl.w tbody th{white-space:normal; width:8.5em;}
+  .tbl.w3 tbody th{white-space:normal; width:15em;}
+  .body td.num, .body th.num{text-align:right; white-space:nowrap;}
+  .pick{border:1px solid var(--rule); border-top:2px solid var(--navy); padding:24px 26px 26px; margin:0 0 1.8em;}
+  .pick h3{margin:0 0 8px;}
+  .pick p{font-size:15px; margin:0 0 1em;}
+  .pick ul{font-size:15px; margin:0 0 1.2em;}
+  .pick .src{font-size:12.5px; color:var(--muted); margin:0;}
+  .eyecatch{margin:0 0 24px; line-height:0;}
+  .eyecatch svg, .eyecatch img{display:block; width:100%; height:auto;}
+  .bnr{margin:0 0 18px; line-height:0;}
+  .bnr img{max-width:100%; height:auto;}
+  .btn{display:inline-block; background:var(--navy); color:#fff; text-decoration:none; font-size:14.5px; font-weight:500; letter-spacing:.04em; padding:12px 26px; border-radius:2px;}
+  .btn:hover{background:var(--navy-lift);}
+  .btn::after{content:" →";}
+  .concl{border:2px solid var(--navy); padding:22px 24px 6px; margin:0 0 1.8em;}
+  .concl b{display:block; font-family:var(--serif); color:var(--navy); font-size:17px; margin-bottom:10px;}
+  .check{list-style:none; padding-left:0 !important; counter-reset:q;}
+  .check li{counter-increment:q; position:relative; padding:12px 14px 12px 52px; border:1px solid var(--rule); margin-bottom:10px !important; background:#fff;}
+  .check li::before{content:"Q" counter(q); position:absolute; left:12px; top:12px; font-family:var(--mono); font-size:13px; font-weight:500; color:#fff; background:var(--navy); border-radius:2px; padding:0 6px; line-height:1.8;}
+  .check li span{display:block; font-size:13.5px; color:var(--muted); line-height:1.8;}
+  .faq dt{font-weight:700; color:var(--navy); margin:0 0 6px;}
+  .faq dd{margin:0 0 1.6em; color:var(--ink);}
+  .fig-narrow{display:none;}
+  @media (max-width:560px){ .fig-wide{display:none !important;} .fig-narrow{display:block;} }
+  .refs{font-size:13px; color:var(--muted); line-height:1.9;}
+  .refs li{margin-bottom:.3em;}
+
+  /* tbl-scroll-hint: 表が横にはみ出すとき、端に影を付けて「スクロールできます」を表示する */
+  .tbl{background:
+    linear-gradient(to right,#fff 30%,rgba(255,255,255,0)) left center/40px 100% no-repeat local,
+    linear-gradient(to left,#fff 30%,rgba(255,255,255,0)) right center/40px 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%,rgba(20,32,58,.22),rgba(20,32,58,0)) left center/14px 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%,rgba(20,32,58,.22),rgba(20,32,58,0)) right center/14px 100% no-repeat scroll;}
+  .tbl-hint{display:none; align-items:center; gap:6px; font-size:12.5px; font-weight:500; color:var(--gold-deep); margin:0 0 8px; letter-spacing:.04em;}
+  .tbl-hint::after{content:"→"; display:inline-block; animation:tblHint 1.4s ease-in-out infinite;}
+  .tbl-hint.on{display:flex;}
+  .tbl-hint.done{opacity:.55;}
+  .tbl-hint.done::after{animation:none;}
+  @keyframes tblHint{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+  @media (prefers-reduced-motion:reduce){.tbl-hint::after{animation:none;}}
+
+  /* back-to-top: 下にスクロールしたら右下に「上に戻る」ボタンを出す */
+  .to-top{position:fixed; right:max(16px,env(safe-area-inset-right)); bottom:max(18px,env(safe-area-inset-bottom)); z-index:30; width:48px; height:48px; border:none; border-radius:50%; background:var(--navy); color:#fff; box-shadow:0 4px 14px rgba(9,30,65,.25); cursor:pointer; display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; transform:translateY(8px); transition:opacity .2s ease, transform .2s ease, visibility .2s, background .15s ease;}
+  .to-top.show{opacity:1; visibility:visible; transform:none;}
+  .to-top:hover{background:var(--navy-lift);}
+  .to-top svg{width:20px; height:20px;}
+  @media (prefers-reduced-motion:reduce){.to-top{transition:none;}}
+</style>
+<script type="application/ld+json" id="ld-article">[{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "AIでホームページを作るデメリット。解約後のサイトとドメイン、自分で直せる範囲を3つのツールで確認", "description": "ロリポップ!AIホームページ・ジンドゥー AI ビルダー・ペライチの3つを、料金、自分で直せる範囲、計測タグを入れられるか、解約したときのサイトとドメインの扱いで比べました。公式ページと利用規約を2026年11月20日に確認しています。", "image": ["https://setup-inc.com/column/0014/ogp.png"], "datePublished": "2026-11-21T09:00:00+09:00", "dateModified": "2026-11-21T09:00:00+09:00", "author": {"@type": "Person", "name": "SET UP 代表", "url": "https://setup-inc.com/column/about/"}, "publisher": {"@type": "Organization", "name": "SET UP", "url": "https://setup-inc.com/", "logo": {"@type": "ImageObject", "url": "https://setup-inc.com/apple-touch-icon.png"}}, "mainEntityOfPage": "https://setup-inc.com/column/0014/", "inLanguage": "ja"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://setup-inc.com/"}, {"@type": "ListItem", "position": 2, "name": "コラム", "item": "https://setup-inc.com/column/"}, {"@type": "ListItem", "position": 3, "name": "AIでホームページを作るデメリット。解約後のサイトとドメイン、自分で直せる範囲を3つのツールで確認"}]}]</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N5FQCX6S"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header class="head">
+  <div class="wrap">
+    <a class="brand" href="../">
+      <span class="logo-mark"></span><span class="logo-word"></span><span class="vh">SET UP</span>
+    </a>
+    <span class="sub">コラム</span>
+  </div>
+</header>
+
+<main>
+  <article class="art">
+    <p class="crumb"><a href="../">コラム</a> ／ LP・サイト</p>
+
+    <div class="art-head">
+      <div class="art-meta">
+        <span class="pr">PR</span>
+        <span class="date"><time datetime="2026-11-21">2026.11.21</time></span>
+        <span class="cat">LP・サイト</span>
+      </div>
+      <p class="pr-note">本記事にはアフィリエイト広告(A8.net)を利用したリンクが含まれます。リンク経由でお申し込みがあった場合、運営者(SET UP)が報酬を受け取ることがあります。紹介するサービスの選定と評価は、運営者の基準で行っています。</p>
+      <h1>AIでホームページを作るデメリット。解約後のサイトとドメイン、自分で直せる範囲を3つのツールで確認</h1>
+      <figure class="eyecatch">
+        <img src="ogp.png" width="1200" height="630" alt="AIでホームページを作るデメリット 解約後のサイトとドメイン、自分で直せる範囲" decoding="async">
+      </figure>
+      <p class="art-lead">AIのホームページ作成ツールは、質問に答えるだけで短時間でサイトの形ができます。困りやすいのは、作ったあとです。ロリポップ!AIホームページ、ジンドゥー AI ビルダー、ペライチの3つについて、公式ページと利用規約を2026年11月20日に確認し、料金・自分で直せる範囲・計測タグ・解約したときの扱いを並べました。</p>
+    </div>
+
+    <nav class="toc">
+      <b>目次</b>
+      <ol>
+        <li><a href="#s1">結論:差が出るのは「作ったあと」</a></li>
+        <li><a href="#s2">AIのホームページ作成ツールでできること</a></li>
+        <li><a href="#s3">よく言われるデメリットを、公式の情報で確かめる</a></li>
+        <li><a href="#s4">料金と、途中でやめたときの扱い</a></li>
+        <li><a href="#s5">自分で直せる範囲。プランで変わる機能</a></li>
+        <li><a href="#s6">解約したら、サイトとドメインはどうなるか</a></li>
+        <li><a href="#s7">広告のリンク先として計測できるか</a></li>
+        <li><a href="#s8">AIツールで足りる人、向かない人</a></li>
+        <li><a href="#s9">よくある質問</a></li>
+        <li><a href="#s10">まとめ</a></li>
+      </ol>
+    </nav>
+
+    <div class="body">
+      <p>「AIでホームページを作るデメリット」を調べると、上位に並ぶのはWeb制作会社のコラムです。独自性が出ない、SEOに弱い、著作権が心配。どれも一般論としては間違っていませんが、<strong>どのツールで、どのプランなら何が起きるのか</strong>までは書かれていません。多くは、制作会社への相談をすすめる形で終わります。</p>
+      <p>この記事では、運用型広告の運用代行をしている運営者(SET UP)が、3つのAIホームページ作成ツールの公式ページ・ヘルプ・利用規約を読み、作ったあとに困りやすい点を同じ表に並べます。実際に契約して試したわけではないので、使い勝手やデザインの出来には触れません。金額と条件は、2026年11月20日に各社の公式ページで確認したものです。</p>
+
+      <h2 id="s1">結論:差が出るのは「作ったあと」</h2>
+      <div class="concl">
+        <b>この記事の結論</b>
+        <ul>
+          <li>AIで作ること自体より、<strong>解約したときに何が残るか</strong>、<strong>自分で直せる範囲</strong>、<strong>計測タグを入れられるか</strong>の3つが、ツールとプランで大きく違う</li>
+          <li>解約したときの扱いは3つとも違う。ジンドゥー AI ビルダーは独自ドメインを移管しないと廃止、ペライチとロリポップ!AIホームページは、ツールをやめてもドメインは残る(更新は自分で管理)</li>
+          <li>広告から人を送るなら、GTMや広告のタグを入れられるかを先に確認する。ジンドゥー AI ビルダーはHTMLの埋め込みができず、ペライチはレギュラープラン以上で可能。ロリポップ!AIホームページは公式に記載がなかった</li>
+        </ul>
+      </div>
+
+      <h2 id="s2">AIのホームページ作成ツールでできること</h2>
+      <p>AIのホームページ作成ツールは、業種や伝えたいことを入力すると、ページの構成・文章・画像のたたき台をまとめて作ってくれるサービスです。サーバーの契約や公開の作業もツールの中で済むので、専門の知識がなくても公開までたどり着けます。比べた3つは、次のとおりです。</p>
+      <div class="tbl w">
+        <table>
+          <thead>
+            <tr><th>ツール</th><th>運営</th><th>公式の説明(要約)</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>ロリポップ!AIホームページ</th><td>GMOペパボ株式会社</td><td>AIの質問に答えるだけでサイトが完成し、最短10分で公開。テンプレートから作ることもでき、公開後もAIとの会話で修正できる</td></tr>
+            <tr><th>ジンドゥー AI ビルダー</th><td>株式会社KDDIウェブコミュニケーションズ</td><td>直感的な編集と見た目の統一感を重視した、シンプルな操作性。細かく作り込む機能は、別サービスの「ジンドゥークリエイター」にある</td></tr>
+            <tr><th>ペライチ</th><td>ラクスル株式会社</td><td>ホームページ作成サービス。全プランに「AIアシスト」が付く</td></tr>
+          </tbody>
+          <caption>各社の公式サイト・ヘルプをもとに運営者が要約(2026年11月20日確認)。</caption>
+        </table>
+      </div>
+      <p>速い、安い、知識がいらない。このメリットは、どのツールにも共通しています。違いが出るのは、公開したあとに「ページを増やしたい」「広告を出して計測したい」「別のサービスに移りたい」となったときです。</p>
+
+      <h2 id="s3">よく言われるデメリットを、公式の情報で確かめる</h2>
+      <p>上位の記事でよく挙がる3つのデメリットを、公式の情報と照らし合わせました。</p>
+      <h3>「SEOに弱い」</h3>
+      <p>Google 検索セントラルのガイダンスは、<strong>作り方ではなく品質を評価する</strong>としています。ただし、検索順位の操作を主な目的に自動生成したコンテンツはスパムポリシー違反です。AIの文章は、確認して直してから載せるのが前提です。ツールの側では、SEOの設定がプランで分かれることがあります(ジンドゥー AI ビルダーは「上級者向け SEO」が有料プランのみ)。</p>
+      <h3>「著作権が心配」</h3>
+      <p>ロリポップ!AIホームページの利用規約は、AIが作ったコンテンツの著作権は利用者に帰属するとしたうえで、権利侵害がないかは<strong>利用者が自分で確認し、責任を負う</strong>と定めています。公開前に、既存の作品に似ていないかを自分で見てください(考え方は文化庁「AIと著作権について」)。</p>
+      <h3>「独自性が出ない」</h3>
+      <p>AIの性能より、<strong>どこまで自分で直せるか</strong>の問題です。ページやブログを増やせるかはツールとプランで決まるので、<a href="#s5">5章</a>で比べます。</p>
+
+      <h2 id="s4">料金と、途中でやめたときの扱い(2026年11月20日確認)</h2>
+      <div class="tbl w">
+        <table>
+          <thead>
+            <tr><th>ツール</th><th>無料で試す</th><th>有料プラン(税込)</th><th>払い方</th><th>途中解約</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>ロリポップ!AIホームページ</th><td>10日間無料(クレジットカード不要)。お試し中も公開できる</td><td>1か月 1,540円/月、12か月 1,210円/月、24か月 1,100円/月、36か月 660円/月</td><td>1か月は毎月払い。12か月以上は期間分を一括払い</td><td>期間の途中の解約・返金はできない(満了日まで使える)</td></tr>
+            <tr><th>ジンドゥー AI ビルダー</th><td>Freeプラン(5ページ、○○○.jimdosite.com のURL、広告表示あり)</td><td>Start 1,290円/月、Grow 2,070円/月(12か月契約の月額換算)</td><td>1・12・24か月から選び、期間分を一括請求</td><td>更新日の7日前までに解約。途中解約の返金はない</td></tr>
+            <tr><th>ペライチ</th><td>お試しビジネスプラン(1か月0円。タグ埋め込みは使えない)</td><td>ライト 1,628円/月、レギュラー 3,278円/月、ビジネス 4,378円/月、プロフェッショナル 7,678円/月</td><td>月払い・年払い(年払いは割安と案内)</td><td>日割りの返金はない。契約終了日までは有料機能を使える</td></tr>
+          </tbody>
+          <caption>各社の公式の料金ページ・ヘルプ・利用規約をもとに運営者が作成(2026年11月20日確認)。ペライチの無料のフリープランは、2025年10月1日から公開できるページ数が0枚です。</caption>
+        </table>
+      </div>
+      <p>注意したいのは、<strong>「月額◯円」の表示と、最初に払う額が違う</strong>ことです。ロリポップ!AIホームページの660円は36か月分の一括払い(23,760円)のときの月あたりの金額で、ジンドゥーの金額も12か月契約の月額換算です。長い期間でまとめて払うほど月あたりは安くなりますが、途中でやめても残りの期間分は戻りません。</p>
+
+      <h3>1年目の総額の目安</h3>
+      <div class="tbl w3">
+        <table style="min-width:0">
+          <thead>
+            <tr><th>ツール(プラン)</th><th class="num">1年目(税込)</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>ロリポップ!AIホームページ(12か月)</th><td class="num">14,520円<br><span style="font-size:12.5px">1,210円×12</span></td></tr>
+            <tr><th>ジンドゥー AI ビルダー(Start・12か月)</th><td class="num">15,480円<br><span style="font-size:12.5px">1,290円×12</span></td></tr>
+            <tr><th>ペライチ(ライト・月払い)</th><td class="num">19,536円<br><span style="font-size:12.5px">1,628円×12</span></td></tr>
+            <tr><th>ジンドゥー AI ビルダー(Grow・12か月)</th><td class="num">24,840円<br><span style="font-size:12.5px">2,070円×12</span></td></tr>
+            <tr><th>ペライチ(レギュラー・月払い)</th><td class="num">39,336円<br><span style="font-size:12.5px">3,278円×12</span></td></tr>
+          </tbody>
+          <caption>運営者による計算(2026年11月20日時点の公式の料金)。ロリポップ!AIホームページの12か月プランは、独自ドメイン1年分の取得費用を含みます。ほかのツールのドメイン代は計算に含めていません。</caption>
+        </table>
+      </div>
+      <p>いちばん安いプランだけで比べると、どれも年2万円以内に収まります。ただし、あとの章で見るように、<strong>アクセス解析やタグの埋め込みは上位のプランにしかない</strong>ツールがあります。広告で使うつもりなら、使いたい機能が入ったプランの金額で比べてください。</p>
+
+      <h2 id="s5">自分で直せる範囲。プランで変わる機能</h2>
+      <p>AIが作ったあとの修正や追加は、自分でやることになります。ページを増やす、お知らせやブログを書く、計測の設定をする。これができるかどうかを並べました。</p>
+      <div class="tbl w">
+        <table>
+          <thead>
+            <tr><th>機能</th><th>ロリポップ!AIホームページ</th><th>ジンドゥー AI ビルダー</th><th>ペライチ</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>ページ数の上限</th><td>50ページ</td><td>Free 5 / Start 10 / Grow 50</td><td>ライト 3 / レギュラー 5 / ビジネス・プロ 20</td></tr>
+            <tr><th>独自ドメイン</th><td>使える(12か月以上は1年分の取得費用込み)</td><td>Start・Growで使える</td><td>全プランで使える</td></tr>
+            <tr><th>お知らせ・ブログ</th><td>CMS機能で追加・更新できる</td><td>ブログ機能はない</td><td>ビジネスプラン以上(CMS)</td></tr>
+            <tr><th>アクセス解析・GA4</th><td>公式ヘルプに記載なし</td><td>有料プランでGA4を接続できる</td><td>ライトは不可、レギュラー以上</td></tr>
+            <tr><th>HTML埋め込み・外部タグ</th><td>公式ヘルプに記載なし</td><td>できない</td><td>ライトは不可、レギュラー以上(お試し中は不可)</td></tr>
+          </tbody>
+          <caption>各社の公式の料金ページ・ヘルプをもとに運営者が作成(2026年11月20日確認)。「記載なし」は、公式のヘルプで見つからなかったという意味で、できないという意味ではありません。</caption>
+        </table>
+      </div>
+      <p>ジンドゥー AI ビルダーの公式ヘルプ「AIビルダーで対応していない機能について」には、HTMLの編集(埋め込み)、ブログ機能、ショップ機能、ページのパスワード保護が挙がっています。これらは、同じジンドゥーの別サービス「ジンドゥークリエイター」の機能です。<strong>AIで手早く作れる代わりに、作り込める範囲は絞られている</strong>と考えると分かりやすくなります。</p>
+      <p>ロリポップ!AIホームページは、ページ数の上限(50ページ)とCMS機能は公式で確認できましたが、アクセス解析とタグの埋め込みについては、ヘルプの記事一覧に説明が見当たりませんでした。10日間の無料お試しがあるので、<strong>契約する前に、管理画面で設定できるかを確認</strong>するのが確実です。</p>
+
+      <h2 id="s6">解約したら、サイトとドメインはどうなるか</h2>
+      <p>ここがこの記事の本題です。AIのツールで作ったサイトでも、やめるときに何が残るかは、制作を任せるサブスクと同じくらい差があります。</p>
+      <div class="tbl w">
+        <table>
+          <thead>
+            <tr><th>ツール</th><th>解約後のサイト</th><th>独自ドメイン</th><th>サイトのデータの持ち出し</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>ロリポップ!AIホームページ</th><td>公式に記載なし</td><td><strong>解約後も残る</strong>。ムームードメインの契約で、2年目以降の更新料は利用契約が終わったあとも利用者の負担(利用規約)</td><td>公式に記載なし</td></tr>
+            <tr><th>ジンドゥー AI ビルダー</th><td>Freeプランに戻り、サイトは削除されずに残る。独自ドメイン・広告非表示などは使えなくなる</td><td><strong>解約時に移管しないと廃止</strong>。そのドメインのメールも使えなくなる。移管には認証コード(AuthCode)が必要</td><td>公式に記載なし</td></tr>
+            <tr><th>ペライチ</th><td>ページは非公開で残る(フリープランは公開0枚)。独自ドメインで公開していたページも非公開</td><td><strong>有料プランを解約しても、ペライチで取ったドメインは解約されない</strong>(自動更新を別に止める必要あり)</td><td>公式に記載なし</td></tr>
+          </tbody>
+          <caption>各社の公式ヘルプ・利用規約をもとに運営者が作成(2026年11月20日確認)。出典は記事の最後にまとめています。</caption>
+        </table>
+      </div>
+
+      <h3>読み方の注意</h3>
+      <ul>
+        <li><strong>ジンドゥー</strong>:サイトはFreeプランとして残りますが、Freeプランでは独自ドメインが使えません。独自ドメインを引き続き使うには、解約の手続きのときに移管を選び、他社へ移す必要があります。.com などのドメインは、登録から60日間は移管できない決まりです(公式ヘルプ)</li>
+        <li><strong>ペライチ</strong>:ドメインが残るのは安心材料ですが、逆に言えば、<strong>使わなくなったドメインの更新料がかかり続ける</strong>ことがあります。ドメインの契約期間が残っているとペライチを退会できない、とヘルプに書かれています</li>
+        <li><strong>ロリポップ!AIホームページ</strong>:利用規約で、ドメインの2年目以降の更新料は利用契約が終わったあとも利用者の負担と定めています。つまり、ツールをやめてもドメインは手元に残ります。更新するかどうかは、ムームードメインの管理画面で自分で管理します</li>
+        <li><strong>データの持ち出し</strong>:3つとも、作ったサイトのデータを書き出して他のサービスに移す方法は、公式に見当たりませんでした。乗り換えるときは、<strong>同じドメインで新しいサイトを作り直す</strong>前提で考えるのが現実的です</li>
+      </ul>
+      <p>制作会社に任せる月額制のホームページでも、解約後の扱いは大きく分かれます。6つのサービスの規約を比べた「<a href="../0013/">ホームページのサブスク比較。解約したら「サイトとドメイン」は残るのか</a>」もあわせて読むと、自分で作る場合と任せる場合の違いが分かります。</p>
+
+      <h2 id="s7">広告のリンク先として計測できるか</h2>
+      <p>運営者(SET UP)の本業は、運用型広告の運用代行です。広告から人を送るページは、<strong>何人が来て、何人が問い合わせたかを計測できないと改善できません</strong>。そのため、ホームページを広告のリンク先にする前に、次の3つを確認します。</p>
+      <ol class="check">
+        <li>GA4(Googleアナリティクス)を入れられるか<span>ページの閲覧数や、どこから来たかを見るため</span></li>
+        <li>GTM(Googleタグマネージャー)や、広告媒体のタグを入れられるか<span>Google 広告・Meta広告などのコンバージョン計測には、各媒体のタグが要る</span></li>
+        <li>フォームの送信を、問い合わせ(コンバージョン)として数えられるか<span>送信後のページを分けられるか、送信をイベントとして取れるか</span></li>
+      </ol>
+      <p>3つのツールを、この観点で見ると次のようになります。</p>
+      <ul>
+        <li><strong>ペライチ</strong>:レギュラープラン以上ならHTML/CSS/JSの埋め込みとアクセス解析が使えるので、GTMや広告のタグを入れられます。ライトプランとお試し期間中は入れられません。プランごとの違いは「<a href="../0006/">ペライチの料金プランを比較</a>」で詳しく書いています</li>
+        <li><strong>ジンドゥー AI ビルダー</strong>:有料プランならGA4を接続できます。ただしHTMLの埋め込みができないので、<strong>GTMや広告媒体のタグを直接入れることはできません</strong>。広告の計測を細かく設計したい場合は、向いていません</li>
+        <li><strong>ロリポップ!AIホームページ</strong>:公式ヘルプに説明が見当たりませんでした。広告で使う予定があるなら、無料お試しの間に設定画面を確認してください</li>
+      </ul>
+      <p>名刺代わりのサイトなら、計測はなくても困りません。けれど、広告費をかけて人を送るなら、計測できないページは「効いているか分からない広告」を出し続けることになります。表示速度や置き場所も含めたLPの考え方は「<a href="../0002/">LPはどのサーバーに置くべきか</a>」に書いています。</p>
+
+      <h2 id="s8">AIツールで足りる人、向かない人</h2>
+      <p>どのツールが一番よいかではなく、何に使うかで分けます。</p>
+      <h3>AIツールで足りる</h3>
+      <ul>
+        <li>名刺代わりの数ページで十分。まずは早く公開したい</li>
+        <li>更新は自分でする。文章や写真の確認も自分でできる</li>
+        <li>広告は出さない、または出しても計測は最低限でよい</li>
+      </ul>
+      <h3>別の方法も検討したい</h3>
+      <ul>
+        <li>広告で集客し、問い合わせ数を計測して改善したい(タグを入れられるプランか、別の作り方を選ぶ)</li>
+        <li>ページ数が多い、ブログで情報を発信したい(上限とブログ機能を確認)</li>
+        <li>将来、別のサービスへ移す可能性が高い(データは持ち出せない前提で、ドメインだけは自分で管理する)</li>
+      </ul>
+      <p>制作も更新も任せたいなら<a href="../0013/">月額制の制作サービス</a>、計測や表示速度まで自分で決めたいなら<a href="../0002/">サーバーに置く方法</a>も候補になります。どれが正解ということではなく、条件で選んでください。</p>
+
+      <p>AIツールで作ると決めた場合に、3つのツールで申し込む前に確認したい点をまとめます。</p>
+      <div class="pick">
+        <h3>ロリポップ!AIホームページ(GMOペパボ株式会社)</h3>
+        <ul>
+          <li>10日間無料、クレジットカード不要。お試し期間中も公開できる</li>
+          <li>12か月以上のプランは独自ドメイン1年分の取得費用込み(2年目以降は更新料がかかる)</li>
+          <li>期間の途中で解約しても返金はないので、お試しで確認してから期間を選ぶ</li>
+        </ul>
+        <!-- A8.net:ロリポップ!AIホームページ(提携済み)。a8mat の値は変更しないこと -->
+        <p class="src">公式サイト:<a href="https://px.a8.net/svt/ejp?a8mat=4BGPOT+4J4SJ6+348+4SO4V6" target="_blank" rel="sponsored nofollow noopener">【ロリポップ！AIホームページ】</a><img border="0" width="1" height="1" src="https://www18.a8.net/0.gif?a8mat=4BGPOT+4J4SJ6+348+4SO4V6" alt=""></p>
+      </div>
+      <div class="pick">
+        <h3>ジンドゥー AI ビルダー(株式会社KDDIウェブコミュニケーションズ)</h3>
+        <ul>
+          <li>Freeプランから始められる(5ページ、ジンドゥーのサブドメイン)</li>
+          <li>独自ドメイン・アクセス解析・GA4の接続はStart以上</li>
+          <li>HTMLの埋め込みやブログが必要なら、同じジンドゥーの「クリエイター」と比べる</li>
+        </ul>
+        <!-- A8.net:ジンドゥー(提携済み)。a8mat の値は変更しないこと -->
+        <p class="src">公式サイト:<a href="https://px.a8.net/svt/ejp?a8mat=4BGPOT+4KX3CI+OFG+TRVYQ" target="_blank" rel="sponsored nofollow noopener">ジンドゥー</a><img border="0" width="1" height="1" src="https://www15.a8.net/0.gif?a8mat=4BGPOT+4KX3CI+OFG+TRVYQ" alt=""></p>
+      </div>
+      <div class="pick">
+        <h3>ペライチ(ラクスル株式会社)</h3>
+        <ul>
+          <li>全プランにAIアシストが付く。独自ドメインも全プランで使える</li>
+          <li>タグの埋め込みとアクセス解析はレギュラープラン以上</li>
+          <li>有料プランを解約しても、ペライチで取ったドメインは残る(更新は別に管理)</li>
+        </ul>
+        <!-- A8LINK-PENDING: s00000019081001 -->
+        <p class="src">公式サイト:<a href="https://peraichi.com/" target="_blank" rel="noopener">ペライチ</a></p>
+      </div>
+
+      <h2 id="s9">よくある質問</h2>
+      <dl class="faq">
+        <dt>Q. AIで作ったホームページは、検索で不利になりますか?</dt>
+        <dd>Google 検索セントラルのガイダンスは、AIで作ったかどうかではなく、コンテンツの品質で評価するとしています。ただし、検索順位の操作を主な目的に自動生成したコンテンツはスパムに関するポリシー違反になるとしているので、AIが書いた文章は自分で確認し、事業の実態に合わせて直してから公開してください。</dd>
+        <dt>Q. 無料のまま使い続けられますか?</dt>
+        <dd>ジンドゥー AI ビルダーにはFreeプランがありますが、5ページまで、URLはジンドゥーのサブドメイン、広告が表示されます。ペライチのフリープランは、2025年10月1日から公開できるページが0枚になりました。ロリポップ!AIホームページは10日間の無料お試しのあと、有料プランの契約が必要です。</dd>
+        <dt>Q. あとから別のツールに移せますか?</dt>
+        <dd>今回確認した3つのツールでは、作ったサイトのデータを書き出して移す方法は、公式に見当たりませんでした。移るときは、新しいツールで作り直すことになります。独自ドメインを自分で管理していれば、作り直したサイトを同じURLで公開できます。</dd>
+        <dt>Q. ChatGPTやClaudeに作らせるのとは、何が違いますか?</dt>
+        <dd>対話型のAIにHTMLを書かせる方法では、サーバーの契約、ドメインの設定、公開、その後の修正を自分で行います。AIのホームページ作成ツールは、これらをツールの中でまとめて済ませられる代わりに、できることがツールとプランの範囲に限られます。</dd>
+      </dl>
+
+      <h2 id="s10">まとめ</h2>
+      <ul>
+        <li>AIのホームページ作成ツールで差が出るのは「作ったあと」。解約後の扱い、自分で直せる範囲、計測タグの3つを確認する</li>
+        <li>「月額◯円」は長期一括払いや12か月契約の月額換算のことがある。途中で解約しても返金はないので、無料のお試しで確認してから期間を選ぶ</li>
+        <li>解約したときのドメインの扱いは3つとも違う。ジンドゥー AI ビルダーは移管しないと廃止。ペライチとロリポップ!AIホームページは残るが、更新は自分で管理する</li>
+        <li>広告のリンク先にするなら、GTMや広告のタグを入れられるプランかを先に確認する</li>
+      </ul>
+
+      <h3>参考にした公式ページ(2026年11月20日確認)</h3>
+      <ul class="refs">
+        <li>ロリポップ!AIホームページ:<a href="https://lolipop.jp/ai/homepage/" target="_blank" rel="noopener">料金・よくあるご質問</a>、<a href="https://lolipop.jp/terms/ai-homepage/" target="_blank" rel="noopener">利用規約</a>、<a href="https://support.lolipop.jp/hc/ja/articles/54838390569235" target="_blank" rel="noopener">ヘルプ「ページの追加」</a>、<a href="https://support.lolipop.jp/hc/ja/articles/50974747582739" target="_blank" rel="noopener">ヘルプ「独自ドメインを使いたい」</a></li>
+        <li>ジンドゥー AI ビルダー:<a href="https://www.jimdo.com/jp/pricing/" target="_blank" rel="noopener">プラン</a>、<a href="https://help.jimdo-dolphin.com/hc/ja/articles/360000898383" target="_blank" rel="noopener">ヘルプ「有料プランを解約するには?」</a>、<a href="https://help.jimdo-dolphin.com/hc/ja/articles/10415209603604" target="_blank" rel="noopener">ヘルプ「AIビルダーで対応していない機能について」</a>、<a href="https://www.jimdo.com/jp/2023/05/19/%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B-google%E3%82%A2%E3%83%8A%E3%83%AA%E3%83%86%E3%82%A3%E3%82%AF%E3%82%B94-ga4-%E7%A7%BB%E8%A1%8C%E3%81%AB%E4%BC%B4%E3%81%86%E5%A4%89%E6%9B%B4%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" target="_blank" rel="noopener">お知らせ「GA4移行に伴う変更について」</a></li>
+        <li>ペライチ:<a href="https://peraichi.com/pages/pricing" target="_blank" rel="noopener">料金・プラン一覧</a>、<a href="https://support.peraichi.com/hc/ja/articles/360022583514" target="_blank" rel="noopener">ヘルプ「解約・退会の手続き方法」</a>、<a href="https://support.peraichi.com/hc/ja/articles/360022764673" target="_blank" rel="noopener">ヘルプ「有料プランの解約に関する注意点」</a></li>
+        <li><a href="https://developers.google.com/search/blog/2023/02/google-search-and-ai-content?hl=ja" target="_blank" rel="noopener">Google 検索セントラル ブログ「AI 生成コンテンツに関する Google 検索のガイダンス」</a></li>
+        <li><a href="https://www.bunka.go.jp/seisaku/chosakuken/aiandcopyright.html" target="_blank" rel="noopener">文化庁「AIと著作権について」</a></li>
+      </ul>
+    </div>
+
+    <div class="author">
+      <div>
+        <p class="who">SET UP 代表</p>
+        <p>運用型広告に7年間従事。事業会社での運用経験をもとに、事業者・代理店の双方から広告運用を請け負っています。</p>
+        <p><a href="../about/">運営者と編集方針</a></p>
+      </div>
+    </div>
+
+    <a class="back" href="../">← コラム一覧に戻る</a>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="../">
+      <span class="logo-mark"></span><span class="logo-word"></span><span class="vh">SET UP</span>
+    </a>
+    <p>© SET UP</p>
+  </div>
+</footer>
+
+<script>
+// tbl-scroll-hint: 横にはみ出す表の上に「横にスクロールできます」を出す
+(function(){
+  var boxes=[].slice.call(document.querySelectorAll('.tbl'));
+  if(!boxes.length) return;
+  var hints=boxes.map(function(b){
+    var h=document.createElement('p'); h.className='tbl-hint'; h.setAttribute('aria-hidden','true');
+    h.textContent='表は横にスクロールできます';
+    b.parentNode.insertBefore(h,b);
+    b.addEventListener('scroll',function(){ if(b.scrollLeft>8) h.classList.add('done'); },{passive:true});
+    return h;
+  });
+  function check(){ boxes.forEach(function(b,i){ hints[i].classList.toggle('on', b.scrollWidth>b.clientWidth+2); }); }
+  check(); window.addEventListener('resize',check); window.addEventListener('load',check);
+})();
+</script>
+
+<button type="button" class="to-top" id="to-top" aria-label="ページの一番上に戻る"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<script>
+// back-to-top
+(function(){
+  var b=document.getElementById('to-top'); if(!b) return;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function onScroll(){ b.classList.toggle('show', window.scrollY>600); }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  b.addEventListener('click',function(){ window.scrollTo({top:0,behavior:reduce?'auto':'smooth'}); });
+})();
+</script>
+
+</body>
+</html>
