@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N5FQCX6S');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iPhoneでChromeリモートデスクトップが見つからないときの代わり。TailscaleとWindows Appで、外出先のスマホから自宅や事務所のPCを遠隔操作する手順｜SET UP コラム</title>
+<meta name="description" content="iPhoneでChromeリモートデスクトップのアプリが見つからなかった運営者が、TailscaleとMicrosoftのWindows Appで外出先からWindows 11 ProのPCにつないでいる手順です。スマホからPCを遠隔操作する3つの方法の比較、Proが必要なこと、商用は有料になる条件も公式情報で整理しました(2026年11月22日確認)。">
+<link rel="canonical" href="https://setup-inc.com/column/0016/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SET UP">
+<meta property="og:title" content="iPhoneでChromeリモートデスクトップが見つからないときの代わり。TailscaleとWindows Appで、外出先のスマホから自宅や事務所のPCを遠隔操作する手順">
+<meta property="og:description" content="iPhoneでChromeリモートデスクトップのアプリが見つからなかった運営者が、TailscaleとMicrosoftのWindows Appで外出先からWindows 11 ProのPCにつないでいる手順です。スマホからPCを遠隔操作する3つの方法の比較、Proが必要なこと、商用は有料になる条件も公式情報で整理しました(2026年11月22日確認)。">
+<meta property="og:url" content="https://setup-inc.com/column/0016/">
+<meta property="og:image" content="https://setup-inc.com/column/0016/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Shippori+Mincho+B1:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#091E41; --navy-lift:#16345F; --gold:#C19746; --gold-deep:#8F6B26;
+    --paper:#F3F4F6; --ink:#14203A; --muted:#616B80; --rule:#D8DCE4;
+    --serif:"Shippori Mincho B1", serif;
+    --sans:"Zen Kaku Gothic New", system-ui, sans-serif;
+    --mono:"IBM Plex Mono", ui-monospace, monospace;
+    --logo-mark:url("../../img/logo-mark.png");
+    --logo-word:url("../../img/logo-word.png");
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:#fff; color:var(--ink); font-family:var(--sans); font-size:16px; line-height:1.95; -webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  :focus-visible{outline:2px solid var(--gold-deep); outline-offset:3px;}
+  img{max-width:100%;}
+  .wrap{max-width:1060px; margin:0 auto; padding:0 clamp(22px,5vw,44px);}
+
+  .head{border-bottom:1px solid var(--rule); background:rgba(255,255,255,.94); backdrop-filter:blur(6px); position:sticky; top:0; z-index:20;}
+  .head .wrap{display:flex; align-items:center; justify-content:space-between; gap:20px; height:70px;}
+  .brand{display:flex; align-items:center; gap:12px; text-decoration:none;}
+  .logo-mark{background:var(--logo-mark) center/contain no-repeat; height:30px; aspect-ratio:200/134; flex:none;}
+  .logo-word{background:var(--logo-word) center/contain no-repeat; height:15px; aspect-ratio:340/52; flex:none;}
+  .vh{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;}
+  .head .sub{font-family:var(--serif); font-size:15px; color:var(--navy); letter-spacing:.06em;}
+
+  .cat{display:inline-block; font-size:11.5px; letter-spacing:.08em; color:var(--gold-deep); border:1px solid var(--gold); border-radius:2px; padding:2px 10px; line-height:1.7;}
+  .date{font-family:var(--mono); font-size:11.5px; letter-spacing:.06em; color:var(--muted);}
+
+  .crumb{font-size:12.5px; color:var(--muted); padding-top:28px;}
+  .crumb a{text-decoration:none;} .crumb a:hover{color:var(--navy);}
+
+  .art{max-width:720px; margin:0 auto; padding:0 clamp(22px,5vw,44px) clamp(70px,9vw,110px);}
+  .art-head{padding:26px 0 clamp(34px,4vw,48px); border-bottom:1px solid var(--rule); margin-bottom:clamp(34px,4vw,48px);}
+  .art-meta{display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:20px;}
+  .art h1{font-family:var(--serif); font-size:clamp(25px,3.6vw,36px); line-height:1.55; color:var(--navy); margin:0 0 22px; letter-spacing:.01em;}
+  .art-lead{font-size:15.5px; color:var(--muted); margin:0;}
+
+  .toc{background:var(--paper); border-left:2px solid var(--gold); padding:24px 26px; margin:0 0 clamp(40px,5vw,56px);}
+  .toc b{display:block; font-size:13px; letter-spacing:.1em; color:var(--navy); margin-bottom:12px;}
+  .toc ol{margin:0; padding-left:1.3em;}
+  .toc li{font-size:14px; color:var(--muted); padding:3px 0;}
+  .toc a{text-decoration:none;} .toc a:hover{color:var(--navy);}
+
+  .body{font-size:16px; line-height:2.15;}
+  .body h2{font-family:var(--serif); font-size:clamp(20px,2.5vw,25px); line-height:1.6; color:var(--navy); margin:clamp(52px,6vw,72px) 0 22px; padding-top:20px; border-top:2px solid var(--gold);}
+  .body h3{font-family:var(--serif); font-size:18px; font-weight:500; color:var(--navy); margin:40px 0 14px;}
+  .body p{margin:0 0 1.6em;}
+  .body ul, .body ol{margin:0 0 1.8em; padding-left:1.4em;}
+  .body li{margin-bottom:.7em;}
+  .body strong{font-weight:700; background:linear-gradient(transparent 62%, rgba(193,151,70,.28) 62%);}
+  .body blockquote{margin:0 0 1.8em; padding:4px 0 4px 24px; border-left:2px solid var(--rule); color:var(--muted); font-size:15px;}
+  .body figure{margin:0 0 1.8em;}
+  .body figcaption{font-size:12.5px; color:var(--muted); margin-top:10px;}
+  .note{background:var(--paper); padding:22px 26px; font-size:14.5px; color:var(--muted); line-height:1.95; margin:0 0 1.8em;}
+  .note b{display:block; color:var(--navy); font-weight:500; margin-bottom:6px;}
+  .body table{width:100%; border-collapse:collapse; font-size:14.5px; margin:0 0 1.8em;}
+  .body th, .body td{border-bottom:1px solid var(--rule); padding:13px 12px; text-align:left; vertical-align:top;}
+  .body th{color:var(--navy); font-weight:500; white-space:nowrap;}
+  .body td{color:var(--muted);}
+
+  .author{display:flex; gap:20px; align-items:flex-start; margin-top:clamp(56px,7vw,80px); padding-top:32px; border-top:1px solid var(--rule);}
+  .author .who{font-family:var(--serif); font-size:16px; color:var(--navy); margin:0 0 6px;}
+  .author p{font-size:13.5px; color:var(--muted); margin:0; line-height:1.9;}
+
+  .back{display:inline-block; margin-top:40px; font-size:13.5px; color:var(--muted); text-decoration:none;}
+  .back:hover{color:var(--navy);}
+
+  footer{background:var(--paper); border-top:1px solid var(--rule); padding:44px 0 52px;}
+  footer .wrap{display:flex; flex-wrap:wrap; gap:20px 40px; justify-content:space-between; align-items:center;}
+  footer p{font-family:var(--mono); font-size:11px; color:var(--muted); letter-spacing:.06em; margin:0;}
+
+  /* アフィリエイト記事用 */
+  .pr{display:inline-block; font-family:var(--mono); font-size:11px; font-weight:500; letter-spacing:.1em; color:#fff; background:var(--muted); border-radius:2px; padding:2px 9px; line-height:1.7;}
+  .pr-note{font-size:13px; color:var(--muted); background:var(--paper); padding:12px 16px; margin:0 0 22px; line-height:1.8;}
+  .tbl{overflow-x:auto; -webkit-overflow-scrolling:touch; margin:0 0 1.8em;}
+  .tbl table{margin:0; min-width:560px;}
+  .tbl caption{caption-side:bottom; text-align:left; font-size:12.5px; color:var(--muted); padding-top:10px; line-height:1.8;}
+  .body thead th{border-bottom:2px solid var(--navy);}
+  .tbl.w tbody th{white-space:normal; width:8.5em;}
+  .tbl.w3 tbody th{white-space:normal; width:15em;}
+  .body td.num, .body th.num{text-align:right; white-space:nowrap;}
+  .pick{border:1px solid var(--rule); border-top:2px solid var(--navy); padding:24px 26px 26px; margin:0 0 1.8em;}
+  .pick h3{margin:0 0 8px;}
+  .pick p{font-size:15px; margin:0 0 1em;}
+  .pick ul{font-size:15px; margin:0 0 1.2em;}
+  .pick .src{font-size:12.5px; color:var(--muted); margin:0;}
+  .eyecatch{margin:0 0 24px; line-height:0;}
+  .eyecatch svg, .eyecatch img{display:block; width:100%; height:auto;}
+  .bnr{margin:0 0 18px; line-height:0;}
+  .bnr img{max-width:100%; height:auto;}
+  .btn{display:inline-block; background:var(--navy); color:#fff; text-decoration:none; font-size:14.5px; font-weight:500; letter-spacing:.04em; padding:12px 26px; border-radius:2px;}
+  .btn:hover{background:var(--navy-lift);}
+  .btn::after{content:" →";}
+  .concl{border:2px solid var(--navy); padding:22px 24px 6px; margin:0 0 1.8em;}
+  .concl b{display:block; font-family:var(--serif); color:var(--navy); font-size:17px; margin-bottom:10px;}
+  .check{list-style:none; padding-left:0 !important; counter-reset:q;}
+  .check li{counter-increment:q; position:relative; padding:12px 14px 12px 52px; border:1px solid var(--rule); margin-bottom:10px !important; background:#fff;}
+  .check li::before{content:"Q" counter(q); position:absolute; left:12px; top:12px; font-family:var(--mono); font-size:13px; font-weight:500; color:#fff; background:var(--navy); border-radius:2px; padding:0 6px; line-height:1.8;}
+  .check li span{display:block; font-size:13.5px; color:var(--muted); line-height:1.8;}
+  .faq dt{font-weight:700; color:var(--navy); margin:0 0 6px;}
+  .faq dd{margin:0 0 1.6em; color:var(--ink);}
+  .fig-narrow{display:none;}
+  @media (max-width:560px){ .fig-wide{display:none !important;} .fig-narrow{display:block;} }
+  .refs{font-size:13px; color:var(--muted); line-height:1.9;}
+  .refs li{margin-bottom:.3em;}
+
+  /* tbl-scroll-hint: 表が横にはみ出すとき、端に影を付けて「スクロールできます」を表示する */
+  .tbl{background:
+    linear-gradient(to right,#fff 30%,rgba(255,255,255,0)) left center/40px 100% no-repeat local,
+    linear-gradient(to left,#fff 30%,rgba(255,255,255,0)) right center/40px 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%,rgba(20,32,58,.22),rgba(20,32,58,0)) left center/14px 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%,rgba(20,32,58,.22),rgba(20,32,58,0)) right center/14px 100% no-repeat scroll;}
+  .tbl-hint{display:none; align-items:center; gap:6px; font-size:12.5px; font-weight:500; color:var(--gold-deep); margin:0 0 8px; letter-spacing:.04em;}
+  .tbl-hint::after{content:"→"; display:inline-block; animation:tblHint 1.4s ease-in-out infinite;}
+  .tbl-hint.on{display:flex;}
+  .tbl-hint.done{opacity:.55;}
+  .tbl-hint.done::after{animation:none;}
+  @keyframes tblHint{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+  @media (prefers-reduced-motion:reduce){.tbl-hint::after{animation:none;}}
+
+  /* back-to-top: 下にスクロールしたら右下に「上に戻る」ボタンを出す */
+  .to-top{position:fixed; right:max(16px,env(safe-area-inset-right)); bottom:max(18px,env(safe-area-inset-bottom)); z-index:30; width:48px; height:48px; border:none; border-radius:50%; background:var(--navy); color:#fff; box-shadow:0 4px 14px rgba(9,30,65,.25); cursor:pointer; display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; transform:translateY(8px); transition:opacity .2s ease, transform .2s ease, visibility .2s, background .15s ease;}
+  .to-top.show{opacity:1; visibility:visible; transform:none;}
+  .to-top:hover{background:var(--navy-lift);}
+  .to-top svg{width:20px; height:20px;}
+  @media (prefers-reduced-motion:reduce){.to-top{transition:none;}}
+</style>
+<script type="application/ld+json" id="ld-article">[{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "iPhoneでChromeリモートデスクトップが見つからないときの代わり。TailscaleとWindows Appで、外出先のスマホから自宅や事務所のPCを遠隔操作する手順", "description": "iPhoneでChromeリモートデスクトップのアプリが見つからなかった運営者が、TailscaleとMicrosoftのWindows Appで外出先からWindows 11 ProのPCにつないでいる手順です。スマホからPCを遠隔操作する3つの方法の比較、Proが必要なこと、商用は有料になる条件も公式情報で整理しました(2026年11月22日確認)。", "image": ["https://setup-inc.com/column/0016/ogp.png"], "datePublished": "2026-11-22T09:00:00+09:00", "dateModified": "2026-11-22T09:00:00+09:00", "author": {"@type": "Person", "name": "SET UP 代表", "url": "https://setup-inc.com/column/about/"}, "publisher": {"@type": "Organization", "name": "SET UP", "url": "https://setup-inc.com/", "logo": {"@type": "ImageObject", "url": "https://setup-inc.com/apple-touch-icon.png"}}, "mainEntityOfPage": "https://setup-inc.com/column/0016/", "inLanguage": "ja"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://setup-inc.com/"}, {"@type": "ListItem", "position": 2, "name": "コラム", "item": "https://setup-inc.com/column/"}, {"@type": "ListItem", "position": 3, "name": "iPhoneでChromeリモートデスクトップが見つからないときの代わり。TailscaleとWindows Appで、外出先のスマホから自宅や事務所のPCを遠隔操作する手順"}]}]</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N5FQCX6S"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header class="head">
+  <div class="wrap">
+    <a class="brand" href="../">
+      <span class="logo-mark"></span><span class="logo-word"></span><span class="vh">SET UP</span>
+    </a>
+    <span class="sub">コラム</span>
+  </div>
+</header>
+
+<main>
+  <article class="art">
+    <p class="crumb"><a href="../">コラム</a> ／ 業務ツール</p>
+
+    <div class="art-head">
+      <div class="art-meta">
+        <span class="date"><time datetime="2026-11-22">2026.11.22</time></span>
+        <span class="cat">業務ツール</span>
+      </div>
+      <h1>iPhoneでChromeリモートデスクトップが見つからないときの代わり。TailscaleとWindows Appで、外出先のスマホから自宅や事務所のPCを遠隔操作する手順</h1>
+      <figure class="eyecatch">
+        <img src="ogp.png" width="1200" height="630" alt="iPhoneでChromeリモートデスクトップが見つからないときの代わり TailscaleとWindows Appで外出先からPCを遠隔操作" decoding="async">
+      </figure>
+      <p class="art-lead">外出先のスマホから、自宅や事務所のPCを操作したい。そう思ってChrome リモート デスクトップを入れたものの、iPhoneではアプリが見つからず、ブラウザでも使えませんでした。代わりに使っているのが、VPNのTailscaleとMicrosoftのWindows Appの組み合わせです。この記事では、その手順と注意点を、Google・Microsoft・Tailscaleの公式情報(2026年11月22日に確認)とあわせてまとめます。</p>
+    </div>
+
+    <nav class="toc">
+      <b>目次</b>
+      <ol>
+        <li><a href="#s1">結論:Windows 11 Proなら、TailscaleとWindows Appで外出先からつなげる</a></li>
+        <li><a href="#s2">スマホからPCを遠隔操作する方法は3つ</a></li>
+        <li><a href="#s3">iPhoneでChromeリモートデスクトップが見つからなかった話</a></li>
+        <li><a href="#s4">外出先からPCにつなぐ手順(Tailscale+Windows App)</a></li>
+        <li><a href="#s5">外出先で使うときの注意</a></li>
+        <li><a href="#s6">広告運用の現場での使いどころ</a></li>
+        <li><a href="#s7">よくある質問</a></li>
+        <li><a href="#s8">まとめ</a></li>
+      </ol>
+    </nav>
+
+    <div class="body">
+      <p>運用型広告の運用代行をしている運営者(SET UP)は、2026年11月に、外出先のスマホから自宅と事務所のWindows PCを操作できるようにしました。広告の管理画面は、ふだん使っているPCのブラウザにログインしてあり、手元のファイルもPCに入っています。外出先で「あのファイルを見たい」「PCの画面で確認したい」となったときに、スマホからPCをそのまま動かせると便利です。</p>
+      <p>この記事は、そのとき私が実際に試したことと、公式の情報を分けて書いています。</p>
+
+      <h2 id="s1">結論:Windows 11 Proなら、TailscaleとWindows Appで外出先からつなげる</h2>
+      <div class="concl">
+        <b>この記事の結論</b>
+        <ul>
+          <li>操作される側のPCが<strong>WindowsのProエディション</strong>なら、Windowsのリモートデスクトップを使える。スマホにはMicrosoftの<strong>Windows App</strong>(無料)を入れる。Homeエディションは、操作される側になれない(Microsoftの案内)</li>
+          <li>外出先からつなぐ経路には<strong>Tailscale</strong>を使う。PCとスマホに入れて同じアカウントでログインするだけで、<strong>ルーターのポート開放をしなくてよい</strong></li>
+          <li>Tailscaleは、<strong>個人で使うなら無料のPersonalプラン、仕事(商用)で使うなら有料のStandard(1ユーザー月8ドル)</strong>。公式サイトでPersonalは「非商用の利用向け」と書かれている</li>
+        </ul>
+      </div>
+
+      <h2 id="s2">スマホからPCを遠隔操作する方法は3つ</h2>
+      <p>スマホからPCをリモート操作する方法は、大きく分けて次の3つです。外出先からPCを遠隔操作したいときも、この中から選ぶことになります。</p>
+      <div class="tbl w">
+        <table style="min-width:820px">
+          <thead>
+            <tr><th>方法</th><th>操作される側のPC</th><th>スマホ側</th><th>料金</th><th>気をつけたいこと</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>Chrome リモート デスクトップ(Google)</th><td>Windows・Mac・Linux</td><td>Androidはアプリ(Google Play)。iPhoneは公式ヘルプではアプリ、またはブラウザで開く案内</td><td>Googleアカウントで使える。アプリは無料でインストールできる</td><td>運営者のiPhoneでは、App Storeの検索に公式アプリが出ず、ブラウザでも「サポートされていません」と表示された(<a href="#s3">3章</a>)</td></tr>
+            <tr><th>Windows App+VPN(Tailscale)</th><td><strong>WindowsのPro</strong>など(Homeは不可)</td><td>iPhone(iOS 16以降)・Android(10以降)のWindows App</td><td>Windows Appは無料。Tailscaleは個人なら無料のPersonal、商用はStandard(1ユーザー月8ドル)</td><td>PCとスマホの両方にTailscaleを入れる。ポート開放は不要</td></tr>
+            <tr><th>有料のリモートソフト</th><td>製品ごとの動作環境による</td><td>製品による(例のSplashtopは、iOS・Androidからの接続に対応)</td><td>例:Splashtop Remote Access Proは年額18,000円(税別)/ユーザー。14日間の無料トライアルあり</td><td>料金の払い方(年額か月額か)、対応OS、台数の上限を公式サイトで確認する</td></tr>
+          </tbody>
+          <caption>各社の公式ページで2026年11月22日に確認。Chrome リモート デスクトップの欄の「運営者のiPhone」は、2026年11月21日の運営者の環境での結果です。</caption>
+        </table>
+      </div>
+      <p>操作される側のPCがWindows 11 Proなら、2つ目の方法が使えます。費用はWindows Appが無料で、Tailscaleは個人なら無料、仕事で使うならStandardの月8ドルです。一方で、PCがWindowsのHomeの場合は、2つ目の方法は使えません。Proにアップグレードするか、Chrome リモート デスクトップや有料のリモートソフトを検討することになります。</p>
+
+      <h2 id="s3">iPhoneでChromeリモートデスクトップが見つからなかった話</h2>
+      <p>最初に試したのは、Chrome リモート デスクトップです。PC側の設定は、Googleの公式ヘルプの手順どおり、PCのChromeで <code>remotedesktop.google.com/access</code> を開いてソフトをインストールするだけで済みました。</p>
+      <p>つまずいたのはiPhone側です。2026年11月21日に、日本のApp Storeで「chrome リモートデスクトップ」と検索しても、Googleの公式アプリは出てきませんでした。表示されたのは、他社のリモートデスクトップアプリの広告と、Google Chrome(ブラウザ)です。</p>
+      <p>そこで、iPhoneのブラウザで <code>remotedesktop.google.com/access</code> を開くと、次のメッセージが出ました。</p>
+      <figure>
+        <img src="crd-iphone.jpg" width="600" height="965" alt="iPhoneのブラウザでChrome リモート デスクトップを開くと「このデバイスではリモート アクセスはサポートされていません」と表示された画面" loading="lazy" decoding="async" style="max-width:340px; width:100%; height:auto; border:1px solid var(--rule);">
+        <figcaption>運営者のiPhoneのブラウザで開いた画面(2026年11月21日)。「このデバイスではリモート アクセスはサポートされていません。…Windows パソコンまたは Mac OS コンピュータでリモート アクセスを設定してください」と表示された</figcaption>
+      </figure>
+      <h3>公式ヘルプには、今もiPhoneでの使い方が書かれている</h3>
+      <p>一方で、Googleの公式ヘルプ「Chrome リモート デスクトップを使って他のパソコンにアクセスする」のiPhoneとiPadの手順には、2026年11月22日の時点でも「Chrome リモート デスクトップ アプリを開く」「まだインストールしていない場合は、ブラウザで remotedesktop.google.com/access にアクセス」と書かれています。</p>
+      <p>iOS版のアプリの提供が終わったと伝えるウェブ上の記事もありますが、Googleの公式の発表は確認できませんでした。そのため、この記事では「iPhoneでは使えない」とは書きません。<strong>運営者の環境では、アプリが見つからず、ブラウザでもつながらなかった</strong>、というのが事実です。同じ状況で困っている方は、次の章の方法を試してみてください。</p>
+
+      <h2 id="s4">外出先からPCにつなぐ手順(Tailscale+Windows App)</h2>
+      <p>ここからは、運営者が実際に使っている組み合わせの手順です。PCはWindows 11 Pro、スマホはiPhoneです。</p>
+      <h3>しくみ:Tailscaleで「同じネットワーク」にして、Windows Appでつなぐ</h3>
+      <p>Windowsのリモート デスクトップは、もともと同じネットワークの中でつなぐ機能です。外出先からつなぐには、ルーターのポートを開けてインターネットにPCを公開する方法が紹介されることもありますが、PCが外から見える状態になります。</p>
+      <p>Tailscaleは、PCやスマホを自分専用のネットワーク(tailnet)につなぐVPNのサービスです。公式ドキュメントでは、ファイアウォールやNATをまたいでも、<strong>ポート開放や複雑なファイアウォールの設定なしで</strong>端末どうしがつながると説明されています。PCとスマホにTailscaleを入れておけば、外出先のスマホからも、PCに同じネットワークの中にいるようにつなげます。</p>
+
+      <h3>手順1:PCとスマホにTailscaleを入れて、同じアカウントでログインする</h3>
+      <ol>
+        <li>PCに、Tailscaleの公式サイトからWindows版をダウンロードしてインストールする</li>
+        <li>スマホに、App Store(AndroidはGoogle Play)からTailscaleのアプリを入れる</li>
+        <li>PCとスマホで、<strong>同じアカウント</strong>(GoogleやAppleなどのアカウント)でログインする</li>
+      </ol>
+      <p>ログインすると、それぞれの端末に <code>100.x.y.z</code> の形のIPアドレスが割り当てられます。Tailscaleの公式ドキュメントによると、このIPアドレスは、端末を登録し直さない限り変わりません。PCのIPアドレスは、Tailscaleの管理画面の「Machines」で確認できます。次の手順で使うので、メモしておきます。</p>
+
+      <h3>手順2:PCでリモートデスクトップを有効にする</h3>
+      <p>Microsoftのサポートページ「リモート デスクトップの使い方」の手順です。</p>
+      <ol>
+        <li>[スタート]→[設定]→[システム]→[バージョン情報]で、エディションが「Windows 11 Pro」になっているか確認する</li>
+        <li>[設定]→[システム]→[リモート デスクトップ]を開き、リモート デスクトップをオンにして[確認]を選ぶ</li>
+      </ol>
+      <p>Microsoftは、<strong>接続先のPCはProエディションのWindowsである必要がある</strong>と案内しています。接続する側(スマホなど)の条件はありません。</p>
+
+      <h3>手順3:スマホのWindows Appに、PCのTailscaleのIPを登録する</h3>
+      <ol>
+        <li>App StoreからWindows Appを入れる(日本のApp Storeでは「Windows App Mobile」という名前で、以前の名前は「リモート デスクトップ」)。AndroidはGoogle PlayのWindows App</li>
+        <li>Windows Appを開き、プラス(+)のアイコンから[PC]を選ぶ</li>
+        <li>[PC 名]に、手順1でメモしたPCのTailscaleのIPアドレス(<code>100.</code>で始まるもの)を入れて保存する</li>
+      </ol>
+      <p>MicrosoftのWindows Appの手順では、[PC 名]にはPCの名前かIPアドレスを入れます。外出先から使うので、ここではTailscaleのIPアドレスを入れます。つなぐときは、スマホのTailscaleアプリで接続がオンになっていることを確認してください。</p>
+
+      <h3>手順4:ユーザー アカウントを保存しておく</h3>
+      <p>PCを登録するときに、PCにサインインするユーザー アカウントもあわせて登録できます。運営者の環境では、資格情報を保存しておけば、<strong>つなぐたびに入力しなくて済みました</strong>。保存しない場合は、つなぐたびに入力を求められます。</p>
+
+      <h3>手順5:マウスとタッチの操作を切り替える</h3>
+      <p>つないだ直後は、画面にマウスのカーソルが出て、指でカーソルを動かして操作する形でした。接続中のメニューから、画面を直接タップして操作する形に切り替えられます。</p>
+      <p>Microsoftの説明では、iPhoneとiPadのWindows Appには次の2つのモードがあります。</p>
+      <ul>
+        <li><strong>マウス ポインター</strong>:画面にマウスのカーソルが出る。指を動かすとカーソルが動き、タップでクリック、2本指のタップで右クリック</li>
+        <li><strong>直接タッチ</strong>:画面をタップした場所が、そのままクリックになる。カーソルは出ない</li>
+      </ul>
+      <p>細かいボタンを押すときはマウス ポインター、スクロールや大きなボタンの操作は直接タッチ、と使い分けると楽です。</p>
+
+      <h2 id="s5">外出先で使うときの注意</h2>
+      <h3>PCをスリープにしない</h3>
+      <p>PCがスリープ中や電源が切れていると、外からはつながりません。運営者は、自宅のPCの電源の設定でスリープを「なし」にして出かけています。</p>
+      <h3>ロック画面のままでよい</h3>
+      <p>PCは、ロック画面のまま出かけても、Windows Appからつながりました。PCの前に誰かがいても画面を見られないように、出かける前にロックしておくと安心です。</p>
+      <h3>モバイル回線でも使える。通信量には気をつける</h3>
+      <p>運営者は、Wi-Fiのない場所でも、スマホのモバイル回線(4G/5G)でつないで使っています。画面を送り続けるので、長く使うとスマホのデータ通信量が増えます。料金プランの容量に余裕がないときは、Wi-Fiのある場所で使うほうが安心です。</p>
+      <h3>仕事で使うならTailscaleは有料プラン</h3>
+      <p>Tailscaleの料金ページでは、無料のPersonalプランは「自宅で使う個人向け」で、<strong>非商用の利用に限る</strong>と書かれています。Gmailなどの公開ドメインのアカウントで作ったネットワークは個人の利用、独自ドメインで作ったものは事業の利用として扱われます。</p>
+      <p>仕事で使う場合は、有料のStandardプラン(1ユーザー月8ドル)が対象です。仕事で使う方は、申し込む前に料金ページを確認してください。</p>
+      <h3>スマホの画面ロックをかけておく</h3>
+      <p>スマホのWindows AppにPCのユーザー アカウントを保存すると、スマホを開ける人なら誰でもPCを操作できる状態になります。スマホにはパスコードなどの画面ロックを必ずかけておきましょう。</p>
+
+      <h2 id="s6">広告運用の現場での使いどころ</h2>
+      <p>運営者は広告運用の仕事で、外出先から次のような場面で使っています。</p>
+      <ul>
+        <li><strong>事務所のPCでログイン済みの管理画面を開く</strong>:ふだん使っているPCのブラウザで、広告の管理画面や計測ツールを開いて確認する。スマホのブラウザで新しくログインし直さなくてよい</li>
+        <li><strong>PCにしかないファイルを見る</strong>:入稿用のファイル、レポートの表計算ファイル、クライアントから受け取った資料など</li>
+        <li><strong>PCの画面で見た目を確かめる</strong>:LPや広告のプレビューを、PCの表示で確認したいとき</li>
+      </ul>
+      <h3>スマホのアプリで済むなら、リモートは要らない</h3>
+      <p>逆に、予算の残りや配信状況の確認、広告の一時停止くらいなら、各媒体のスマホアプリや、スマホのブラウザで管理画面を開けば済みます。リモートでPCを動かすと、小さな画面で細かい操作をすることになり、かえって時間がかかります。</p>
+      <p>運営者の線引きは、<strong>「PCにしかないもの(ログイン済みの環境・ファイル・PCの表示)が要るときだけリモートでつなぐ」</strong>です。入札や予算を大きく変える作業は、誤操作を避けるためにPCの前に戻ってから行っています。</p>
+
+      <h2 id="s7">よくある質問</h2>
+      <dl class="faq">
+        <dt>Q. WindowsのHomeでも、Windows Appでつなげますか?</dt>
+        <dd>操作される側のPCがHomeの場合はつなげません。Microsoftは、接続先のPCはProエディションのWindowsである必要があると案内しています。接続する側(スマホやほかのPC)のエディションは問いません。</dd>
+        <dt>Q. 全部無料で使えますか?</dt>
+        <dd>Windows Appは無料です。Tailscaleは、個人で使うなら無料のPersonalプランで使えますが、Personalは非商用の利用向けです。仕事で使う場合は有料のStandardプラン(1ユーザー月8ドル)になります(2026年11月22日に公式サイトで確認)。</dd>
+        <dt>Q. Androidのスマホでもできますか?</dt>
+        <dd>Microsoftの案内では、Windows AppはAndroid 10以降に対応していて、Google Playから入手できます。TailscaleもAndroidのアプリがあります。運営者が試したのはiPhoneです。</dd>
+        <dt>Q. ルーターの設定(ポート開放)は必要ですか?</dt>
+        <dd>この記事の方法では必要ありません。Tailscaleの公式ドキュメントでは、ポート開放や複雑なファイアウォールの設定なしで端末どうしがつながると説明されています。</dd>
+        <dt>Q. Chrome リモート デスクトップは、もうiPhoneで使えないのですか?</dt>
+        <dd>運営者のiPhoneでは、App Storeでアプリが見つからず、ブラウザでも「サポートされていません」と表示されました。ただし、Googleの公式ヘルプには、2026年11月22日の時点でもiPhoneでの使い方が書かれています。お使いの環境で確認してください。</dd>
+      </dl>
+
+      <h2 id="s8">まとめ</h2>
+      <ul>
+        <li>スマホからPCを遠隔操作する方法は、Chrome リモート デスクトップ、Windows App+VPN(Tailscale)、有料のリモートソフトの3つ</li>
+        <li>運営者のiPhoneでは、Chrome リモート デスクトップのアプリが見つからず、ブラウザでも使えなかった。Googleの公式ヘルプには、今もiPhoneでの使い方が書かれている</li>
+        <li>操作される側がWindows 11 Proなら、TailscaleとWindows Appで、ポート開放なしに外出先からつなげる。Homeは不可</li>
+        <li>Tailscaleは個人なら無料のPersonal、仕事(商用)なら有料のStandard(1ユーザー月8ドル)</li>
+        <li>PCはスリープにしない。スマホには画面ロックをかける。PCにしかないものが要るときだけリモートを使う</li>
+      </ul>
+
+      <h3>参考にした公式ページ(2026年11月22日確認)</h3>
+      <ul class="refs">
+        <li><a href="https://support.google.com/chrome/answer/1649523?hl=ja&amp;co=GENIE.Platform%3DiOS" target="_blank" rel="noopener">Google Chrome ヘルプ「Chrome リモート デスクトップを使って他のパソコンにアクセスする」(iPhone と iPad)</a></li>
+        <li><a href="https://play.google.com/store/apps/details?id=com.google.chromeremotedesktop&amp;hl=ja&amp;gl=JP" target="_blank" rel="noopener">Google Play「Chrome リモート デスクトップ」</a></li>
+        <li><a href="https://support.microsoft.com/ja-jp/windows/how-to-use-remote-desktop-5fe128d5-8fb1-7a23-3b8a-41e636865e8c" target="_blank" rel="noopener">Microsoft サポート「リモート デスクトップの使い方」</a></li>
+        <li><a href="https://learn.microsoft.com/ja-jp/windows-app/get-started-connect-devices-desktops-apps?pivots=remote-pc" target="_blank" rel="noopener">Microsoft Learn「Windows アプリを使用してデバイスとアプリに接続する方法を始めよう」(リモート PC)</a></li>
+        <li><a href="https://learn.microsoft.com/ja-jp/windows-app/input-keyboard-mouse-touch-pen" target="_blank" rel="noopener">Microsoft Learn「Windows アプリでキーボード、マウス、タッチ、ペンを使用する」</a></li>
+        <li><a href="https://apps.apple.com/jp/app/windows-app-mobile/id714464092" target="_blank" rel="noopener">App Store「Windows App Mobile」</a>、<a href="https://apps.apple.com/jp/app/tailscale/id1470499037" target="_blank" rel="noopener">App Store「Tailscale」</a></li>
+        <li><a href="https://tailscale.com/pricing" target="_blank" rel="noopener">Tailscale「Pricing」</a>(英語)</li>
+        <li><a href="https://tailscale.com/kb/1151/what-is-tailscale" target="_blank" rel="noopener">Tailscale Docs「What is Tailscale?」</a>、<a href="https://tailscale.com/kb/1033/ip-and-dns-addresses" target="_blank" rel="noopener">「How Tailscale assigns IP addresses」</a>(英語)</li>
+        <li><a href="https://www.splashtop.co.jp/products-service/remote_access" target="_blank" rel="noopener">Splashtop「Splashtop Remote Access」</a></li>
+      </ul>
+    </div>
+
+    <div class="author">
+      <div>
+        <p class="who">SET UP 代表</p>
+        <p>運用型広告に7年間従事。事業会社での運用経験をもとに、事業者・代理店の双方から広告運用を請け負っています。</p>
+        <p><a href="../about/">運営者と編集方針</a></p>
+      </div>
+    </div>
+
+    <a class="back" href="../">← コラム一覧に戻る</a>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="../">
+      <span class="logo-mark"></span><span class="logo-word"></span><span class="vh">SET UP</span>
+    </a>
+    <p>© SET UP</p>
+  </div>
+</footer>
+
+<script>
+// tbl-scroll-hint: 横にはみ出す表の上に「横にスクロールできます」を出す
+(function(){
+  var boxes=[].slice.call(document.querySelectorAll('.tbl'));
+  if(!boxes.length) return;
+  var hints=boxes.map(function(b){
+    var h=document.createElement('p'); h.className='tbl-hint'; h.setAttribute('aria-hidden','true');
+    h.textContent='表は横にスクロールできます';
+    b.parentNode.insertBefore(h,b);
+    b.addEventListener('scroll',function(){ if(b.scrollLeft>8) h.classList.add('done'); },{passive:true});
+    return h;
+  });
+  function check(){ boxes.forEach(function(b,i){ hints[i].classList.toggle('on', b.scrollWidth>b.clientWidth+2); }); }
+  check(); window.addEventListener('resize',check); window.addEventListener('load',check);
+})();
+</script>
+
+<button type="button" class="to-top" id="to-top" aria-label="ページの一番上に戻る"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<script>
+// back-to-top
+(function(){
+  var b=document.getElementById('to-top'); if(!b) return;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function onScroll(){ b.classList.toggle('show', window.scrollY>600); }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  b.addEventListener('click',function(){ window.scrollTo({top:0,behavior:reduce?'auto':'smooth'}); });
+})();
+</script>
+
+</body>
+</html>
