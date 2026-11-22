@@ -13,6 +13,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <title>コラム｜SET UP</title>
 <meta name="description" content="運用型広告とデジタルマーケティングについて、現場で判断に使っている考え方を書いています。">
 <link rel="canonical" href="https://setup-inc.com/column/">
+<link rel="next" href="https://setup-inc.com/column/page/2/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SET UP">
 <meta property="og:title" content="コラム｜SET UP">
@@ -112,6 +113,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .to-top:hover{background:var(--navy-lift);}
   .to-top svg{width:20px; height:20px;}
   @media (prefers-reduced-motion:reduce){.to-top{transition:none;}}
+  /* pager: 一覧のページ送り(_tools/build_column_list.py が入れる) */
+  .pager{display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:8px; margin:40px 0 0;}
+  .pager[hidden]{display:none;}
+  .pager a, .pager span{display:inline-flex; align-items:center; justify-content:center; min-width:44px; height:44px; padding:0 14px; border:1px solid var(--rule); border-radius:2px; font-family:var(--mono); font-size:13px; letter-spacing:.04em; color:var(--navy); text-decoration:none; background:#fff; transition:.15s ease;}
+  .pager a:hover{border-color:var(--gold); color:var(--gold-deep);}
+  .pager [aria-current="page"]{background:var(--navy); border-color:var(--navy); color:#fff;}
+  .pager .pg-off{color:var(--rule); border-color:var(--rule);}
+  .pager .pg-step{font-family:var(--sans); letter-spacing:.06em;}
+  @media (max-width:420px){ .pager a, .pager span{min-width:40px; padding:0 10px;} }
 </style>
 </head>
 <body>
@@ -285,6 +295,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </a>
           </li>
+        </ul>
+        <!-- pager:start(_tools/build_column_list.py が書く) -->
+        <nav class="pager" id="pager" aria-label="ページ送り">
+          <span class="pg-step pg-off" aria-hidden="true">← 前へ</span>
+          <span aria-current="page">1</span>
+          <a href="page/2/" aria-label="2ページ目">2</a>
+          <a class="pg-step" href="page/2/" rel="next">次へ →</a>
+        </nav>
+        <!-- pager:end -->
+        <!-- other-items:start(_tools/build_column_list.py が書く) -->
+        <template id="other-items">
           <li>
             <a href="0006/">
               <span class="thumb"><img src="0006/ogp.png" width="1200" height="630" alt="" loading="lazy" decoding="async"></span>
@@ -367,7 +388,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </a>
           </li>
-        </ul>
+        </template>
+        <!-- other-items:end -->
       </div>
 
       <aside class="col-side">
@@ -435,10 +457,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
 // カテゴリの絞り込み。記事の .cat(「PR」を除く)からボタンを作る。?cat=カテゴリ名 で開くとその状態で表示する。
+// 一覧は10本ずつのページに分かれている(_tools/build_column_list.py)。ほかのページの記事は #other-items に入っていて、
+// 絞り込み中は全ページの記事から表示し、ページ送りを隠す。「すべて」ではこのページの記事とページ送りに戻す。
 (function(){
   var box = document.getElementById('cat-filter');
-  var items = Array.prototype.slice.call(document.querySelectorAll('.list > li'));
-  if (!box || !items.length) return;
+  var list = document.querySelector('.list');
+  var pager = document.getElementById('pager');
+  var tpl = document.getElementById('other-items');
+  if (!box || !list) return;
+  var slice = function(x){ return Array.prototype.slice.call(x); };
+  var pageItems = slice(list.children);
+  var others = tpl && tpl.content ? slice(tpl.content.children).map(function(li){ return document.importNode(li, true); }) : [];
+  function num(li){ var a = li.querySelector('a'), m = a && a.getAttribute('href').match(/(\d+)\/?$/); return m ? +m[1] : 0; }
+  var items = pageItems.concat(others).sort(function(a, b){ return num(b) - num(a); });
+  if (!items.length) return;
   var ALL = 'すべて', order = [], count = {};
   items.forEach(function(li){
     var cats = Array.prototype.map.call(li.querySelectorAll('.meta .cat'), function(c){ return c.textContent.trim(); })
@@ -457,7 +489,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   order.forEach(function(c){ btn(c, count[c]); });
   function apply(cat, push){
     if (cat !== ALL && !count[cat]) cat = ALL;
-    items.forEach(function(li){ li.hidden = cat !== ALL && li.dataset.cats.split('|').indexOf(cat) < 0; });
+    var show = cat === ALL ? pageItems : items.filter(function(li){ return li.dataset.cats.split('|').indexOf(cat) >= 0; });
+    list.textContent = '';
+    show.forEach(function(li){ li.hidden = false; list.appendChild(li); });
+    if (pager) pager.hidden = cat !== ALL;
     Array.prototype.forEach.call(box.querySelectorAll('button'), function(b){ b.setAttribute('aria-pressed', b.dataset.cat === cat ? 'true' : 'false'); });
     if (push) {
       var url = cat === ALL ? location.pathname : location.pathname + '?cat=' + encodeURIComponent(cat);
