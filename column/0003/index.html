@@ -146,6 +146,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .to-top:hover{background:var(--navy-lift);}
   .to-top svg{width:20px; height:20px;}
   @media (prefers-reduced-motion:reduce){.to-top{transition:none;}}
+  /* tbl-card: スマホでは文章の多い表を1行ずつのカードにする */
+  @media (max-width:560px){
+    .tbl.tbl-card{background:none;overflow:visible;}
+    .tbl.tbl-card table{min-width:0 !important;width:100%;}
+    .tbl.tbl-card thead{display:none;}
+    .tbl.tbl-card tbody tr{display:block;border:1px solid var(--rule);border-top:2px solid var(--navy);margin:0 0 12px;}
+    .tbl.tbl-card tbody th{display:block;width:auto !important;white-space:normal;border:none;border-bottom:1px solid var(--rule);background:var(--paper);padding:10px 14px;}
+    .tbl.tbl-card tbody td{display:block;border:none;padding:8px 14px 10px;text-align:left !important;white-space:normal !important;}
+    .tbl.tbl-card tbody td[data-label]:not([data-label=""])::before{content:attr(data-label);display:block;font-size:12px;font-weight:500;color:var(--navy);margin-bottom:2px;}
+    .tbl.tbl-card caption{padding-top:2px;}
+  }
 </style>
 <script type="application/ld+json" id="ld-article">[{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "AIO診断を受ける前に知っておきたいこと。Google公式は「特別な最適化は不要」と言っている", "description": "AIO診断(AI検索対策の診断)を受ける前に、Google公式が説明している内容と、自分で確認できる6つの基本を整理しました。そのうえで、無料のAIO診断サービスの内容も、公式情報をもとに紹介します。", "image": ["https://setup-inc.com/column/0003/ogp.png"], "datePublished": "2026-11-19T09:00:00+09:00", "dateModified": "2026-11-19T09:00:00+09:00", "author": {"@type": "Person", "name": "SET UP 代表", "url": "https://setup-inc.com/column/about/"}, "publisher": {"@type": "Organization", "name": "SET UP", "url": "https://setup-inc.com/", "logo": {"@type": "ImageObject", "url": "https://setup-inc.com/apple-touch-icon.png"}}, "mainEntityOfPage": "https://setup-inc.com/column/0003/", "inLanguage": "ja"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://setup-inc.com/"}, {"@type": "ListItem", "position": 2, "name": "コラム", "item": "https://setup-inc.com/column/"}, {"@type": "ListItem", "position": 3, "name": "AIO診断を受ける前に知っておきたいこと。Google公式は「特別な最適化は不要」と言っている"}]}]</script>
 </head>
@@ -218,17 +229,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2 id="s3">Google公式が言っていること</h2>
       <p>Googleの検索セントラルには、サイト所有者向けに「AI 機能とウェブサイト」というページがあります(最終更新2025年12月31日、2026年11月19日に確認)。ポイントは次のとおりです。</p>
 
-      <div class="tbl">
+      <div class="tbl tbl-card">
         <table>
           <thead>
             <tr><th>論点</th><th>公式の説明(要旨)</th></tr>
           </thead>
           <tbody>
-            <tr><th>特別な最適化</th><td>AI による概要やAIモードにコンテンツが表示されるための追加の要件はなく、別途特別な最適化を行う必要もない。SEOのベストプラクティスは引き続き有効。</td></tr>
-            <tr><th>技術要件</th><td>ページがインデックスに登録され、Google検索でスニペットが表示され、検索の技術的要件を満たしていること。これ以外の追加の技術要件はない。</td></tr>
-            <tr><th>専用のファイルや構造化データ</th><td>AI機能で表示されるために、AI向けのテキストファイルやマークアップを新たに作る必要はない。特別なschema.orgの構造化データを追加する必要もない。</td></tr>
-            <tr><th>表示の保証</th><td>要件とベストプラクティスを満たしていても、クロール・インデックス登録・配信は保証されない。</td></tr>
-            <tr><th>計測</th><td>AI機能に表示されたサイトも、Search Consoleの検索トラフィック(検索タイプ「ウェブ」)に含まれる。</td></tr>
+            <tr><th>特別な最適化</th><td data-label="公式の説明(要旨)">AI による概要やAIモードにコンテンツが表示されるための追加の要件はなく、別途特別な最適化を行う必要もない。SEOのベストプラクティスは引き続き有効。</td></tr>
+            <tr><th>技術要件</th><td data-label="公式の説明(要旨)">ページがインデックスに登録され、Google検索でスニペットが表示され、検索の技術的要件を満たしていること。これ以外の追加の技術要件はない。</td></tr>
+            <tr><th>専用のファイルや構造化データ</th><td data-label="公式の説明(要旨)">AI機能で表示されるために、AI向けのテキストファイルやマークアップを新たに作る必要はない。特別なschema.orgの構造化データを追加する必要もない。</td></tr>
+            <tr><th>表示の保証</th><td data-label="公式の説明(要旨)">要件とベストプラクティスを満たしていても、クロール・インデックス登録・配信は保証されない。</td></tr>
+            <tr><th>計測</th><td data-label="公式の説明(要旨)">AI機能に表示されたサイトも、Search Consoleの検索トラフィック(検索タイプ「ウェブ」)に含まれる。</td></tr>
           </tbody>
           <caption>出典:Google 検索セントラル「AI 機能とウェブサイト」(2026年11月19日確認)。</caption>
         </table>

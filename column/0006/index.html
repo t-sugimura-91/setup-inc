@@ -146,6 +146,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .to-top:hover{background:var(--navy-lift);}
   .to-top svg{width:20px; height:20px;}
   @media (prefers-reduced-motion:reduce){.to-top{transition:none;}}
+  /* tbl-card: スマホでは文章の多い表を1行ずつのカードにする */
+  @media (max-width:560px){
+    .tbl.tbl-card{background:none;overflow:visible;}
+    .tbl.tbl-card table{min-width:0 !important;width:100%;}
+    .tbl.tbl-card thead{display:none;}
+    .tbl.tbl-card tbody tr{display:block;border:1px solid var(--rule);border-top:2px solid var(--navy);margin:0 0 12px;}
+    .tbl.tbl-card tbody th{display:block;width:auto !important;white-space:normal;border:none;border-bottom:1px solid var(--rule);background:var(--paper);padding:10px 14px;}
+    .tbl.tbl-card tbody td{display:block;border:none;padding:8px 14px 10px;text-align:left !important;white-space:normal !important;}
+    .tbl.tbl-card tbody td[data-label]:not([data-label=""])::before{content:attr(data-label);display:block;font-size:12px;font-weight:500;color:var(--navy);margin-bottom:2px;}
+    .tbl.tbl-card caption{padding-top:2px;}
+  }
 </style>
 <script type="application/ld+json" id="ld-article">[{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "ペライチの料金プランを比較。広告のLPに使うときに確認したい条件", "description": "ペライチの4つの料金プランと機能の違い、1ヶ月の無料お試しの制限、計測タグの設置条件を、公式サイトとヘルプの情報で整理しました。", "image": ["https://setup-inc.com/column/0006/ogp.png"], "datePublished": "2026-11-19T09:00:00+09:00", "dateModified": "2026-11-19T09:00:00+09:00", "author": {"@type": "Person", "name": "SET UP 代表", "url": "https://setup-inc.com/column/about/"}, "publisher": {"@type": "Organization", "name": "SET UP", "url": "https://setup-inc.com/", "logo": {"@type": "ImageObject", "url": "https://setup-inc.com/apple-touch-icon.png"}}, "mainEntityOfPage": "https://setup-inc.com/column/0006/", "inLanguage": "ja"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://setup-inc.com/"}, {"@type": "ListItem", "position": 2, "name": "コラム", "item": "https://setup-inc.com/column/"}, {"@type": "ListItem", "position": 3, "name": "ペライチの料金プランを比較。広告のLPに使うときに確認したい条件"}]}]</script>
 </head>
@@ -349,17 +360,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <h2 id="s6b">使い方別:どのプランを選ぶか</h2>
       <p>公式サイトの情報から、使い方別に、どこを見て決めるかを整理します。</p>
-      <div class="tbl">
+      <div class="tbl tbl-card">
         <table>
           <thead>
             <tr><th>使い方</th><th>見るところ</th><th>候補になるプラン</th></tr>
           </thead>
           <tbody>
-            <tr><th>名刺代わりの小さなサイト</th><td>公開ページ数(3ページ)、独自ドメイン、広告非表示(全プランで可)</td><td>ライト(月1,628円)</td></tr>
-            <tr><th>広告のLPを1〜数ページ作る(計測あり)</th><td>タグ埋め込み(ヘルプではレギュラー以上と案内)、アクセス解析</td><td>レギュラー(月3,278円)以上</td></tr>
-            <tr><th>LPを複数作って、パスワード保護やCMSも使う</th><td>20ページ、パスワード保護、CMS(ブログ)</td><td>ビジネス(月4,378円)以上</td></tr>
-            <tr><th>商品を直接売る(決済)</th><td>決済手数料(4.5%〜。ライトのみ6.0%〜)</td><td>レギュラー以上</td></tr>
-            <tr><th>予約の事前決済を使う</th><td>事前決済の手数料(ビジネス6.0%〜、プロ4.5%〜)</td><td>ビジネスまたはプロ</td></tr>
+            <tr><th>名刺代わりの小さなサイト</th><td data-label="見るところ">公開ページ数(3ページ)、独自ドメイン、広告非表示(全プランで可)</td><td data-label="候補になるプラン">ライト(月1,628円)</td></tr>
+            <tr><th>広告のLPを1〜数ページ作る(計測あり)</th><td data-label="見るところ">タグ埋め込み(ヘルプではレギュラー以上と案内)、アクセス解析</td><td data-label="候補になるプラン">レギュラー(月3,278円)以上</td></tr>
+            <tr><th>LPを複数作って、パスワード保護やCMSも使う</th><td data-label="見るところ">20ページ、パスワード保護、CMS(ブログ)</td><td data-label="候補になるプラン">ビジネス(月4,378円)以上</td></tr>
+            <tr><th>商品を直接売る(決済)</th><td data-label="見るところ">決済手数料(4.5%〜。ライトのみ6.0%〜)</td><td data-label="候補になるプラン">レギュラー以上</td></tr>
+            <tr><th>予約の事前決済を使う</th><td data-label="見るところ">事前決済の手数料(ビジネス6.0%〜、プロ4.5%〜)</td><td data-label="候補になるプラン">ビジネスまたはプロ</td></tr>
           </tbody>
           <caption>出典:ペライチ公式サイト「料金・プラン一覧」と、ペライチヘルプ(2026年11月19日確認)。</caption>
         </table>

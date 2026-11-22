@@ -142,6 +142,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .to-top:hover{background:var(--navy-lift);}
   .to-top svg{width:20px; height:20px;}
   @media (prefers-reduced-motion:reduce){.to-top{transition:none;}}
+  /* tbl-card: スマホでは文章の多い表を1行ずつのカードにする */
+  @media (max-width:560px){
+    .tbl.tbl-card{background:none;overflow:visible;}
+    .tbl.tbl-card table{min-width:0 !important;width:100%;}
+    .tbl.tbl-card thead{display:none;}
+    .tbl.tbl-card tbody tr{display:block;border:1px solid var(--rule);border-top:2px solid var(--navy);margin:0 0 12px;}
+    .tbl.tbl-card tbody th{display:block;width:auto !important;white-space:normal;border:none;border-bottom:1px solid var(--rule);background:var(--paper);padding:10px 14px;}
+    .tbl.tbl-card tbody td{display:block;border:none;padding:8px 14px 10px;text-align:left !important;white-space:normal !important;}
+    .tbl.tbl-card tbody td[data-label]:not([data-label=""])::before{content:attr(data-label);display:block;font-size:12px;font-weight:500;color:var(--navy);margin-bottom:2px;}
+    .tbl.tbl-card caption{padding-top:2px;}
+  }
 </style>
 <script type="application/ld+json" id="ld-article">[{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "個人事業主の特定商取引法の表記に、バーチャルオフィスの住所は使える?消費者庁が示す3つの条件", "description": "個人事業主がネットで販売するとき、特定商取引法の表記に自宅住所を出さずに済むか。消費者庁のQ&amp;Aが示す、バーチャルオフィスの住所を使うための3つの条件、屋号だけ・私書箱が認められない理由、返品の受け取りなど契約前に確認することをまとめました。", "image": ["https://setup-inc.com/column/0011/ogp.png"], "datePublished": "2026-11-20T09:00:00+09:00", "dateModified": "2026-11-20T09:00:00+09:00", "author": {"@type": "Person", "name": "SET UP 代表", "url": "https://setup-inc.com/column/about/"}, "publisher": {"@type": "Organization", "name": "SET UP", "url": "https://setup-inc.com/", "logo": {"@type": "ImageObject", "url": "https://setup-inc.com/apple-touch-icon.png"}}, "mainEntityOfPage": "https://setup-inc.com/column/0011/", "inLanguage": "ja"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://setup-inc.com/"}, {"@type": "ListItem", "position": 2, "name": "コラム", "item": "https://setup-inc.com/column/"}, {"@type": "ListItem", "position": 3, "name": "個人事業主の特定商取引法の表記に、バーチャルオフィスの住所は使える?消費者庁が示す3つの条件"}]}]</script>
 </head>
@@ -236,15 +247,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <h2 id="s4">自宅住所を出さない3つの方法</h2>
       <p>消費者庁のQ&amp;Aから読み取れる、自宅の住所をページに出さずに済ませる方法は、次の3つです。</p>
-      <div class="tbl">
+      <div class="tbl tbl-card">
         <table>
           <thead>
             <tr><th>方法</th><th>ページに自宅は出るか</th><th>費用</th><th>注意点</th></tr>
           </thead>
           <tbody>
-            <tr><th>A. 表示を省略し、請求があれば提供する</th><td>出ない</td><td>なし</td><td>請求した人には、遅滞なく提供する必要がある。省略する旨と提供する旨の表示、すぐに提供できる体制が条件(Q17)</td></tr>
-            <tr><th>B. ネットショップ作成サービス(プラットフォーム)の住所・電話番号を表示</th><td>出ない</td><td>サービスによる</td><td>そのサービス上で販売している場合に限られる。対応の有無と条件は各サービスで確認(Q18)</td></tr>
-            <tr><th>C. バーチャルオフィスの住所・電話番号を表示</th><td>出ない</td><td>月額の利用料</td><td>自分のサイトやLPでも使える。運営会社との合意など3つの条件がある(Q18)</td></tr>
+            <tr><th>A. 表示を省略し、請求があれば提供する</th><td data-label="ページに自宅は出るか">出ない</td><td data-label="費用">なし</td><td data-label="注意点">請求した人には、遅滞なく提供する必要がある。省略する旨と提供する旨の表示、すぐに提供できる体制が条件(Q17)</td></tr>
+            <tr><th>B. ネットショップ作成サービス(プラットフォーム)の住所・電話番号を表示</th><td data-label="ページに自宅は出るか">出ない</td><td data-label="費用">サービスによる</td><td data-label="注意点">そのサービス上で販売している場合に限られる。対応の有無と条件は各サービスで確認(Q18)</td></tr>
+            <tr><th>C. バーチャルオフィスの住所・電話番号を表示</th><td data-label="ページに自宅は出るか">出ない</td><td data-label="費用">月額の利用料</td><td data-label="注意点">自分のサイトやLPでも使える。運営会社との合意など3つの条件がある(Q18)</td></tr>
           </tbody>
           <caption>出典:消費者庁「特定商取引法ガイド」通信販売広告Q&amp;A(Q17・Q18、2026年11月20日確認)をもとに運営者が整理。</caption>
         </table>
@@ -258,15 +269,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <h2 id="s5">バーチャルオフィスの住所を使うための3つの条件</h2>
       <p>消費者庁のQ&amp;A(Q18)は、特商法で表示する住所と電話番号は、トラブルが起きたときや問い合わせへの対応に備えるためのものだと説明したうえで、次の措置が講じられている場合には、バーチャルオフィスの住所と電話番号を表示しても特商法の要請を満たすと考えられる、としています。</p>
-      <div class="tbl">
+      <div class="tbl tbl-card">
         <table>
           <thead>
             <tr><th>消費者庁が示す条件(要旨)</th><th>契約前に確認すること</th></tr>
           </thead>
           <tbody>
-            <tr><th>1. 連絡先としての合意</th><td>バーチャルオフィスの住所と電話番号が、取引の連絡先として機能することについて、運営会社と合意している → <strong>特商法の表記への利用が、規約やプランで認められているか</strong></td></tr>
-            <tr><th>2. 運営会社が本人を把握</th><td>運営会社が、利用者の現住所と本人名義の電話番号を把握し、確実に連絡が取れる → <strong>契約時に本人確認があるか、連絡先を登録するか</strong></td></tr>
-            <tr><th>3. 実際に連絡が取れる</th><td>利用者・運営会社のどちらかが不誠実で、消費者から連絡が取れない事態になれば、表示義務を果たしたことにならない → <strong>郵便物の通知や転送、返品の受け取りに、きちんと対応できるか</strong></td></tr>
+            <tr><th>1. 連絡先としての合意</th><td data-label="契約前に確認すること">バーチャルオフィスの住所と電話番号が、取引の連絡先として機能することについて、運営会社と合意している → <strong>特商法の表記への利用が、規約やプランで認められているか</strong></td></tr>
+            <tr><th>2. 運営会社が本人を把握</th><td data-label="契約前に確認すること">運営会社が、利用者の現住所と本人名義の電話番号を把握し、確実に連絡が取れる → <strong>契約時に本人確認があるか、連絡先を登録するか</strong></td></tr>
+            <tr><th>3. 実際に連絡が取れる</th><td data-label="契約前に確認すること">利用者・運営会社のどちらかが不誠実で、消費者から連絡が取れない事態になれば、表示義務を果たしたことにならない → <strong>郵便物の通知や転送、返品の受け取りに、きちんと対応できるか</strong></td></tr>
           </tbody>
           <caption>出典:消費者庁「特定商取引法ガイド」通信販売広告Q&amp;A Q18(2026年11月20日確認)。右列は、運営者が契約前の確認事項に言い換えたもの。</caption>
         </table>
@@ -285,17 +296,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <h2 id="s7">特商法の表記に使える主なバーチャルオフィス</h2>
       <p>特商法の表記への利用について、公式サイトに記載があるバーチャルオフィスを5つ挙げます。料金はいずれも税込で、2026年11月20日に各社の公式サイトで確認したものです。</p>
-      <div class="tbl">
+      <div class="tbl tbl-card">
         <table>
           <thead>
             <tr><th>サービス</th><th>特商法の表記</th><th>住所利用の主なプラン</th><th>返品の受け取り</th></tr>
           </thead>
           <tbody>
-            <tr><th>レゾナンス</th><td>利用可と記載</td><td>月1回転送 990円/月(年間契約のみ)、週1回転送 1,650円/月(年間契約)。入会金5,500円、デポジット1,000円〜</td><td>追跡つき郵便・宅配の受け取りは1件300円(デポジットから)</td></tr>
-            <tr><th>バーチャルオフィス1</th><td>利用可と記載</td><td>880円/月(年払い10,560円)。月4回の郵便転送を含む。入会金5,500円(初年度のみ)</td><td>公式サイトで確認</td></tr>
-            <tr><th>DMMバーチャルオフィス</th><td>ミニマムプランは特商法表記・送り状は可、HP・名刺は不可</td><td>ミニマム 660円/月(年間契約のみ)。入会金5,500円</td><td>ミニマムは返品・返送品と税金関連書類のみ受け取り可</td></tr>
-            <tr><th>GMOバーチャルオフィス</th><td>「ネットショップでの表記など、住所のみ必要な方」向けのプランあり</td><td>転送なし 660円/月(2027年1月20日から990円に改定予定)</td><td class="ng">転送なしは受け取り不可</td></tr>
-            <tr><th>NAWABARI</th><td>利用可と記載</td><td>月額1,100円〜</td><td>公式サイトで確認</td></tr>
+            <tr><th>レゾナンス</th><td data-label="特商法の表記">利用可と記載</td><td data-label="住所利用の主なプラン">月1回転送 990円/月(年間契約のみ)、週1回転送 1,650円/月(年間契約)。入会金5,500円、デポジット1,000円〜</td><td data-label="返品の受け取り">追跡つき郵便・宅配の受け取りは1件300円(デポジットから)</td></tr>
+            <tr><th>バーチャルオフィス1</th><td data-label="特商法の表記">利用可と記載</td><td data-label="住所利用の主なプラン">880円/月(年払い10,560円)。月4回の郵便転送を含む。入会金5,500円(初年度のみ)</td><td data-label="返品の受け取り">公式サイトで確認</td></tr>
+            <tr><th>DMMバーチャルオフィス</th><td data-label="特商法の表記">ミニマムプランは特商法表記・送り状は可、HP・名刺は不可</td><td data-label="住所利用の主なプラン">ミニマム 660円/月(年間契約のみ)。入会金5,500円</td><td data-label="返品の受け取り">ミニマムは返品・返送品と税金関連書類のみ受け取り可</td></tr>
+            <tr><th>GMOバーチャルオフィス</th><td data-label="特商法の表記">「ネットショップでの表記など、住所のみ必要な方」向けのプランあり</td><td data-label="住所利用の主なプラン">転送なし 660円/月(2027年1月20日から990円に改定予定)</td><td class="ng" data-label="返品の受け取り">転送なしは受け取り不可</td></tr>
+            <tr><th>NAWABARI</th><td data-label="特商法の表記">利用可と記載</td><td data-label="住所利用の主なプラン">月額1,100円〜</td><td data-label="返品の受け取り">公式サイトで確認</td></tr>
           </tbody>
           <caption>出典:各社公式サイト(2026年11月20日確認)。郵便の転送料などは別にかかります。料金・条件は変わることがあるため、契約前に公式サイトで確認してください。</caption>
         </table>

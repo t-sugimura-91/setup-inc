@@ -154,6 +154,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .to-top:hover{background:var(--navy-lift);}
   .to-top svg{width:20px; height:20px;}
   @media (prefers-reduced-motion:reduce){.to-top{transition:none;}}
+  /* tbl-card: スマホでは文章の多い表を1行ずつのカードにする */
+  @media (max-width:560px){
+    .tbl.tbl-card{background:none;overflow:visible;}
+    .tbl.tbl-card table{min-width:0 !important;width:100%;}
+    .tbl.tbl-card thead{display:none;}
+    .tbl.tbl-card tbody tr{display:block;border:1px solid var(--rule);border-top:2px solid var(--navy);margin:0 0 12px;}
+    .tbl.tbl-card tbody th{display:block;width:auto !important;white-space:normal;border:none;border-bottom:1px solid var(--rule);background:var(--paper);padding:10px 14px;}
+    .tbl.tbl-card tbody td{display:block;border:none;padding:8px 14px 10px;text-align:left !important;white-space:normal !important;}
+    .tbl.tbl-card tbody td[data-label]:not([data-label=""])::before{content:attr(data-label);display:block;font-size:12px;font-weight:500;color:var(--navy);margin-bottom:2px;}
+    .tbl.tbl-card caption{padding-top:2px;}
+  }
 </style>
 <script type="application/ld+json" id="ld-article">[{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "ホームページのサブスク比較。解約したら「サイトとドメイン」は残るのか、6サービスの規約で確認", "description": "月額制(サブスク)のホームページ制作6サービスを、料金・最低契約期間・3年間の総額と、解約したときにサイト・ドメイン・データが残るかで比べました。各社の公式ページと利用規約を2026年11月20日に確認しています。", "image": ["https://setup-inc.com/column/0013/ogp.png"], "datePublished": "2026-11-20T09:00:00+09:00", "dateModified": "2026-11-20T09:00:00+09:00", "author": {"@type": "Person", "name": "SET UP 代表", "url": "https://setup-inc.com/column/about/"}, "publisher": {"@type": "Organization", "name": "SET UP", "url": "https://setup-inc.com/", "logo": {"@type": "ImageObject", "url": "https://setup-inc.com/apple-touch-icon.png"}}, "mainEntityOfPage": "https://setup-inc.com/column/0013/", "inLanguage": "ja"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://setup-inc.com/"}, {"@type": "ListItem", "position": 2, "name": "コラム", "item": "https://setup-inc.com/column/"}, {"@type": "ListItem", "position": 3, "name": "ホームページのサブスク比較。解約したら「サイトとドメイン」は残るのか、6サービスの規約で確認"}]}]</script>
 </head>
@@ -240,18 +251,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <h2 id="s3">6サービスの料金と最低契約期間(2026年11月20日確認)</h2>
       <p>比べたのは、上位の比較記事でよく取り上げられているサービスと、A8.netで紹介できるサービスの計6つです。料金はいちばん安いプランの税込みの金額です。</p>
-      <div class="tbl w">
+      <div class="tbl w tbl-card">
         <table>
           <thead>
             <tr><th>サービス</th><th>月額(税込)</th><th>初期費用</th><th>最低契約期間</th><th>解約の申告</th></tr>
           </thead>
           <tbody>
-            <tr><th>ホームページドットコム</th><td>公式に掲載なし(見積もり)</td><td>0円から(公式の表記)</td><td>公式に記載なし</td><td>公式に記載なし</td></tr>
-            <tr><th>サクペジ</th><td>11,000円(ライト。制作費0円+保守)</td><td>0円</td><td>12か月</td><td>公式に記載なし</td></tr>
-            <tr><th>ロリポップ!定額ホームページ制作</th><td>10,063円(ベーシック・年払いの月あたり)</td><td>年払い0円/月払い5,500円</td><td>なし</td><td>申告の1か月後に解約</td></tr>
-            <tr><th>ロリポップ!AIホームページ</th><td>660円(36か月一括)〜1,540円(1か月)</td><td>0円</td><td>選んだ期間(1〜36か月)</td><td>期間の途中は解約できない</td></tr>
-            <tr><th>ビズサイ</th><td>5,478円(シンプル)</td><td>0円</td><td>なし</td><td>30日前まで</td></tr>
-            <tr><th>ZIUS</th><td>3,630円(基本1,100円+スターターパック2,530円)</td><td>33,000円</td><td>1・6・12か月から選ぶ(自動更新)</td><td>2か月前まで</td></tr>
+            <tr><th>ホームページドットコム</th><td data-label="月額(税込)">公式に掲載なし(見積もり)</td><td data-label="初期費用">0円から(公式の表記)</td><td data-label="最低契約期間">公式に記載なし</td><td data-label="解約の申告">公式に記載なし</td></tr>
+            <tr><th>サクペジ</th><td data-label="月額(税込)">11,000円(ライト。制作費0円+保守)</td><td data-label="初期費用">0円</td><td data-label="最低契約期間">12か月</td><td data-label="解約の申告">公式に記載なし</td></tr>
+            <tr><th>ロリポップ!定額ホームページ制作</th><td data-label="月額(税込)">10,063円(ベーシック・年払いの月あたり)</td><td data-label="初期費用">年払い0円/月払い5,500円</td><td data-label="最低契約期間">なし</td><td data-label="解約の申告">申告の1か月後に解約</td></tr>
+            <tr><th>ロリポップ!AIホームページ</th><td data-label="月額(税込)">660円(36か月一括)〜1,540円(1か月)</td><td data-label="初期費用">0円</td><td data-label="最低契約期間">選んだ期間(1〜36か月)</td><td data-label="解約の申告">期間の途中は解約できない</td></tr>
+            <tr><th>ビズサイ</th><td data-label="月額(税込)">5,478円(シンプル)</td><td data-label="初期費用">0円</td><td data-label="最低契約期間">なし</td><td data-label="解約の申告">30日前まで</td></tr>
+            <tr><th>ZIUS</th><td data-label="月額(税込)">3,630円(基本1,100円+スターターパック2,530円)</td><td data-label="初期費用">33,000円</td><td data-label="最低契約期間">1・6・12か月から選ぶ(自動更新)</td><td data-label="解約の申告">2か月前まで</td></tr>
           </tbody>
           <caption>各社の公式ページをもとに運営者が作成(2026年11月20日確認)。オプション料金は含みません。最新の料金は各社の公式サイトで確認してください。</caption>
         </table>
@@ -355,18 +366,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <h2 id="s5">解約したらどうなるか。サイト・ドメイン・データの扱い</h2>
       <p>ここがこの記事の本題です。各社の公式FAQと利用規約から、解約したときの扱いを抜き出しました。「公式に記載なし」は、公式サイトで探したが見つからなかったという意味で、できないという意味ではありません。</p>
-      <div class="tbl w">
+      <div class="tbl w tbl-card">
         <table>
           <thead>
             <tr><th>サービス</th><th>解約後のサイト</th><th>サイトのデータ</th><th>ドメイン</th><th>素材(写真・文章)</th></tr>
           </thead>
           <tbody>
-            <tr><th>ホームページドットコム</th><td>公式に記載なし</td><td>公式に記載なし</td><td>公式に記載なし</td><td>公式に記載なし</td></tr>
-            <tr><th>サクペジ</th><td>公式に記載なし</td><td>公式に記載なし</td><td>13か月目以降に有償で移行できる</td><td>公式に記載なし</td></tr>
-            <tr><th>ロリポップ!定額</th><td>削除される</td><td>渡せない(権利はROS株式会社)</td><td>利用管理権限はROS株式会社</td><td>提供した写真・自分で書いたブログ文は返却される</td></tr>
-            <tr><th>ロリポップ!AIホームページ</th><td>公式に記載なし</td><td>持ち出し方法の記載は見当たらない</td><td>ムームードメインの別契約として残る(更新料は自己負担)</td><td>AIが作ったコンテンツの著作権は利用者に帰属</td></tr>
-            <tr><th>ビズサイ</th><td>公開停止</td><td>公式に記載なし</td><td>希望すれば譲渡できる(手数料あり)</td><td>希望すれば譲渡できる(手数料あり)</td></tr>
-            <tr><th>ZIUS</th><td>移管は禁止</td><td>持ち出しは禁止</td><td>公式に記載なし</td><td>公式に記載なし</td></tr>
+            <tr><th>ホームページドットコム</th><td data-label="解約後のサイト">公式に記載なし</td><td data-label="サイトのデータ">公式に記載なし</td><td data-label="ドメイン">公式に記載なし</td><td data-label="素材(写真・文章)">公式に記載なし</td></tr>
+            <tr><th>サクペジ</th><td data-label="解約後のサイト">公式に記載なし</td><td data-label="サイトのデータ">公式に記載なし</td><td data-label="ドメイン">13か月目以降に有償で移行できる</td><td data-label="素材(写真・文章)">公式に記載なし</td></tr>
+            <tr><th>ロリポップ!定額</th><td data-label="解約後のサイト">削除される</td><td data-label="サイトのデータ">渡せない(権利はROS株式会社)</td><td data-label="ドメイン">利用管理権限はROS株式会社</td><td data-label="素材(写真・文章)">提供した写真・自分で書いたブログ文は返却される</td></tr>
+            <tr><th>ロリポップ!AIホームページ</th><td data-label="解約後のサイト">公式に記載なし</td><td data-label="サイトのデータ">持ち出し方法の記載は見当たらない</td><td data-label="ドメイン">ムームードメインの別契約として残る(更新料は自己負担)</td><td data-label="素材(写真・文章)">AIが作ったコンテンツの著作権は利用者に帰属</td></tr>
+            <tr><th>ビズサイ</th><td data-label="解約後のサイト">公開停止</td><td data-label="サイトのデータ">公式に記載なし</td><td data-label="ドメイン">希望すれば譲渡できる(手数料あり)</td><td data-label="素材(写真・文章)">希望すれば譲渡できる(手数料あり)</td></tr>
+            <tr><th>ZIUS</th><td data-label="解約後のサイト">移管は禁止</td><td data-label="サイトのデータ">持ち出しは禁止</td><td data-label="ドメイン">公式に記載なし</td><td data-label="素材(写真・文章)">公式に記載なし</td></tr>
           </tbody>
           <caption>各社の公式FAQ・利用規約をもとに運営者が作成(2026年11月20日確認)。出典は記事の最後にまとめています。</caption>
         </table>

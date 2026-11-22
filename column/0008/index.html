@@ -146,6 +146,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .to-top:hover{background:var(--navy-lift);}
   .to-top svg{width:20px; height:20px;}
   @media (prefers-reduced-motion:reduce){.to-top{transition:none;}}
+  /* tbl-card: スマホでは文章の多い表を1行ずつのカードにする */
+  @media (max-width:560px){
+    .tbl.tbl-card{background:none;overflow:visible;}
+    .tbl.tbl-card table{min-width:0 !important;width:100%;}
+    .tbl.tbl-card thead{display:none;}
+    .tbl.tbl-card tbody tr{display:block;border:1px solid var(--rule);border-top:2px solid var(--navy);margin:0 0 12px;}
+    .tbl.tbl-card tbody th{display:block;width:auto !important;white-space:normal;border:none;border-bottom:1px solid var(--rule);background:var(--paper);padding:10px 14px;}
+    .tbl.tbl-card tbody td{display:block;border:none;padding:8px 14px 10px;text-align:left !important;white-space:normal !important;}
+    .tbl.tbl-card tbody td[data-label]:not([data-label=""])::before{content:attr(data-label);display:block;font-size:12px;font-weight:500;color:var(--navy);margin-bottom:2px;}
+    .tbl.tbl-card caption{padding-top:2px;}
+  }
 </style>
 <script type="application/ld+json" id="ld-article">[{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "広告代理店の選び方。運用者が見る4つのポイントと、Googleが代理店に求めているルール", "description": "広告代理店を選ぶときに、運用者が重視する4つのポイント(アカウントの開示、レスの早さ、成約やLTVまで見るか、施策の量とスピード)と、Googleのサードパーティ ポリシー、商談で聞くべき10の質問をまとめました。", "image": ["https://setup-inc.com/column/0008/ogp.png"], "datePublished": "2026-11-20T09:00:00+09:00", "dateModified": "2026-11-20T09:00:00+09:00", "author": {"@type": "Person", "name": "SET UP 代表", "url": "https://setup-inc.com/column/about/"}, "publisher": {"@type": "Organization", "name": "SET UP", "url": "https://setup-inc.com/", "logo": {"@type": "ImageObject", "url": "https://setup-inc.com/apple-touch-icon.png"}}, "mainEntityOfPage": "https://setup-inc.com/column/0008/", "inLanguage": "ja"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://setup-inc.com/"}, {"@type": "ListItem", "position": 2, "name": "コラム", "item": "https://setup-inc.com/column/"}, {"@type": "ListItem", "position": 3, "name": "広告代理店の選び方。運用者が見る4つのポイントと、Googleが代理店に求めているルール"}]}]</script>
 </head>
@@ -280,16 +291,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <h2 id="s4">Googleが代理店に求めているルール</h2>
       <p>Googleは、広告主の代わりに Google 広告を購入・管理する代理店などの第三者に向けて、「Google サードパーティ ポリシー」を定めています。広告主の側から見ると、「代理店にこれは求めてよい」という目安になります。主な内容は次のとおりです。</p>
-      <div class="tbl">
+      <div class="tbl tbl-card">
         <table>
           <thead>
             <tr><th>項目</th><th>公式ヘルプの内容(要旨)</th></tr>
           </thead>
           <tbody>
-            <tr><th>広告費と成果の報告</th><td>月別のレポートを提供する場合は、アカウントごとに費用・クリック数・表示回数を含める。広告費は Google からの請求額を正確に報告し、代理店の料金を含めない。広告主が自分でアカウントにログインして確認できるようにする方法もある。</td></tr>
-            <tr><th>管理費用</th><td>Google 広告の費用とは別に管理費用を請求する場合は、広告主に知らせる。新しい顧客には、最初の営業活動の前に少なくとも文面で伝え、明細書に記載する。</td></tr>
-            <tr><th>お客様ID</th><td>広告主が Google に直接連絡できるよう、求めがあれば Google 広告のお客様IDを広告主に提供する。</td></tr>
-            <tr><th>禁止されている行為</th><td>Googleとの提携を偽る、検索結果の最上位への掲載を保証する、常に広告が出ると主張する、無料の Google のサービスを有料と説明する、費用の算出方法について偽る、など。何度も勧誘の電話をかける、契約や更新を強く迫る、といった営業も禁止。</td></tr>
+            <tr><th>広告費と成果の報告</th><td data-label="公式ヘルプの内容(要旨)">月別のレポートを提供する場合は、アカウントごとに費用・クリック数・表示回数を含める。広告費は Google からの請求額を正確に報告し、代理店の料金を含めない。広告主が自分でアカウントにログインして確認できるようにする方法もある。</td></tr>
+            <tr><th>管理費用</th><td data-label="公式ヘルプの内容(要旨)">Google 広告の費用とは別に管理費用を請求する場合は、広告主に知らせる。新しい顧客には、最初の営業活動の前に少なくとも文面で伝え、明細書に記載する。</td></tr>
+            <tr><th>お客様ID</th><td data-label="公式ヘルプの内容(要旨)">広告主が Google に直接連絡できるよう、求めがあれば Google 広告のお客様IDを広告主に提供する。</td></tr>
+            <tr><th>禁止されている行為</th><td data-label="公式ヘルプの内容(要旨)">Googleとの提携を偽る、検索結果の最上位への掲載を保証する、常に広告が出ると主張する、無料の Google のサービスを有料と説明する、費用の算出方法について偽る、など。何度も勧誘の電話をかける、契約や更新を強く迫る、といった営業も禁止。</td></tr>
           </tbody>
           <caption>出典:Google 広告ポリシー ヘルプ「Google サードパーティ ポリシー」(2026年11月19日確認)。ヘルプには、ポリシーの適用は英語版の記述に沿って行われると書かれています。</caption>
         </table>
@@ -304,22 +315,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <h2 id="s5">商談で聞くべき10の質問</h2>
       <p>4つのポイントと、契約の条件を確かめるための質問です。答えの内容だけでなく、すぐに具体的に答えられるかも見ます。</p>
-      <div class="tbl">
+      <div class="tbl tbl-card">
         <table>
           <thead>
             <tr><th>質問</th><th>確かめたいこと</th><th>注意したい答え</th></tr>
           </thead>
           <tbody>
-            <tr><th>1. 管理画面を、こちらの権限で見られますか</th><td>アカウントの開示</td><td>「レポートでお伝えします」だけで、閲覧を認めない</td></tr>
-            <tr><th>2. 広告費は、手数料と分けて報告されますか</th><td>費用の透明性</td><td>広告費と手数料をまとめた金額しか出てこない</td></tr>
-            <tr><th>3. 広告アカウントは、誰の名義になりますか</th><td>解約時の引き継ぎ</td><td>代理店名義で、解約時の扱いが決まっていない</td></tr>
-            <tr><th>4. 普段の連絡手段と、返信の目安は</th><td>レスの早さ</td><td>窓口が営業担当だけで、運用担当とは話せない</td></tr>
-            <tr><th>5. 実際に運用するのは、どなたですか</th><td>担当と体制</td><td>提案した人と運用する人が別で、担当が決まっていない</td></tr>
-            <tr><th>6. 申し込みの後の成約や、LTVをどう扱いますか</th><td>管理画面の外の数字</td><td>獲得件数と獲得単価の話しか出てこない</td></tr>
-            <tr><th>7. 最初の3か月で、何をどれだけ試しますか</th><td>施策の量とスピード</td><td>「まずは様子を見て」で、具体的な項目が出ない</td></tr>
-            <tr><th>8. 手数料に含まれる作業と、別料金の作業は</th><td>費用の範囲</td><td>レポート作成・計測設定・初期設定が、あとから別料金になる</td></tr>
-            <tr><th>9. 最低手数料・初期費用・契約期間・解約の条件は</th><td>総額と縛り</td><td>長い契約期間と違約金があり、途中でやめにくい</td></tr>
-            <tr><th>10. 成果について、どう約束していますか</th><td>説明の誠実さ</td><td>成果や掲載順位を「保証」すると言う</td></tr>
+            <tr><th>1. 管理画面を、こちらの権限で見られますか</th><td data-label="確かめたいこと">アカウントの開示</td><td data-label="注意したい答え">「レポートでお伝えします」だけで、閲覧を認めない</td></tr>
+            <tr><th>2. 広告費は、手数料と分けて報告されますか</th><td data-label="確かめたいこと">費用の透明性</td><td data-label="注意したい答え">広告費と手数料をまとめた金額しか出てこない</td></tr>
+            <tr><th>3. 広告アカウントは、誰の名義になりますか</th><td data-label="確かめたいこと">解約時の引き継ぎ</td><td data-label="注意したい答え">代理店名義で、解約時の扱いが決まっていない</td></tr>
+            <tr><th>4. 普段の連絡手段と、返信の目安は</th><td data-label="確かめたいこと">レスの早さ</td><td data-label="注意したい答え">窓口が営業担当だけで、運用担当とは話せない</td></tr>
+            <tr><th>5. 実際に運用するのは、どなたですか</th><td data-label="確かめたいこと">担当と体制</td><td data-label="注意したい答え">提案した人と運用する人が別で、担当が決まっていない</td></tr>
+            <tr><th>6. 申し込みの後の成約や、LTVをどう扱いますか</th><td data-label="確かめたいこと">管理画面の外の数字</td><td data-label="注意したい答え">獲得件数と獲得単価の話しか出てこない</td></tr>
+            <tr><th>7. 最初の3か月で、何をどれだけ試しますか</th><td data-label="確かめたいこと">施策の量とスピード</td><td data-label="注意したい答え">「まずは様子を見て」で、具体的な項目が出ない</td></tr>
+            <tr><th>8. 手数料に含まれる作業と、別料金の作業は</th><td data-label="確かめたいこと">費用の範囲</td><td data-label="注意したい答え">レポート作成・計測設定・初期設定が、あとから別料金になる</td></tr>
+            <tr><th>9. 最低手数料・初期費用・契約期間・解約の条件は</th><td data-label="確かめたいこと">総額と縛り</td><td data-label="注意したい答え">長い契約期間と違約金があり、途中でやめにくい</td></tr>
+            <tr><th>10. 成果について、どう約束していますか</th><td data-label="確かめたいこと">説明の誠実さ</td><td data-label="注意したい答え">成果や掲載順位を「保証」すると言う</td></tr>
           </tbody>
           <caption>運営者による整理。質問1・2・10は、Google サードパーティ ポリシーの内容とも対応しています。</caption>
         </table>
@@ -328,17 +339,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2 id="s6">見積もりは「1年の総額」で比べる</h2>
       <p>手数料率だけを比べると、最低手数料や初期費用、契約期間の違いを見落とします。月の広告費を決めたら、1年でいくら払うことになるかを計算して比べます。</p>
       <p>次は、計算の仕方を示すための<strong>仮の条件</strong>です。実在の代理店の料金ではありません。</p>
-      <div class="tbl">
+      <div class="tbl tbl-card">
         <table>
           <thead>
             <tr><th></th><th>A社(仮)</th><th>B社(仮)</th></tr>
           </thead>
           <tbody>
-            <tr><th>手数料率</th><td>広告費の20%</td><td>広告費の15%</td></tr>
-            <tr><th>最低手数料</th><td>なし</td><td>月8万円</td></tr>
-            <tr><th>初期費用</th><td>5万円</td><td>0円</td></tr>
-            <tr><th>広告費 月40万円の1年の総額(手数料+初期費用)</th><td>101万円<br>(8万円×12か月+5万円)</td><td>96万円<br>(15%は6万円だが、最低手数料の8万円×12か月)</td></tr>
-            <tr><th>広告費 月100万円の1年の総額(手数料+初期費用)</th><td>245万円<br>(20万円×12か月+5万円)</td><td>180万円<br>(15万円×12か月)</td></tr>
+            <tr><th>手数料率</th><td data-label="A社(仮)">広告費の20%</td><td data-label="B社(仮)">広告費の15%</td></tr>
+            <tr><th>最低手数料</th><td data-label="A社(仮)">なし</td><td data-label="B社(仮)">月8万円</td></tr>
+            <tr><th>初期費用</th><td data-label="A社(仮)">5万円</td><td data-label="B社(仮)">0円</td></tr>
+            <tr><th>広告費 月40万円の1年の総額(手数料+初期費用)</th><td data-label="A社(仮)">101万円<br>(8万円×12か月+5万円)</td><td data-label="B社(仮)">96万円<br>(15%は6万円だが、最低手数料の8万円×12か月)</td></tr>
+            <tr><th>広告費 月100万円の1年の総額(手数料+初期費用)</th><td data-label="A社(仮)">245万円<br>(20万円×12か月+5万円)</td><td data-label="B社(仮)">180万円<br>(15万円×12か月)</td></tr>
           </tbody>
           <caption>運営者による計算例(税別、広告費そのものは含まない)。広告費が少ないと、手数料率が低くても最低手数料が効いて、差が小さくなります。</caption>
         </table>

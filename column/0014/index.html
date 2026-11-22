@@ -154,6 +154,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .to-top:hover{background:var(--navy-lift);}
   .to-top svg{width:20px; height:20px;}
   @media (prefers-reduced-motion:reduce){.to-top{transition:none;}}
+  /* tbl-card: スマホでは文章の多い表を1行ずつのカードにする */
+  @media (max-width:560px){
+    .tbl.tbl-card{background:none;overflow:visible;}
+    .tbl.tbl-card table{min-width:0 !important;width:100%;}
+    .tbl.tbl-card thead{display:none;}
+    .tbl.tbl-card tbody tr{display:block;border:1px solid var(--rule);border-top:2px solid var(--navy);margin:0 0 12px;}
+    .tbl.tbl-card tbody th{display:block;width:auto !important;white-space:normal;border:none;border-bottom:1px solid var(--rule);background:var(--paper);padding:10px 14px;}
+    .tbl.tbl-card tbody td{display:block;border:none;padding:8px 14px 10px;text-align:left !important;white-space:normal !important;}
+    .tbl.tbl-card tbody td[data-label]:not([data-label=""])::before{content:attr(data-label);display:block;font-size:12px;font-weight:500;color:var(--navy);margin-bottom:2px;}
+    .tbl.tbl-card caption{padding-top:2px;}
+  }
 </style>
 <script type="application/ld+json" id="ld-article">[{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "AIでホームページを作るデメリット。解約後のサイトとドメイン、自分で直せる範囲を3つのツールで確認", "description": "ロリポップ!AIホームページ・ジンドゥー AI ビルダー・ペライチの3つを、料金、自分で直せる範囲、計測タグを入れられるか、解約したときのサイトとドメインの扱いで比べました。公式ページと利用規約を2026年11月20日に確認しています。", "image": ["https://setup-inc.com/column/0014/ogp.png"], "datePublished": "2026-11-21T09:00:00+09:00", "dateModified": "2026-11-21T09:00:00+09:00", "author": {"@type": "Person", "name": "SET UP 代表", "url": "https://setup-inc.com/column/about/"}, "publisher": {"@type": "Organization", "name": "SET UP", "url": "https://setup-inc.com/", "logo": {"@type": "ImageObject", "url": "https://setup-inc.com/apple-touch-icon.png"}}, "mainEntityOfPage": "https://setup-inc.com/column/0014/", "inLanguage": "ja"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://setup-inc.com/"}, {"@type": "ListItem", "position": 2, "name": "コラム", "item": "https://setup-inc.com/column/"}, {"@type": "ListItem", "position": 3, "name": "AIでホームページを作るデメリット。解約後のサイトとドメイン、自分で直せる範囲を3つのツールで確認"}]}]</script>
 </head>
@@ -222,15 +233,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <h2 id="s2">AIのホームページ作成ツールでできること</h2>
       <p>AIのホームページ作成ツールは、業種や伝えたいことを入力すると、ページの構成・文章・画像のたたき台をまとめて作ってくれるサービスです。サーバーの契約や公開の作業もツールの中で済むので、専門の知識がなくても公開までたどり着けます。比べた3つは、次のとおりです。</p>
-      <div class="tbl w">
+      <div class="tbl w tbl-card">
         <table>
           <thead>
             <tr><th>ツール</th><th>運営</th><th>公式の説明(要約)</th></tr>
           </thead>
           <tbody>
-            <tr><th>ロリポップ!AIホームページ</th><td>GMOペパボ株式会社</td><td>AIの質問に答えるだけでサイトが完成し、最短10分で公開。テンプレートから作ることもでき、公開後もAIとの会話で修正できる</td></tr>
-            <tr><th>ジンドゥー AI ビルダー</th><td>株式会社KDDIウェブコミュニケーションズ</td><td>直感的な編集と見た目の統一感を重視した、シンプルな操作性。細かく作り込む機能は、別サービスの「ジンドゥークリエイター」にある</td></tr>
-            <tr><th>ペライチ</th><td>ラクスル株式会社</td><td>ホームページ作成サービス。全プランに「AIアシスト」が付く</td></tr>
+            <tr><th>ロリポップ!AIホームページ</th><td data-label="運営">GMOペパボ株式会社</td><td data-label="公式の説明(要約)">AIの質問に答えるだけでサイトが完成し、最短10分で公開。テンプレートから作ることもでき、公開後もAIとの会話で修正できる</td></tr>
+            <tr><th>ジンドゥー AI ビルダー</th><td data-label="運営">株式会社KDDIウェブコミュニケーションズ</td><td data-label="公式の説明(要約)">直感的な編集と見た目の統一感を重視した、シンプルな操作性。細かく作り込む機能は、別サービスの「ジンドゥークリエイター」にある</td></tr>
+            <tr><th>ペライチ</th><td data-label="運営">ラクスル株式会社</td><td data-label="公式の説明(要約)">ホームページ作成サービス。全プランに「AIアシスト」が付く</td></tr>
           </tbody>
           <caption>各社の公式サイト・ヘルプをもとに運営者が要約(2026年11月20日確認)。</caption>
         </table>
@@ -247,15 +258,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>AIの性能より、<strong>どこまで自分で直せるか</strong>の問題です。ページやブログを増やせるかはツールとプランで決まるので、<a href="#s5">5章</a>で比べます。</p>
 
       <h2 id="s4">料金と、途中でやめたときの扱い(2026年11月20日確認)</h2>
-      <div class="tbl w">
+      <div class="tbl w tbl-card">
         <table>
           <thead>
             <tr><th>ツール</th><th>無料で試す</th><th>有料プラン(税込)</th><th>払い方</th><th>途中解約</th></tr>
           </thead>
           <tbody>
-            <tr><th>ロリポップ!AIホームページ</th><td>10日間無料(クレジットカード不要)。お試し中も公開できる</td><td>1か月 1,540円/月、12か月 1,210円/月、24か月 1,100円/月、36か月 660円/月</td><td>1か月は毎月払い。12か月以上は期間分を一括払い</td><td>期間の途中の解約・返金はできない(満了日まで使える)</td></tr>
-            <tr><th>ジンドゥー AI ビルダー</th><td>Freeプラン(5ページ、○○○.jimdosite.com のURL、広告表示あり)</td><td>Start 1,290円/月、Grow 2,070円/月(12か月契約の月額換算)</td><td>1・12・24か月から選び、期間分を一括請求</td><td>更新日の7日前までに解約。途中解約の返金はない</td></tr>
-            <tr><th>ペライチ</th><td>お試しビジネスプラン(1か月0円。タグ埋め込みは使えない)</td><td>ライト 1,628円/月、レギュラー 3,278円/月、ビジネス 4,378円/月、プロフェッショナル 7,678円/月</td><td>月払い・年払い(年払いは割安と案内)</td><td>日割りの返金はない。契約終了日までは有料機能を使える</td></tr>
+            <tr><th>ロリポップ!AIホームページ</th><td data-label="無料で試す">10日間無料(クレジットカード不要)。お試し中も公開できる</td><td data-label="有料プラン(税込)">1か月 1,540円/月、12か月 1,210円/月、24か月 1,100円/月、36か月 660円/月</td><td data-label="払い方">1か月は毎月払い。12か月以上は期間分を一括払い</td><td data-label="途中解約">期間の途中の解約・返金はできない(満了日まで使える)</td></tr>
+            <tr><th>ジンドゥー AI ビルダー</th><td data-label="無料で試す">Freeプラン(5ページ、○○○.jimdosite.com のURL、広告表示あり)</td><td data-label="有料プラン(税込)">Start 1,290円/月、Grow 2,070円/月(12か月契約の月額換算)</td><td data-label="払い方">1・12・24か月から選び、期間分を一括請求</td><td data-label="途中解約">更新日の7日前までに解約。途中解約の返金はない</td></tr>
+            <tr><th>ペライチ</th><td data-label="無料で試す">お試しビジネスプラン(1か月0円。タグ埋め込みは使えない)</td><td data-label="有料プラン(税込)">ライト 1,628円/月、レギュラー 3,278円/月、ビジネス 4,378円/月、プロフェッショナル 7,678円/月</td><td data-label="払い方">月払い・年払い(年払いは割安と案内)</td><td data-label="途中解約">日割りの返金はない。契約終了日までは有料機能を使える</td></tr>
           </tbody>
           <caption>各社の公式の料金ページ・ヘルプ・利用規約をもとに運営者が作成(2026年11月20日確認)。ペライチの無料のフリープランは、2025年10月1日から公開できるページ数が0枚です。</caption>
         </table>
@@ -282,17 +293,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <h2 id="s5">自分で直せる範囲。プランで変わる機能</h2>
       <p>AIが作ったあとの修正や追加は、自分でやることになります。ページを増やす、お知らせやブログを書く、計測の設定をする。これができるかどうかを並べました。</p>
-      <div class="tbl w">
+      <div class="tbl w tbl-card">
         <table>
           <thead>
             <tr><th>機能</th><th>ロリポップ!AIホームページ</th><th>ジンドゥー AI ビルダー</th><th>ペライチ</th></tr>
           </thead>
           <tbody>
-            <tr><th>ページ数の上限</th><td>50ページ</td><td>Free 5 / Start 10 / Grow 50</td><td>ライト 3 / レギュラー 5 / ビジネス・プロ 20</td></tr>
-            <tr><th>独自ドメイン</th><td>使える(12か月以上は1年分の取得費用込み)</td><td>Start・Growで使える</td><td>全プランで使える</td></tr>
-            <tr><th>お知らせ・ブログ</th><td>CMS機能で追加・更新できる</td><td>ブログ機能はない</td><td>ビジネスプラン以上(CMS)</td></tr>
-            <tr><th>アクセス解析・GA4</th><td>公式ヘルプに記載なし</td><td>有料プランでGA4を接続できる</td><td>ライトは不可、レギュラー以上</td></tr>
-            <tr><th>HTML埋め込み・外部タグ</th><td>公式ヘルプに記載なし</td><td>できない</td><td>ライトは不可、レギュラー以上(お試し中は不可)</td></tr>
+            <tr><th>ページ数の上限</th><td data-label="ロリポップ!AIホームページ">50ページ</td><td data-label="ジンドゥー AI ビルダー">Free 5 / Start 10 / Grow 50</td><td data-label="ペライチ">ライト 3 / レギュラー 5 / ビジネス・プロ 20</td></tr>
+            <tr><th>独自ドメイン</th><td data-label="ロリポップ!AIホームページ">使える(12か月以上は1年分の取得費用込み)</td><td data-label="ジンドゥー AI ビルダー">Start・Growで使える</td><td data-label="ペライチ">全プランで使える</td></tr>
+            <tr><th>お知らせ・ブログ</th><td data-label="ロリポップ!AIホームページ">CMS機能で追加・更新できる</td><td data-label="ジンドゥー AI ビルダー">ブログ機能はない</td><td data-label="ペライチ">ビジネスプラン以上(CMS)</td></tr>
+            <tr><th>アクセス解析・GA4</th><td data-label="ロリポップ!AIホームページ">公式ヘルプに記載なし</td><td data-label="ジンドゥー AI ビルダー">有料プランでGA4を接続できる</td><td data-label="ペライチ">ライトは不可、レギュラー以上</td></tr>
+            <tr><th>HTML埋め込み・外部タグ</th><td data-label="ロリポップ!AIホームページ">公式ヘルプに記載なし</td><td data-label="ジンドゥー AI ビルダー">できない</td><td data-label="ペライチ">ライトは不可、レギュラー以上(お試し中は不可)</td></tr>
           </tbody>
           <caption>各社の公式の料金ページ・ヘルプをもとに運営者が作成(2026年11月20日確認)。「記載なし」は、公式のヘルプで見つからなかったという意味で、できないという意味ではありません。</caption>
         </table>
@@ -302,15 +313,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <h2 id="s6">解約したら、サイトとドメインはどうなるか</h2>
       <p>ここがこの記事の本題です。AIのツールで作ったサイトでも、やめるときに何が残るかは、制作を任せるサブスクと同じくらい差があります。</p>
-      <div class="tbl w">
+      <div class="tbl w tbl-card">
         <table>
           <thead>
             <tr><th>ツール</th><th>解約後のサイト</th><th>独自ドメイン</th><th>サイトのデータの持ち出し</th></tr>
           </thead>
           <tbody>
-            <tr><th>ロリポップ!AIホームページ</th><td>公式に記載なし</td><td><strong>解約後も残る</strong>。ムームードメインの契約で、2年目以降の更新料は利用契約が終わったあとも利用者の負担(利用規約)</td><td>公式に記載なし</td></tr>
-            <tr><th>ジンドゥー AI ビルダー</th><td>Freeプランに戻り、サイトは削除されずに残る。独自ドメイン・広告非表示などは使えなくなる</td><td><strong>解約時に移管しないと廃止</strong>。そのドメインのメールも使えなくなる。移管には認証コード(AuthCode)が必要</td><td>公式に記載なし</td></tr>
-            <tr><th>ペライチ</th><td>ページは非公開で残る(フリープランは公開0枚)。独自ドメインで公開していたページも非公開</td><td><strong>有料プランを解約しても、ペライチで取ったドメインは解約されない</strong>(自動更新を別に止める必要あり)</td><td>公式に記載なし</td></tr>
+            <tr><th>ロリポップ!AIホームページ</th><td data-label="解約後のサイト">公式に記載なし</td><td data-label="独自ドメイン"><strong>解約後も残る</strong>。ムームードメインの契約で、2年目以降の更新料は利用契約が終わったあとも利用者の負担(利用規約)</td><td data-label="サイトのデータの持ち出し">公式に記載なし</td></tr>
+            <tr><th>ジンドゥー AI ビルダー</th><td data-label="解約後のサイト">Freeプランに戻り、サイトは削除されずに残る。独自ドメイン・広告非表示などは使えなくなる</td><td data-label="独自ドメイン"><strong>解約時に移管しないと廃止</strong>。そのドメインのメールも使えなくなる。移管には認証コード(AuthCode)が必要</td><td data-label="サイトのデータの持ち出し">公式に記載なし</td></tr>
+            <tr><th>ペライチ</th><td data-label="解約後のサイト">ページは非公開で残る(フリープランは公開0枚)。独自ドメインで公開していたページも非公開</td><td data-label="独自ドメイン"><strong>有料プランを解約しても、ペライチで取ったドメインは解約されない</strong>(自動更新を別に止める必要あり)</td><td data-label="サイトのデータの持ち出し">公式に記載なし</td></tr>
           </tbody>
           <caption>各社の公式ヘルプ・利用規約をもとに運営者が作成(2026年11月20日確認)。出典は記事の最後にまとめています。</caption>
         </table>

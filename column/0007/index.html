@@ -146,6 +146,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .to-top:hover{background:var(--navy-lift);}
   .to-top svg{width:20px; height:20px;}
   @media (prefers-reduced-motion:reduce){.to-top{transition:none;}}
+  /* tbl-card: スマホでは文章の多い表を1行ずつのカードにする */
+  @media (max-width:560px){
+    .tbl.tbl-card{background:none;overflow:visible;}
+    .tbl.tbl-card table{min-width:0 !important;width:100%;}
+    .tbl.tbl-card thead{display:none;}
+    .tbl.tbl-card tbody tr{display:block;border:1px solid var(--rule);border-top:2px solid var(--navy);margin:0 0 12px;}
+    .tbl.tbl-card tbody th{display:block;width:auto !important;white-space:normal;border:none;border-bottom:1px solid var(--rule);background:var(--paper);padding:10px 14px;}
+    .tbl.tbl-card tbody td{display:block;border:none;padding:8px 14px 10px;text-align:left !important;white-space:normal !important;}
+    .tbl.tbl-card tbody td[data-label]:not([data-label=""])::before{content:attr(data-label);display:block;font-size:12px;font-weight:500;color:var(--navy);margin-bottom:2px;}
+    .tbl.tbl-card caption{padding-top:2px;}
+  }
 </style>
 <script type="application/ld+json" id="ld-article">[{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "AIボイスレコーダーの比較。本体代と文字起こし料金の「1年目の総額」で選ぶ", "description": "PLAUD・Notta Memo・Comuと、アプリだけで使うNottaについて、本体価格と文字起こしの料金を公式サイトの情報で整理し、月の録音量ごとの1年目の総額を計算しました。", "image": ["https://setup-inc.com/column/0007/ogp.png"], "datePublished": "2026-11-19T09:00:00+09:00", "dateModified": "2026-11-19T09:00:00+09:00", "author": {"@type": "Person", "name": "SET UP 代表", "url": "https://setup-inc.com/column/about/"}, "publisher": {"@type": "Organization", "name": "SET UP", "url": "https://setup-inc.com/", "logo": {"@type": "ImageObject", "url": "https://setup-inc.com/apple-touch-icon.png"}}, "mainEntityOfPage": "https://setup-inc.com/column/0007/", "inLanguage": "ja"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://setup-inc.com/"}, {"@type": "ListItem", "position": 2, "name": "コラム", "item": "https://setup-inc.com/column/"}, {"@type": "ListItem", "position": 3, "name": "AIボイスレコーダーの比較。本体代と文字起こし料金の「1年目の総額」で選ぶ"}]}]</script>
 </head>
@@ -233,16 +244,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <h2 id="s3">料金は「本体」と「文字起こしプラン」の2つ</h2>
       <p>本体は買い切りです。文字起こしは、各社の無料枠の範囲なら追加の料金はかからず、超える場合は有料プランを契約します。無料枠と有料プランは、次のとおりです。</p>
-      <div class="tbl">
+      <div class="tbl tbl-card">
         <table>
           <thead>
             <tr><th></th><th>無料の文字起こし</th><th>主な有料プラン</th></tr>
           </thead>
           <tbody>
-            <tr><th>PLAUD</th><td>Starterプラン:月300分</td><td>Pro:年16,800円(月1,200分)<br>Unlimited:年40,000円(無制限)</td></tr>
-            <tr><th>Notta Memo</th><td>ハードウェアプラン:月600分</td><td>Notta のプレミアム:年14,220円(月1,800分)<br>ビジネス:年30,096円(無制限)</td></tr>
-            <tr><th>Comu</th><td>スタータープラン:文字起こし・基本要約は無制限</td><td>プレミアム:月1,733円(年払い)/月2,980円(月払い)</td></tr>
-            <tr><th>Notta(アプリのみ)</th><td>フリー:月120分(1回3分まで)</td><td>プレミアム:年14,220円/月1,980円(月払い)<br>ビジネス:年30,096円/月4,180円(月払い)</td></tr>
+            <tr><th>PLAUD</th><td data-label="無料の文字起こし">Starterプラン:月300分</td><td data-label="主な有料プラン">Pro:年16,800円(月1,200分)<br>Unlimited:年40,000円(無制限)</td></tr>
+            <tr><th>Notta Memo</th><td data-label="無料の文字起こし">ハードウェアプラン:月600分</td><td data-label="主な有料プラン">Notta のプレミアム:年14,220円(月1,800分)<br>ビジネス:年30,096円(無制限)</td></tr>
+            <tr><th>Comu</th><td data-label="無料の文字起こし">スタータープラン:文字起こし・基本要約は無制限</td><td data-label="主な有料プラン">プレミアム:月1,733円(年払い)/月2,980円(月払い)</td></tr>
+            <tr><th>Notta(アプリのみ)</th><td data-label="無料の文字起こし">フリー:月120分(1回3分まで)</td><td data-label="主な有料プラン">プレミアム:年14,220円/月1,980円(月払い)<br>ビジネス:年30,096円/月4,180円(月払い)</td></tr>
           </tbody>
           <caption>出典:PLAUD公式ストア、Notta公式オンラインストア、Notta「料金プラン」、Comu公式サイトのプラン比較(2026年11月19日確認)。Comuのプレミアムは、高度分析機能・AI質問などが無制限になるプランです。Comuの料金は公式サイトの表示どおりに記載しています。</caption>
         </table>
@@ -321,20 +332,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <caption>出典:PLAUD公式ストア、Notta公式オンラインストア、Comu公式サイトの製品ページ(2026年11月19日確認)。連続録音の時間はメーカー公称値で、使用環境によって変わります。</caption>
         </table>
       </div>
-      <div class="tbl">
+      <div class="tbl tbl-card">
         <table>
           <thead>
             <tr><th>上位の機種</th><th>Plaud Note Pro</th><th>Notta Memo Pro</th><th>Comu Action Pro</th></tr>
           </thead>
           <tbody>
-            <tr><th>価格(税込)</th><td>30,800円</td><td>29,700円</td><td>39,800円</td></tr>
-            <tr><th>無料の文字起こし</th><td>月300分</td><td>月600分</td><td>無制限(基本)</td></tr>
-            <tr><th>重さ</th><td>30g</td><td>30g</td><td>約51g</td></tr>
-            <tr><th>厚さ</th><td>2.99mm</td><td>3.9mm</td><td>5.5mm</td></tr>
-            <tr><th>画面</th><td>0.95インチ</td><td>0.95インチ</td><td>0.95インチ</td></tr>
-            <tr><th>連続録音</th><td>最大30時間(長時間駆動モードで最大50時間)</td><td>公式で確認(1ファイルの録音は5時間まで)</td><td>最大70時間</td></tr>
-            <tr><th>保存容量</th><td>64GB</td><td>64GB</td><td>16GB</td></tr>
-            <tr><th>通話の録音</th><td>対応(自動で判別)</td><td>対応(自動で識別)</td><td>公式で確認</td></tr>
+            <tr><th>価格(税込)</th><td data-label="Plaud Note Pro">30,800円</td><td data-label="Notta Memo Pro">29,700円</td><td data-label="Comu Action Pro">39,800円</td></tr>
+            <tr><th>無料の文字起こし</th><td data-label="Plaud Note Pro">月300分</td><td data-label="Notta Memo Pro">月600分</td><td data-label="Comu Action Pro">無制限(基本)</td></tr>
+            <tr><th>重さ</th><td data-label="Plaud Note Pro">30g</td><td data-label="Notta Memo Pro">30g</td><td data-label="Comu Action Pro">約51g</td></tr>
+            <tr><th>厚さ</th><td data-label="Plaud Note Pro">2.99mm</td><td data-label="Notta Memo Pro">3.9mm</td><td data-label="Comu Action Pro">5.5mm</td></tr>
+            <tr><th>画面</th><td data-label="Plaud Note Pro">0.95インチ</td><td data-label="Notta Memo Pro">0.95インチ</td><td data-label="Comu Action Pro">0.95インチ</td></tr>
+            <tr><th>連続録音</th><td data-label="Plaud Note Pro">最大30時間(長時間駆動モードで最大50時間)</td><td data-label="Notta Memo Pro">公式で確認(1ファイルの録音は5時間まで)</td><td data-label="Comu Action Pro">最大70時間</td></tr>
+            <tr><th>保存容量</th><td data-label="Plaud Note Pro">64GB</td><td data-label="Notta Memo Pro">64GB</td><td data-label="Comu Action Pro">16GB</td></tr>
+            <tr><th>通話の録音</th><td data-label="Plaud Note Pro">対応(自動で判別)</td><td data-label="Notta Memo Pro">対応(自動で識別)</td><td data-label="Comu Action Pro">公式で確認</td></tr>
           </tbody>
           <caption>出典:同上(2026年11月19日確認)。Notta Memo Pro の価格は、ハードウェアプラン(月600分)付きのもの。</caption>
         </table>

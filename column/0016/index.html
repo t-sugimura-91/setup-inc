@@ -154,6 +154,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .to-top:hover{background:var(--navy-lift);}
   .to-top svg{width:20px; height:20px;}
   @media (prefers-reduced-motion:reduce){.to-top{transition:none;}}
+  /* tbl-card: スマホでは文章の多い表を1行ずつのカードにする */
+  @media (max-width:560px){
+    .tbl.tbl-card{background:none;overflow:visible;}
+    .tbl.tbl-card table{min-width:0 !important;width:100%;}
+    .tbl.tbl-card thead{display:none;}
+    .tbl.tbl-card tbody tr{display:block;border:1px solid var(--rule);border-top:2px solid var(--navy);margin:0 0 12px;}
+    .tbl.tbl-card tbody th{display:block;width:auto !important;white-space:normal;border:none;border-bottom:1px solid var(--rule);background:var(--paper);padding:10px 14px;}
+    .tbl.tbl-card tbody td{display:block;border:none;padding:8px 14px 10px;text-align:left !important;white-space:normal !important;}
+    .tbl.tbl-card tbody td[data-label]:not([data-label=""])::before{content:attr(data-label);display:block;font-size:12px;font-weight:500;color:var(--navy);margin-bottom:2px;}
+    .tbl.tbl-card caption{padding-top:2px;}
+  }
 </style>
 <script type="application/ld+json" id="ld-article">[{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "スマホから自宅や事務所のPCを遠隔操作する方法。iPhoneでChromeリモートデスクトップが見つからないときの代わりに、TailscaleとWindows App", "description": "外出先のスマホから自宅や事務所のPCを遠隔操作する方法です。iPhoneでChromeリモートデスクトップのアプリが見つからなかった運営者が、代わりにTailscaleとMicrosoftのWindows AppでWindows 11 ProのPCにつないでいる手順を書きました。スマホからPCを遠隔操作する3つの方法の比較、Proが必要なこと、商用は有料になる条件も公式情報で整理しました(2026年11月22日確認)。", "image": ["https://setup-inc.com/column/0016/ogp.png"], "datePublished": "2026-11-22T09:00:00+09:00", "dateModified": "2026-11-22T09:00:00+09:00", "author": {"@type": "Person", "name": "SET UP 代表", "url": "https://setup-inc.com/column/about/"}, "publisher": {"@type": "Organization", "name": "SET UP", "url": "https://setup-inc.com/", "logo": {"@type": "ImageObject", "url": "https://setup-inc.com/apple-touch-icon.png"}}, "mainEntityOfPage": "https://setup-inc.com/column/0016/", "inLanguage": "ja"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://setup-inc.com/"}, {"@type": "ListItem", "position": 2, "name": "コラム", "item": "https://setup-inc.com/column/"}, {"@type": "ListItem", "position": 3, "name": "スマホから自宅や事務所のPCを遠隔操作する方法。iPhoneでChromeリモートデスクトップが見つからないときの代わりに、TailscaleとWindows App"}]}]</script>
 </head>
@@ -218,15 +229,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <h2 id="s2">スマホからPCを遠隔操作する方法は3つ</h2>
       <p>スマホからPCをリモート操作する方法は、大きく分けて次の3つです。外出先からPCを遠隔操作したいときも、この中から選ぶことになります。</p>
-      <div class="tbl w">
+      <div class="tbl w tbl-card">
         <table style="min-width:820px">
           <thead>
             <tr><th>方法</th><th>操作される側のPC</th><th>スマホ側</th><th>料金</th><th>気をつけたいこと</th></tr>
           </thead>
           <tbody>
-            <tr><th>Chrome リモート デスクトップ(Google)</th><td>Windows・Mac・Linux</td><td>Androidはアプリ(Google Play)。iPhoneは公式ヘルプではアプリ、またはブラウザで開く案内</td><td>Googleアカウントで使える。アプリは無料でインストールできる</td><td>運営者のiPhoneでは、App Storeの検索に公式アプリが出ず、ブラウザでも「サポートされていません」と表示された(<a href="#s3">3章</a>)</td></tr>
-            <tr><th>Windows App+VPN(Tailscale)</th><td><strong>WindowsのPro</strong>など(Homeは不可)</td><td>iPhone(iOS 16以降)・Android(10以降)のWindows App</td><td>Windows Appは無料。Tailscaleは個人なら無料のPersonal、商用はStandard(1ユーザー月8ドル)</td><td>PCとスマホの両方にTailscaleを入れる。ポート開放は不要</td></tr>
-            <tr><th>有料のリモートソフト</th><td>製品ごとの動作環境による</td><td>製品による(例のSplashtopは、iOS・Androidからの接続に対応)</td><td>例:Splashtop Remote Access Proは年額18,000円(税別)/ユーザー。14日間の無料トライアルあり</td><td>料金の払い方(年額か月額か)、対応OS、台数の上限を公式サイトで確認する</td></tr>
+            <tr><th>Chrome リモート デスクトップ(Google)</th><td data-label="操作される側のPC">Windows・Mac・Linux</td><td data-label="スマホ側">Androidはアプリ(Google Play)。iPhoneは公式ヘルプではアプリ、またはブラウザで開く案内</td><td data-label="料金">Googleアカウントで使える。アプリは無料でインストールできる</td><td data-label="気をつけたいこと">運営者のiPhoneでは、App Storeの検索に公式アプリが出ず、ブラウザでも「サポートされていません」と表示された(<a href="#s3">3章</a>)</td></tr>
+            <tr><th>Windows App+VPN(Tailscale)</th><td data-label="操作される側のPC"><strong>WindowsのPro</strong>など(Homeは不可)</td><td data-label="スマホ側">iPhone(iOS 16以降)・Android(10以降)のWindows App</td><td data-label="料金">Windows Appは無料。Tailscaleは個人なら無料のPersonal、商用はStandard(1ユーザー月8ドル)</td><td data-label="気をつけたいこと">PCとスマホの両方にTailscaleを入れる。ポート開放は不要</td></tr>
+            <tr><th>有料のリモートソフト</th><td data-label="操作される側のPC">製品ごとの動作環境による</td><td data-label="スマホ側">製品による(例のSplashtopは、iOS・Androidからの接続に対応)</td><td data-label="料金">例:Splashtop Remote Access Proは年額18,000円(税別)/ユーザー。14日間の無料トライアルあり</td><td data-label="気をつけたいこと">料金の払い方(年額か月額か)、対応OS、台数の上限を公式サイトで確認する</td></tr>
           </tbody>
           <caption>各社の公式ページで2026年11月22日に確認。Chrome リモート デスクトップの欄の「運営者のiPhone」は、2026年11月21日の運営者の環境での結果です。</caption>
         </table>
