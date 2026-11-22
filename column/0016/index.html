@@ -259,7 +259,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </ol>
       <p>ログインすると、それぞれの端末に <code>100.x.y.z</code> の形のIPアドレスが割り当てられます。Tailscaleの公式ドキュメントによると、このIPアドレスは、端末を登録し直さない限り変わりません。PCのIPアドレスは、Tailscaleの管理画面の「Machines」で確認できます。次の手順で使うので、メモしておきます。</p>
       <figure>
-        <img src="tailscale-machines.jpg" width="1250" height="345" alt="Tailscaleの管理画面「Machines」。WindowsのPCとiPhoneが同じネットワークに並び、どちらも「Connected」と表示されている(端末名・メールアドレス・IPアドレスは塗りつぶし)" loading="lazy" decoding="async" style="width:100%; height:auto; border:1px solid var(--rule);">
+        <img src="tailscale-machines.jpg" width="1250" height="345" alt="Tailscaleの管理画面「Machines」。WindowsのPCとiPhoneを含む3台が並び、使っているPCとiPhoneに「Connected」と表示されている(端末名・メールアドレス・IPアドレスは塗りつぶし)" loading="lazy" decoding="async" style="width:100%; height:auto; border:1px solid var(--rule);">
         <figcaption>運営者のTailscaleの管理画面「Machines」(2026年11月22日)。ADDRESSES の列に、各端末の 100. で始まるIPアドレスが表示される(端末名・アカウント・IPアドレスなどは塗りつぶしています)</figcaption>
       </figure>
 
@@ -269,6 +269,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <li>[スタート]→[設定]→[システム]→[バージョン情報]で、エディションが「Windows 11 Pro」になっているか確認する</li>
         <li>[設定]→[システム]→[リモート デスクトップ]を開き、リモート デスクトップをオンにして[確認]を選ぶ</li>
       </ol>
+      <figure>
+        <img src="win-rdp-settings.jpg" width="886" height="612" alt="Windows 11の[設定]→[システム]→[リモート デスクトップ]の画面。いちばん上の「リモート デスクトップ」のスイッチがオンになっている(PC名はぼかし)" loading="lazy" decoding="async" style="width:100%; height:auto; border:1px solid var(--rule);">
+        <figcaption>運営者のPCの[設定]→[システム]→[リモート デスクトップ]。「リモート デスクトップ」がオンになっている(PC名はぼかしています)</figcaption>
+      </figure>
       <p>Microsoftは、<strong>接続先のPCはProエディションのWindowsである必要がある</strong>と案内しています。接続する側(スマホなど)の条件はありません。</p>
 
       <h3>手順3:スマホのWindows Appに、PCのTailscaleのIPを登録する</h3>
