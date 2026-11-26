@@ -196,13 +196,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <nav class="toc">
       <b>目次</b>
       <ol>
-        <li><a href="#s1">結論:先に「どこが遅いのか」を切り分ける</a></li>
+        <li><a href="#s1">結論：先に「どこが遅いのか」を切り分ける</a></li>
         <li><a href="#s2">確認1:まず、Googleの指標で計測する</a></li>
         <li><a href="#s2b">PageSpeed Insightsの数字の読み方</a></li>
         <li><a href="#s3">確認2:サーバーが原因かどうかを見分ける</a></li>
         <li><a href="#s4">確認3:サーバーを変える前にできる対策</a></li>
-        <li><a href="#s5">変えると決めたら:移転先で見るところ</a></li>
-        <li><a href="#s5b">移転の進め方:自分でやる場合と代行を頼む場合</a></li>
+        <li><a href="#s5">変えると決めたら：移転先で見るところ</a></li>
+        <li><a href="#s5b">移転の進め方：自分でやる場合と代行を頼む場合</a></li>
         <li><a href="#s6">移転で広告と計測を壊さないための確認</a></li>
         <li><a href="#s7">よくある質問</a></li>
         <li><a href="#s8">まとめ</a></li>
@@ -213,7 +213,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>WordPressのサイトを運営していると、「最近、表示が遅い」と感じる場面があります。広告を出しているサイトなら、なおさら気になるはずです。クリックして来てくれた人がページの表示を待たずに戻ってしまえば、広告費が無駄になります。</p>
       <p>そこで「サーバーを乗り換えよう」と考える人は多いのですが、移転にはデータの移行、DNSの切り替え、計測の確認といった手間がかかります。しかも原因が別のところにあれば、移転しても遅いままです。この記事では、乗り換えを決める前の確認事項を3つに分けて説明します。</p>
 
-      <h2 id="s1">結論:先に「どこが遅いのか」を切り分ける</h2>
+      <h2 id="s1">結論：先に「どこが遅いのか」を切り分ける</h2>
       <ul>
         <li><strong>まず、Googleが公式に示している指標で計測</strong>します。感覚ではなく、数字で遅さを確認します。</li>
         <li>計測の結果、<strong>サーバーの応答時間(TTFB)が目安を大きく超えているなら、サーバー変更を検討する価値</strong>があります。そうでなければ、画像やプラグインなど別の原因を先に疑います。</li>
@@ -239,7 +239,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <tr><th>INP</th><td>応答性</td><td>200ミリ秒未満</td></tr>
             <tr><th>CLS</th><td>視覚的な安定性</td><td>0.1未満</td></tr>
           </tbody>
-          <caption>出典:Google 検索セントラル「Core Web Vitals と Google 検索の検索結果について」(2026年11月19日確認)</caption>
+          <caption>出典：Google 検索セントラル「Core Web Vitals と Google 検索の検索結果について」(2026年11月19日確認)</caption>
         </table>
       </div>
 
@@ -247,7 +247,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>測る方法は2つです。</p>
       <ul>
         <li><strong>PageSpeed Insights</strong>:URLを入れると、そのページの数値と改善の候補が出ます。</li>
-        <li><strong>Search Consoleの「Core Web Vitals」レポート</strong>:サイト全体で、改善が必要なページがどれかを確認できます。</li>
+        <li><strong>Search Consoleの「Core Web Vitals」レポート</strong>：サイト全体で、改善が必要なページがどれかを確認できます。</li>
       </ul>
       <p>まず、広告のリンク先に使っているページと、アクセスの多いページを測ります。数値が目安の範囲に入っているなら、サーバーを変える必要性は低いと判断できます。</p>
 
@@ -257,14 +257,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h3>「フィールドデータ」と「ラボデータ」は別物</h3>
       <p>PSIは、同じページについて2種類のデータを見せます。</p>
       <ul>
-        <li><strong>フィールドデータ</strong>:実際のユーザーの体験です。Chromeユーザーエクスペリエンスレポート(CrUX)にもとづき、<strong>過去28日間</strong>の値が表示されます。実態を把握するのに向いていますが、使える指標は限られます。</li>
-        <li><strong>ラボデータ</strong>:制御された環境でページの読み込みをシミュレートした値です。問題のデバッグに役立ちますが、実際のボトルネックを捉えていない場合がある、とGoogleは説明しています。</li>
+        <li><strong>フィールドデータ</strong>：実際のユーザーの体験です。Chromeユーザーエクスペリエンスレポート(CrUX)にもとづき、<strong>過去28日間</strong>の値が表示されます。実態を把握するのに向いていますが、使える指標は限られます。</li>
+        <li><strong>ラボデータ</strong>：制御された環境でページの読み込みをシミュレートした値です。問題のデバッグに役立ちますが、実際のボトルネックを捉えていない場合がある、とGoogleは説明しています。</li>
       </ul>
       <p>公式のFAQには、この2つの値が食い違うことがあると書かれています。実際のユーザーの体験を知りたいときはフィールドデータ、原因を探るときはラボデータ、と使い分けます。</p>
 
       <figure style="margin:28px 0;padding:18px;background:#fff;border:1px solid #E3E1DA;border-radius:8px">
         <svg viewBox="0 0 760 230" role="img" aria-label="フィールドデータとラボデータの違い" style="width:100%;height:auto;display:block" font-family="'Zen Kaku Gothic New','Hiragino Sans',Meiryo,sans-serif"><rect x="20" y="20" width="330" height="190" rx="8" fill="#FFF4DC" stroke="#14213D" stroke-width="2"/><text x="185" y="56" text-anchor="middle" font-size="19" font-weight="700" fill="#14213D">フィールドデータ</text><text x="185" y="92" text-anchor="middle" font-size="15" fill="#14213D">実際のユーザーの体験</text><text x="185" y="120" text-anchor="middle" font-size="15" fill="#14213D">過去28日間(CrUX)</text><text x="185" y="148" text-anchor="middle" font-size="15" fill="#14213D">75パーセンタイルで評価</text><text x="185" y="184" text-anchor="middle" font-size="15" font-weight="700" fill="#FF6B2C">実態の把握に向く</text><rect x="410" y="20" width="330" height="190" rx="8" fill="#fff" stroke="#14213D" stroke-width="2"/><text x="575" y="56" text-anchor="middle" font-size="19" font-weight="700" fill="#14213D">ラボデータ</text><text x="575" y="92" text-anchor="middle" font-size="15" fill="#14213D">制御された環境でシミュレート</text><text x="575" y="120" text-anchor="middle" font-size="15" fill="#14213D">Lighthouseで分析</text><text x="575" y="148" text-anchor="middle" font-size="15" fill="#14213D">90以上が「良好」</text><text x="575" y="184" text-anchor="middle" font-size="15" font-weight="700" fill="#FF6B2C">原因の調査に向く</text><circle cx="380" cy="115" r="30" fill="#E8381E"/><text x="380" y="110" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">食い違う</text><text x="380" y="128" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">ことも</text></svg>
-        <figcaption style="margin-top:10px;font-size:13px;color:#5B6475;line-height:1.7">出典:Google for Developers「PageSpeed Insights について」(2026年11月19日確認)をもとに、運営者が作成。</figcaption>
+        <figcaption style="margin-top:10px;font-size:13px;color:#5B6475;line-height:1.7">出典：Google for Developers「PageSpeed Insights について」(2026年11月19日確認)をもとに、運営者が作成。</figcaption>
       </figure>
       <p>なお、アクセスの少ないページや公開したばかりのページは、フィールドデータが表示されないことがあります。その場合、PSIはサイト全体の値に切り替えます。それも不足している場合は、フィールドデータは表示されません。</p>
 
@@ -282,7 +282,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <tr><th>FCP</th><td>1,800ミリ秒以下</td><td>〜3,000ミリ秒</td><td>3,000ミリ秒超</td></tr>
             <tr><th>TTFB(試験運用版)</th><td>800ミリ秒以下</td><td>〜1,800ミリ秒</td><td>1,800ミリ秒超</td></tr>
           </tbody>
-          <caption>出典:Google for Developers「PageSpeed Insights について」(2026年11月19日確認)。TTFBは「試験運用版」と表記されています。</caption>
+          <caption>出典：Google for Developers「PageSpeed Insights について」(2026年11月19日確認)。TTFBは「試験運用版」と表記されています。</caption>
         </table>
       </div>
       <p>Core Web Vitalsの3指標(LCP、INP、CLS)は、すべての75パーセンタイルが「良好」であれば、評価に合格します。</p>
@@ -301,8 +301,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>数値が悪かったとき、次に見るのは「遅さの種類」です。サーバーが関係するのは、主に<strong>最初のバイトまでの時間(TTFB)</strong>です。</p>
       <p>TTFBは、ページを要求してから、サーバーの返事の最初のデータが届くまでの時間です。Googleのweb.devでは、ウェブサーバーが要求にどれだけ速く応えられるかを見る基本的な指標と説明されていて、目安は次のとおりです。</p>
       <ul>
-        <li><strong>0.8秒以下</strong>:良好</li>
-        <li><strong>1.8秒超</strong>:不適切</li>
+        <li><strong>0.8秒以下</strong>：良好</li>
+        <li><strong>1.8秒超</strong>：不適切</li>
       </ul>
       <p>ここで2つ、注意点があります。</p>
       <ol>
@@ -343,7 +343,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>同じ記事では、重くなる原因として「画像や動画の読み込みに時間がかかっている」「不要なデータが溜まっている」「サーバーの性能が合っていない」の3つが挙げられています。サーバーの性能は、原因の1つにすぎないという位置づけです。</p>
       <p>こうした対策をしたうえで、もう一度PageSpeed Insightsで測ります。それでもTTFBが目安を超える状態が続くなら、サーバー変更を検討する材料がそろったことになります。</p>
 
-      <h2 id="s5">変えると決めたら:移転先で見るところ</h2>
+      <h2 id="s5">変えると決めたら：移転先で見るところ</h2>
       <p>ここでは、国内の共用レンタルサーバーのうち、表示速度に関する機能を公式に案内している2つを取り上げます。どちらもエックスサーバー株式会社が提供するサービスです。内容は、各社の公式サイトで2026年11月19日に確認しました。</p>
 
       <div class="tbl">
@@ -359,7 +359,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <tr><th>無料お試し</th><td>最大10日間</td><td>あり(日数は公式サイトで確認)</td></tr>
             <tr><th>移転の支援</th><td>WordPress簡単移行、サーバー移転代行(オプション)</td><td>サーバー移転代行(オプション)</td></tr>
           </tbody>
-          <caption>出典:エックスサーバー公式サイト「トップページ」「機能一覧」、シンレンタルサーバー公式サイト「料金」「機能一覧」(2026年11月19日確認)。料金・機能は変わることがあるため、申し込み前に公式サイトで確認してください。</caption>
+          <caption>出典：エックスサーバー公式サイト「トップページ」「機能一覧」、シンレンタルサーバー公式サイト「料金」「機能一覧」(2026年11月19日確認)。料金・機能は変わることがあるため、申し込み前に公式サイトで確認してください。</caption>
         </table>
       </div>
 
@@ -394,7 +394,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <p>2社の違いは、別の記事で詳しく比べています。「<a href="../0005/">シンレンタルサーバーとエックスサーバーの違い</a>」を参照してください。また、LP(広告の着地ページ)の置き場所を考えたい方は、「<a href="../0002/">LPはどのサーバーに置くべきか</a>」も参考になります。</p>
 
-      <h2 id="s5b">移転の進め方:自分でやる場合と代行を頼む場合</h2>
+      <h2 id="s5b">移転の進め方：自分でやる場合と代行を頼む場合</h2>
       <p>移転する場合、方法は大きく2つです。ここでは、エックスサーバーの公式マニュアルと公式ページで確認できる内容を整理します。</p>
 
       <h3>自分で移行する(エックスサーバー「WordPress簡単移行」)</h3>
@@ -409,14 +409,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <figure style="margin:28px 0;padding:18px;background:#fff;border:1px solid #E3E1DA;border-radius:8px">
         <svg viewBox="0 0 760 200" role="img" aria-label="WordPress簡単移行の流れ" style="width:100%;height:auto;display:block" font-family="'Zen Kaku Gothic New','Hiragino Sans',Meiryo,sans-serif"><rect x="5" y="30" width="130" height="110" rx="8" fill="#FFF4DC" stroke="#14213D" stroke-width="2"/><text x="70" y="62" text-anchor="middle" font-size="22" font-weight="700" fill="#14213D">①</text><text x="70" y="94" text-anchor="middle" font-size="15" fill="#14213D">ドメイン設定を</text><text x="70" y="116" text-anchor="middle" font-size="15" fill="#14213D">先に済ませる</text><line x1="136" y1="85" x2="153" y2="85" stroke="#14213D" stroke-width="2.5"/><polygon points="153.0,85.0 143.1,89.8 143.1,80.2" fill="#14213D"/><rect x="155" y="30" width="130" height="110" rx="8" fill="#FFF4DC" stroke="#14213D" stroke-width="2"/><text x="220" y="62" text-anchor="middle" font-size="22" font-weight="700" fill="#14213D">②</text><text x="220" y="94" text-anchor="middle" font-size="15" fill="#14213D">「WordPress</text><text x="220" y="116" text-anchor="middle" font-size="15" fill="#14213D">簡単移行」を実行</text><line x1="286" y1="85" x2="303" y2="85" stroke="#14213D" stroke-width="2.5"/><polygon points="303.0,85.0 293.1,89.8 293.1,80.2" fill="#14213D"/><rect x="305" y="30" width="130" height="110" rx="8" fill="#FFF4DC" stroke="#14213D" stroke-width="2"/><text x="370" y="62" text-anchor="middle" font-size="22" font-weight="700" fill="#14213D">③</text><text x="370" y="94" text-anchor="middle" font-size="15" fill="#14213D">処理の完了を</text><text x="370" y="116" text-anchor="middle" font-size="15" fill="#14213D">確認する</text><line x1="436" y1="85" x2="453" y2="85" stroke="#14213D" stroke-width="2.5"/><polygon points="453.0,85.0 443.1,89.8 443.1,80.2" fill="#14213D"/><rect x="455" y="30" width="130" height="110" rx="8" fill="#FF6B2C" stroke="#14213D" stroke-width="2"/><text x="520" y="62" text-anchor="middle" font-size="22" font-weight="700" fill="#14213D">④</text><text x="520" y="94" text-anchor="middle" font-size="15" fill="#14213D">ネームサーバーを</text><text x="520" y="116" text-anchor="middle" font-size="15" fill="#14213D">変更する</text><line x1="586" y1="85" x2="603" y2="85" stroke="#14213D" stroke-width="2.5"/><polygon points="603.0,85.0 593.1,89.8 593.1,80.2" fill="#14213D"/><rect x="605" y="30" width="130" height="110" rx="8" fill="#FF6B2C" stroke="#14213D" stroke-width="2"/><text x="670" y="62" text-anchor="middle" font-size="22" font-weight="700" fill="#14213D">⑤</text><text x="670" y="94" text-anchor="middle" font-size="15" fill="#14213D">表示・広告・計測を</text><text x="670" y="116" text-anchor="middle" font-size="15" fill="#14213D">確認する</text><text x="380" y="180" text-anchor="middle" font-size="15" font-weight="700" fill="#E8381E">ネームサーバーの変更は、移行の完了後に行う(公式マニュアル)</text></svg>
-        <figcaption style="margin-top:10px;font-size:13px;color:#5B6475;line-height:1.7">出典:エックスサーバー マニュアル「WordPress簡単移行」(2026年11月19日確認)をもとに、運営者が図にしたものです。</figcaption>
+        <figcaption style="margin-top:10px;font-size:13px;color:#5B6475;line-height:1.7">出典：エックスサーバー マニュアル「WordPress簡単移行」(2026年11月19日確認)をもとに、運営者が図にしたものです。</figcaption>
       </figure>
       <p>使う前に、公式マニュアルの「ご利用上の注意」で、次の点を確認します。</p>
       <ul>
-        <li><strong>動作要件</strong>:WordPressのバージョンが4.2〜7.1、PHPが7.2以上であること。</li>
-        <li><strong>エラーになるケース</strong>:マルチサイト機能を使っている、データベースが2GBを超える、WordPress.comからの移行、など。</li>
-        <li><strong>移行されるデータ</strong>:/wp-contentフォルダのデータ(画像、プラグイン、テーマ)と、データベースの内容(記事や各種設定)。</li>
-        <li><strong>移行されないデータ</strong>:移転元の「.htaccess」、バックアップ系プラグインが作ったデータ、/wp-content以外のデータやプラグイン設定。キャッシュ関連・セキュリティ関連のプラグインは該当する可能性があると案内されています。</li>
+        <li><strong>動作要件</strong>：WordPressのバージョンが4.2〜7.1、PHPが7.2以上であること。</li>
+        <li><strong>エラーになるケース</strong>：マルチサイト機能を使っている、データベースが2GBを超える、WordPress.comからの移行、など。</li>
+        <li><strong>移行されるデータ</strong>：/wp-contentフォルダのデータ(画像、プラグイン、テーマ)と、データベースの内容(記事や各種設定)。</li>
+        <li><strong>移行されないデータ</strong>：移転元の「.htaccess」、バックアップ系プラグインが作ったデータ、/wp-content以外のデータやプラグイン設定。キャッシュ関連・セキュリティ関連のプラグインは該当する可能性があると案内されています。</li>
         <li><strong>ネームサーバーの変更は、移行の完了後</strong>に行うこと。</li>
       </ul>
       <p>特に注意したいのは、<strong>「.htaccess」が移行されない</strong>点です。リダイレクトの設定などを.htaccessに書いている場合は、移行後に設定し直す必要があります。広告のリンク先がリダイレクトに依存している場合は、移行直後に確認してください。</p>
@@ -434,7 +434,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <tr><th>無料になる条件</th><td data-label="エックスサーバー">ビジネスプランのみ、初回無料</td><td data-label="シンレンタルサーバー">(公式サイトで確認)</td></tr>
             <tr><th>代行の範囲</th><td data-label="エックスサーバー">Webサイト・WordPressのデータ移行(DBも)。移転元でSSLを使っていれば、無料独自SSLの設定も</td><td data-label="シンレンタルサーバー">同左</td></tr>
           </tbody>
-          <caption>出典:エックスサーバー「サーバー移転代行」、シンレンタルサーバー「サーバー移転代行」(2026年11月19日確認)。</caption>
+          <caption>出典：エックスサーバー「サーバー移転代行」、シンレンタルサーバー「サーバー移転代行」(2026年11月19日確認)。</caption>
         </table>
       </div>
       <p>ここで見落としやすいのは、<strong>「Webサイトの動作確認」と「ネームサーバー(DNS)の変更」は代行の対象外</strong>と案内されている点です(エックスサーバーの記載)。つまり、代行を頼んでも、移行後の表示確認と、広告・計測の確認は自分で行う必要があります。次の章のチェックリストは、代行を頼む場合も必要です。</p>

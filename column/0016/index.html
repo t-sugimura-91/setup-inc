@@ -202,7 +202,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <nav class="toc">
       <b>目次</b>
       <ol>
-        <li><a href="#s1">結論:Windows 11 Proなら、TailscaleとWindows Appで外出先からつなげる</a></li>
+        <li><a href="#s1">結論：Windows 11 Proなら、TailscaleとWindows Appで外出先からつなげる</a></li>
         <li><a href="#s2">スマホからPCを遠隔操作する方法は3つ</a></li>
         <li><a href="#s3">iPhoneでChromeリモートデスクトップが見つからなかった話</a></li>
         <li><a href="#s4">外出先からPCにつなぐ手順(Tailscale+Windows App)</a></li>
@@ -217,7 +217,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>運用型広告の運用代行をしている運営者(SET UP)は、2026年11月に、外出先のスマホから自宅と事務所のWindows PCを操作できるようにしました。広告の管理画面は、ふだん使っているPCのブラウザにログインしてあり、手元のファイルもPCに入っています。外出先で「あのファイルを見たい」「PCの画面で確認したい」となったときに、スマホからPCをそのまま動かせると便利です。</p>
       <p>この記事は、そのとき私が実際に試したことと、公式の情報を分けて書いています。</p>
 
-      <h2 id="s1">結論:Windows 11 Proなら、TailscaleとWindows Appで外出先からつなげる</h2>
+      <h2 id="s1">結論：Windows 11 Proなら、TailscaleとWindows Appで外出先からつなげる</h2>
       <div class="concl">
         <b>この記事の結論</b>
         <ul>
@@ -237,7 +237,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <tbody>
             <tr><th>Chrome リモート デスクトップ(Google)</th><td data-label="操作される側のPC">Windows・Mac・Linux</td><td data-label="スマホ側">Androidはアプリ(Google Play)。iPhoneは公式ヘルプではアプリ、またはブラウザで開く案内</td><td data-label="料金">Googleアカウントで使える。アプリは無料でインストールできる</td><td data-label="気をつけたいこと">運営者のiPhoneでは、App Storeの検索に公式アプリが出ず、ブラウザでも「サポートされていません」と表示された(<a href="#s3">3章</a>)</td></tr>
             <tr><th>Windows App+VPN(Tailscale)</th><td data-label="操作される側のPC"><strong>WindowsのPro</strong>など(Homeは不可)</td><td data-label="スマホ側">iPhone(iOS 16以降)・Android(10以降)のWindows App</td><td data-label="料金">Windows Appは無料。Tailscaleは個人なら無料のPersonal、商用はStandard(1ユーザー月8ドル)</td><td data-label="気をつけたいこと">PCとスマホの両方にTailscaleを入れる。ポート開放は不要</td></tr>
-            <tr><th>有料のリモートソフト</th><td data-label="操作される側のPC">製品ごとの動作環境による</td><td data-label="スマホ側">製品による(例のSplashtopは、iOS・Androidからの接続に対応)</td><td data-label="料金">例:Splashtop Remote Access Proは年額18,000円(税別)/ユーザー。14日間の無料トライアルあり</td><td data-label="気をつけたいこと">料金の払い方(年額か月額か)、対応OS、台数の上限を公式サイトで確認する</td></tr>
+            <tr><th>有料のリモートソフト</th><td data-label="操作される側のPC">製品ごとの動作環境による</td><td data-label="スマホ側">製品による(例のSplashtopは、iOS・Androidからの接続に対応)</td><td data-label="料金">例：Splashtop Remote Access Proは年額18,000円(税別)/ユーザー。14日間の無料トライアルあり</td><td data-label="気をつけたいこと">料金の払い方(年額か月額か)、対応OS、台数の上限を公式サイトで確認する</td></tr>
           </tbody>
           <caption>各社の公式ページで2026年11月22日に確認。Chrome リモート デスクトップの欄の「運営者のiPhone」は、2026年11月21日の運営者の環境での結果です。</caption>
         </table>
@@ -258,7 +258,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <h2 id="s4">外出先からPCにつなぐ手順(Tailscale+Windows App)</h2>
       <p>ここからは、運営者が実際に使っている組み合わせの手順です。PCはWindows 11 Pro、スマホはiPhoneです。</p>
-      <h3>しくみ:Tailscaleで「同じネットワーク」にして、Windows Appでつなぐ</h3>
+      <h3>しくみ：Tailscaleで「同じネットワーク」にして、Windows Appでつなぐ</h3>
       <p>Windowsのリモート デスクトップは、もともと同じネットワークの中でつなぐ機能です。外出先からつなぐには、ルーターのポートを開けてインターネットにPCを公開する方法が紹介されることもありますが、PCが外から見える状態になります。</p>
       <p>Tailscaleは、PCやスマホを自分専用のネットワーク(tailnet)につなぐVPNのサービスです。公式ドキュメントでは、ファイアウォールやNATをまたいでも、<strong>ポート開放や複雑なファイアウォールの設定なしで</strong>端末どうしがつながると説明されています。PCとスマホにTailscaleを入れておけば、外出先のスマホからも、PCに同じネットワークの中にいるようにつなげます。</p>
 
@@ -315,8 +315,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>つないだ直後は、画面にマウスのカーソルが出て、指でカーソルを動かして操作する形でした。運営者の環境では、接続中に、画面を直接タップして操作する形へ切り替えられました。</p>
       <p>Microsoftの説明では、iPhoneとiPadのWindows Appには次の2つのモードがあります。</p>
       <ul>
-        <li><strong>マウス ポインター</strong>:画面にマウスのカーソルが出る。指を動かすとカーソルが動き、タップでクリック、2本指のタップで右クリック</li>
-        <li><strong>直接タッチ</strong>:画面をタップした場所が、そのままクリックになる。カーソルは出ない</li>
+        <li><strong>マウス ポインター</strong>：画面にマウスのカーソルが出る。指を動かすとカーソルが動き、タップでクリック、2本指のタップで右クリック</li>
+        <li><strong>直接タッチ</strong>：画面をタップした場所が、そのままクリックになる。カーソルは出ない</li>
       </ul>
       <p>細かいボタンを押すときはマウス ポインター、スクロールや大きなボタンの操作は直接タッチ、と使い分けると楽です。</p>
 
@@ -335,9 +335,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2 id="s6">広告運用の現場での使いどころ</h2>
       <p>運営者は広告運用の仕事で、外出先から次のような場面で使っています。</p>
       <ul>
-        <li><strong>事務所のPCでログイン済みの管理画面を開く</strong>:ふだん使っているPCのブラウザで、広告の管理画面や計測ツールを開いて確認する。スマホのブラウザで新しくログインし直さなくてよい</li>
-        <li><strong>PCにしかないファイルを見る</strong>:入稿用のファイル、レポートの表計算ファイル、クライアントから受け取った資料など</li>
-        <li><strong>PCの画面で見た目を確かめる</strong>:LPや広告のプレビューを、PCの表示で確認したいとき</li>
+        <li><strong>事務所のPCでログイン済みの管理画面を開く</strong>：ふだん使っているPCのブラウザで、広告の管理画面や計測ツールを開いて確認する。スマホのブラウザで新しくログインし直さなくてよい</li>
+        <li><strong>PCにしかないファイルを見る</strong>：入稿用のファイル、レポートの表計算ファイル、クライアントから受け取った資料など</li>
+        <li><strong>PCの画面で見た目を確かめる</strong>：LPや広告のプレビューを、PCの表示で確認したいとき</li>
       </ul>
       <h3>スマホのアプリで済むなら、リモートは要らない</h3>
       <p>逆に、予算の残りや配信状況の確認、広告の一時停止くらいなら、各媒体のスマホアプリや、スマホのブラウザで管理画面を開けば済みます。リモートでPCを動かすと、小さな画面で細かい操作をすることになり、かえって時間がかかります。</p>
